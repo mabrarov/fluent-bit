@@ -17,6 +17,11 @@
  */
 #include "../../plugins/out_es/es.h"
 
+struct upstream_destination {
+    const char *host;
+    int port;
+};
+
 static const char * const es_upstream_section_property_prefix = "    ";
 static const char * const es_upstream_section_value_prefix    = " ";
 
@@ -271,6 +276,33 @@ static void cb_check_id_key(void *ctx, int ffd,
     p = strstr(out_js, record);
     TEST_CHECK(p != NULL);
     flb_free(res_data);
+}
+
+static void *cb_check_upstream_destination(struct flb_config *config,
+                                           struct flb_input_instance *ins,
+                                           void *plugin_context,
+                                           void *flush_ctx)
+{
+    struct flb_upstream_node *node;
+    struct flb_elasticsearch_config *ec;
+    struct flb_elasticsearch *ctx = plugin_context;
+    struct upstream_destination *expected = flush_ctx;
+    (void) config;
+    (void) ins;
+    char *upstream_host;
+    int upstream_port;
+    ec = flb_elasticsearch_target(ctx, &node);
+    upstream_host = node == NULL ? ctx->u->tcp_host : node->u->tcp_host;
+    upstream_port = node == NULL ? ctx->u->tcp_port : node->u->tcp_port;
+    if (!TEST_CHECK(strcmp(upstream_host, expected->host) == 0)) {
+        TEST_MSG("Expected: %s", expected->host);
+        TEST_MSG("Produced: %s", upstream_host);
+    }
+    if (!TEST_CHECK(upstream_port == expected->port)) {
+        TEST_MSG("Expected: %d", expected->port);
+        TEST_MSG("Produced: %d", upstream_port);
+    }
+    return ec;
 }
 
 void flb_test_write_operation_index()
@@ -1210,6 +1242,69 @@ void flb_test_upstream_id_key()
     TEST_ASSERT(remove(upstream_conf_filename) == 0);
 }
 
+void test_cloud_id(const char *cloud_id,
+                   struct upstream_destination expected_upstream_destination)
+{
+    int ret;
+    int size = sizeof(JSON_ES) - 1;
+    flb_ctx_t *ctx;
+    int in_ffd;
+    int out_ffd;
+
+    /* Create context, flush every second (some checks omitted here) */
+    ctx = flb_create();
+    flb_service_set(ctx, "flush", "1", "grace", "1", NULL);
+
+    /* Lib input mode */
+    in_ffd = flb_input(ctx, (char *) "lib", NULL);
+    flb_input_set(ctx, in_ffd, "tag", "test", NULL);
+
+    /* Elasticsearch output */
+    out_ffd = flb_output(ctx, (char *) "es", NULL);
+    flb_output_set(ctx, out_ffd,
+                   "cloud_id",
+                   cloud_id,
+                   NULL);
+
+    /* Enable test mode */
+    ret = flb_output_set_test_with_ctx_callback(ctx, out_ffd, "formatter",
+                                                NULL, NULL,
+                                                &expected_upstream_destination,
+                                                cb_check_upstream_destination);
+    TEST_CHECK(ret == 0);
+
+    /* Start */
+    ret = flb_start(ctx);
+    TEST_CHECK(ret == 0);
+
+    /* Ingest data sample */
+    flb_lib_push(ctx, in_ffd, (char *) JSON_ES, size);
+
+    sleep(2);
+    flb_stop(ctx);
+    flb_destroy(ctx);
+}
+
+void flb_test_cloud_id_without_port()
+{
+    test_cloud_id(
+            "staging:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyRjZWM2ZjI2MWE3NGJmMjRjZTMzYmI4ODExYjg0Mjk0ZiRjNmMyY2E2ZDA0MjI0OWFmMGNjN2Q3YTllOTYyNTc0Mw==",
+            (struct upstream_destination) {
+                .host = "cec6f261a74bf24ce33bb8811b84294f.us-east-1.aws.found.io",
+                .port = 443
+            });
+}
+
+void flb_test_cloud_id_with_port()
+{
+    test_cloud_id(
+            "different-es-kb-port:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGFjMzFlYmI5MDI0MTc3MzE1NzA0M2MzNGZkMjZmZDQ2OjkyNDMkYTRjMDYyMzBlNDhjOGZjZTdiZTg4YTA3NGEzYmIzZTA6OTI0NA==",
+            (struct upstream_destination) {
+                .host = "ac31ebb90241773157043c34fd26fd46.us-central1.gcp.cloud.es.io",
+                .port = 9243
+            });
+}
+
 static void cb_check_response_success(void *ctx, int ffd,
                                      int res_ret, void *res_data,
                                      size_t res_size, void *data)
@@ -1391,5 +1486,7 @@ TEST_LIST = {
     {"upstream_logstash_format"  , flb_test_upstream_logstash_format },
     {"upstream_replace_dots"     , flb_test_upstream_replace_dots },
     {"upstream_id_key"           , flb_test_upstream_id_key },
+    {"cloud_id_without_port"     , flb_test_cloud_id_without_port },
+    {"cloud_id_with_port"        , flb_test_cloud_id_with_port },
     {NULL, NULL}
 };

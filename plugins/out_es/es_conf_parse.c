@@ -81,9 +81,10 @@ static flb_sds_t extract_cloud_host(const char *cloud_id, struct flb_elasticsear
     char *port = NULL;
     char buf[256] = {0};
     char cloud_host_buf[256] = {0};
-    const char dollar[2] = "$";
+    const char dollar = '$';
     size_t len;
     int ret;
+    struct mk_list *split;
 
     /* keep only part after first ":" */
     colon = strchr(cloud_id, ':');
@@ -93,20 +94,25 @@ static flb_sds_t extract_cloud_host(const char *cloud_id, struct flb_elasticsear
     colon++;
 
     /* decode base64 */
-    ret = flb_base64_decode((unsigned char *)buf, sizeof(buf), &len,
+    ret = flb_base64_decode((unsigned char *)buf, sizeof(buf) - 1, &len,
                             (unsigned char *)colon, strlen(colon));
     if (ret) {
         flb_plg_error(ctx->ins, "cannot decode cloud_id");
         return NULL;
     }
-    region = strtok(buf, dollar);
-    if (region == NULL) {
+    split = flb_utils_split(buf, dollar, -1);
+    if (!split) {
+        flb_plg_error(ctx->ins, "cannot split cloud_id into parts");
         return NULL;
     }
-    host = strtok(NULL, dollar);
-    if (host == NULL) {
+    ret = mk_list_size(split);
+    if (ret < 3) {
+        flb_plg_error(ctx->ins, "decoded cloud_id does not contain expected 3 parts");
+        flb_utils_split_free(split);
         return NULL;
     }
+    region = mk_list_entry(split->next, struct flb_split_entry, _head)->value;
+    host = mk_list_entry(split->next->next, struct flb_split_entry, _head)->value;
 
     /*
      * Some cloud id format is "<deployment_region>$<elasticsearch_hostname>:<port>$<kibana_hostname>" .
@@ -128,6 +134,8 @@ static flb_sds_t extract_cloud_host(const char *cloud_id, struct flb_elasticsear
         strcat(cloud_host_buf, ":");
         strcat(cloud_host_buf, port);
     }
+
+    flb_utils_split_free(split);
     return flb_sds_create(cloud_host_buf);
 }
 
