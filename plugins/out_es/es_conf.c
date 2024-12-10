@@ -44,12 +44,12 @@ static int config_set_ra_id_key(flb_sds_t id_key, struct flb_elasticsearch_confi
         return 0;
     }
 
-    ec->ra_id_key = flb_ra_create(id_key, FLB_FALSE);
-    if (ec->ra_id_key == NULL) {
+    ec->node_ra_id_key = flb_ra_create(id_key, FLB_FALSE);
+    if (ec->node_ra_id_key == NULL) {
         flb_plg_error(ctx->ins, "could not create record accessor for Id Key");
         return -1;
     }
-    ec->own_ra_id_key = FLB_TRUE;
+    ec->ra_id_key = ec->node_ra_id_key;
 
     if (ec->generate_id == FLB_TRUE) {
         flb_plg_warn(ctx->ins, "Generate_ID is ignored when ID_key is set");
@@ -158,13 +158,13 @@ static int config_set_ra_prefix_key(flb_sds_t logstash_prefix_key,
         memcpy(buf + 1, logstash_prefix_key, len);
         buf[len + 1] = '\0';
 
-        ec->ra_prefix_key = flb_ra_create(buf, FLB_TRUE);
-        ec->own_ra_prefix_key = FLB_TRUE;
+        ec->node_ra_prefix_key = flb_ra_create(buf, FLB_TRUE);
+        ec->ra_prefix_key = ec->node_ra_prefix_key;
         flb_free(buf);
     }
     else {
-        ec->ra_prefix_key = flb_ra_create(logstash_prefix_key, FLB_TRUE);
-        ec->own_ra_prefix_key = FLB_TRUE;
+        ec->node_ra_prefix_key = flb_ra_create(logstash_prefix_key, FLB_TRUE);
+        ec->ra_prefix_key = ec->node_ra_prefix_key;
     }
 
     if (!ec->ra_prefix_key) {
@@ -227,13 +227,13 @@ static int config_set_properties(struct flb_elasticsearch_config *ec,
 
     /* Set manual Index and Type */
     if (f_index) {
-        ec->index = flb_strdup(f_index->value);
-        ec->own_index = FLB_TRUE;
+        ec->uri_index = flb_strdup(f_index->value);
+        ec->index = ec->uri_index;
     }
 
     if (f_type) {
-        ec->type = flb_strdup(f_type->value);
-        ec->own_type = FLB_TRUE;
+        ec->uri_type = flb_strdup(f_type->value);
+        ec->type = ec->uri_type;
     }
 
     /* Elasticsearch: path and pipeline */
@@ -246,7 +246,7 @@ static int config_set_properties(struct flb_elasticsearch_config *ec,
         return -1;
     }
 
-    ret = config_set_ra_id_key(ec->id_key, ec, ctx);
+    ret = config_set_ra_id_key(ec->id_key, ec, &ec->ra_id_key, ctx);
     if (ret != 0) {
         return -1;
     }
@@ -300,30 +300,7 @@ static int config_set_node_properties(struct flb_upstream_node *node,
 
     /* Copy base configuration */
     *ec = *base;
-    ec->own_index = FLB_FALSE;
-    ec->own_type = FLB_FALSE;
-    ec->own_cloud_user = FLB_FALSE;
-    ec->own_cloud_passwd = FLB_FALSE;
 
-#ifdef FLB_HAVE_AWS
-    ec->own_base_aws_provider = FLB_FALSE;
-    ec->own_aws_provider = FLB_FALSE;
-    ec->own_aws_tls = FLB_FALSE;
-    ec->own_aws_sts_tls = FLB_FALSE;
-    ec->own_aws_unsigned_headers = FLB_FALSE;
-#endif
-
-    ec->own_logstash_prefix = FLB_FALSE;
-    ec->own_logstash_prefix_separator = FLB_FALSE;
-    ec->own_logstash_prefix_key = FLB_FALSE;
-    ec->own_logstash_dateformat = FLB_FALSE;
-    ec->own_time_key = FLB_FALSE;
-    ec->own_time_key_format = FLB_FALSE;
-    ec->own_write_operation = FLB_FALSE;
-    ec->own_id_key = FLB_FALSE;
-    ec->own_ra_id_key = FLB_FALSE;
-    ec->own_ra_prefix_key = FLB_FALSE;
-    ec->own_tag_key = FLB_FALSE;
     mk_list_entry_init(&ec->_head);
 
     /* Overwrite configuration from upstream node properties */
@@ -406,45 +383,45 @@ static int config_set_node_properties(struct flb_upstream_node *node,
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_LOGSTASH_PREFIX, node);
     if (tmp) {
-        ec->logstash_prefix = flb_sds_create(tmp);
-        if (ec->logstash_prefix == NULL) {
+        ec->node_logstash_prefix = flb_sds_create(tmp);
+        if (ec->node_logstash_prefix == NULL) {
             return -1;
         }
-        ec->own_logstash_prefix = FLB_TRUE;
+        ec->logstash_prefix = ec->node_logstash_prefix;
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_LOGSTASH_PREFIX_SEPARATOR,
                                          node);
     if (tmp) {
-        ec->logstash_prefix_separator = flb_sds_create(tmp);
-        if (ec->logstash_prefix_separator == NULL) {
+        ec->node_logstash_prefix_separator = flb_sds_create(tmp);
+        if (ec->node_logstash_prefix_separator == NULL) {
             return -1;
         }
-        ec->own_logstash_prefix_separator = FLB_TRUE;
+        ec->logstash_prefix_separator = ec->node_logstash_prefix_separator;
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_LOGSTASH_DATEFORMAT,
                                          node);
     if (tmp) {
-        ec->logstash_dateformat = flb_sds_create(tmp);
-        if (ec->logstash_dateformat == NULL) {
+        ec->node_logstash_dateformat = flb_sds_create(tmp);
+        if (ec->node_logstash_dateformat == NULL) {
             return -1;
         }
-        ec->own_logstash_dateformat = FLB_TRUE;
+        ec->logstash_dateformat = ec->node_logstash_dateformat;
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_TIME_KEY, node);
     if (tmp) {
-        ec->time_key = flb_sds_create(tmp);
-        if (ec->time_key == NULL) {
+        ec->node_time_key = flb_sds_create(tmp);
+        if (ec->node_time_key == NULL) {
             return -1;
         }
-        ec->own_time_key = FLB_TRUE;
+        ec->time_key = ec->node_time_key;
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_TIME_KEY_FORMAT, node);
     if (tmp) {
-        ec->time_key_format = flb_sds_create(tmp);
-        if (ec->time_key_format == NULL) {
+        ec->node_time_key_format = flb_sds_create(tmp);
+        if (ec->node_time_key_format == NULL) {
             return -1;
         }
-        ec->own_time_key_format = FLB_TRUE;
+        ec->time_key_format = ec->node_time_key_format;
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_TIME_KEY_NANOS, node);
     if (tmp) {
@@ -456,11 +433,11 @@ static int config_set_node_properties(struct flb_upstream_node *node,
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_TAG_KEY, node);
     if (tmp) {
-        ec->tag_key = flb_sds_create(tmp);
-        if (ec->tag_key == NULL) {
+        ec->node_tag_key = flb_sds_create(tmp);
+        if (ec->node_tag_key == NULL) {
             return -1;
         }
-        ec->own_tag_key = FLB_TRUE;
+        ec->tag_key = ec->node_tag_key;
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_BUFFER_SIZE, node);
     if (tmp) {
@@ -486,11 +463,11 @@ static int config_set_node_properties(struct flb_upstream_node *node,
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_LOGSTASH_PREFIX_KEY,
                                          node);
     if (tmp) {
-        ec->logstash_prefix_key = flb_sds_create(tmp);
-        if (ec->logstash_prefix_key == NULL) {
+        ec->node_logstash_prefix_key = flb_sds_create(tmp);
+        if (ec->node_logstash_prefix_key == NULL) {
             return -1;
         }
-        ec->own_logstash_prefix_key = FLB_TRUE;
+        ec->logstash_prefix_key = ec->node_logstash_prefix_key;
         ret = config_set_ra_prefix_key(ec->logstash_prefix_key, ec, ctx);
         if (ret != 0) {
             return -1;
@@ -532,11 +509,11 @@ static int config_set_node_properties(struct flb_upstream_node *node,
 
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_ID_KEY, node);
     if (tmp) {
-        ec->id_key = flb_sds_create(tmp);
-        if (ec->id_key == NULL) {
+        ec->node_id_key = flb_sds_create(tmp);
+        if (ec->node_id_key == NULL) {
             return -1;
         }
-        ec->own_id_key = FLB_TRUE;
+        ec->id_key = ec->node_id_key;
         ret = config_set_ra_id_key(ec->id_key, ec, ctx);
         if (ret != 0) {
             return -1;
@@ -545,11 +522,11 @@ static int config_set_node_properties(struct flb_upstream_node *node,
 
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_WRITE_OPERATION, node);
     if (tmp) {
-        ec->write_operation = flb_sds_create(tmp);
-        if (ec->write_operation == NULL) {
+        ec->node_write_operation = flb_sds_create(tmp);
+        if (ec->node_write_operation == NULL) {
             return -1;
         }
-        ec->own_write_operation = FLB_TRUE;
+        ec->write_operation = ec->node_write_operation;
         ret = config_set_es_action(ec->write_operation, ec->ra_id_key, ec->generate_id,
                                    ec, ctx);
 
@@ -577,88 +554,44 @@ static int config_set_node_properties(struct flb_upstream_node *node,
 
 static void elasticsearch_config_destroy(struct flb_elasticsearch_config *ec)
 {
-    if (ec->own_tag_key == FLB_TRUE) {
-        flb_sds_destroy(ec->tag_key);
+    flb_sds_destroy(ec->node_tag_key);
+    if (ec->node_ra_id_key) {
+        flb_ra_destroy(ec->node_ra_id_key);
+        ec->node_ra_id_key = NULL;
     }
 
-    if (ec->ra_id_key && ec->own_ra_id_key == FLB_TRUE) {
-        flb_ra_destroy(ec->ra_id_key);
-        ec->ra_id_key = NULL;
-    }
-
-    if (ec->own_write_operation == FLB_TRUE) {
-        flb_sds_destroy(ec->write_operation);
-    }
-
-    if (ec->own_id_key == FLB_TRUE) {
-        flb_sds_destroy(ec->id_key);
-    }
-
-    if (ec->own_time_key_format == FLB_TRUE) {
-        flb_sds_destroy(ec->time_key_format);
-    }
-
-    if (ec->own_time_key == FLB_TRUE) {
-        flb_sds_destroy(ec->time_key);
-    }
-
-    if (ec->own_logstash_dateformat == FLB_TRUE) {
-        flb_sds_destroy(ec->logstash_dateformat);
-    }
-
-    if (ec->own_logstash_prefix_key == FLB_TRUE) {
-        flb_sds_destroy(ec->logstash_prefix_key);
-    }
-
-    if (ec->own_logstash_prefix_separator == FLB_TRUE) {
-        flb_sds_destroy(ec->logstash_prefix_separator);
-    }
-
-    if (ec->own_logstash_prefix == FLB_TRUE) {
-        flb_sds_destroy(ec->logstash_prefix);
-    }
+    flb_sds_destroy(ec->node_write_operation);
+    flb_sds_destroy(ec->node_id_key);
+    flb_sds_destroy(ec->node_time_key_format);
+    flb_sds_destroy(ec->node_time_key);
+    flb_sds_destroy(ec->node_logstash_dateformat);
+    flb_sds_destroy(ec->node_logstash_prefix_key);
+    flb_sds_destroy(ec->node_logstash_prefix_separator);
+    flb_sds_destroy(ec->node_logstash_prefix);
 
 #ifdef FLB_HAVE_AWS
-    if (ec->base_aws_provider && ec->own_base_aws_provider == FLB_TRUE) {
-        flb_aws_provider_destroy(ec->base_aws_provider);
+    flb_aws_provider_destroy(ec->node_base_aws_provider);
+    flb_aws_provider_destroy(ec->node_aws_provider);
+
+    if (ec->node_aws_tls) {
+        flb_tls_destroy(ec->node_aws_tls);
     }
 
-    if (ec->aws_provider && ec->own_aws_provider == FLB_TRUE) {
-        flb_aws_provider_destroy(ec->aws_provider);
+    if (ec->node_aws_sts_tls) {
+        flb_tls_destroy(ec->node_aws_sts_tls);
     }
 
-    if (ec->aws_tls && ec->own_aws_tls == FLB_TRUE) {
-        flb_tls_destroy(ec->aws_tls);
-    }
-
-    if (ec->aws_sts_tls && ec->own_aws_sts_tls == FLB_TRUE) {
-        flb_tls_destroy(ec->aws_sts_tls);
-    }
-
-    if (ec->aws_unsigned_headers && ec->own_aws_unsigned_headers == FLB_TRUE) {
-        flb_slist_destroy(ec->aws_unsigned_headers);
-        flb_free(ec->aws_unsigned_headers);
+    if (ec->node_aws_unsigned_headers) {
+        flb_slist_destroy(ec->node_aws_unsigned_headers);
+        flb_free(ec->node_aws_unsigned_headers);
     }
 #endif
 
-    if (ec->ra_prefix_key && ec->own_ra_prefix_key == FLB_TRUE) {
-        flb_ra_destroy(ec->ra_prefix_key);
-    }
-
-    if (ec->own_cloud_passwd == FLB_TRUE) {
-        flb_free(ec->cloud_passwd);
-    }
-    if (ec->own_cloud_user == FLB_TRUE) {
-        flb_free(ec->cloud_user);
-    }
-
-    if (ec->own_type == FLB_TRUE) {
-        flb_free(ec->type);
-    }
-
-    if (ec->own_index == FLB_TRUE) {
-        flb_free(ec->index);
-    }
+    flb_ra_destroy(ec->node_ra_prefix_key);
+    flb_free(ec->node_cloud_passwd);
+    flb_free(ec->node_cloud_user);
+    flb_free(ec->uri_type);
+    flb_free(ec->uri_index);
 
     flb_free(ec);
 }
