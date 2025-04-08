@@ -176,9 +176,9 @@ RUN New-Item -Path  /fluent-bit/etc/ -ItemType "directory"; `
     Copy-Item -Path /src/build/bin/fluent-bit.exe /fluent-bit/bin/;
 
 #
-# Runtime Image - Windows Server Core
+# Runtime Image - Windows Nano Server
 #
-FROM mcr.microsoft.com/windows/servercore:$WINDOWS_VERSION AS runtime
+FROM mcr.microsoft.com/windows/nanoserver:$WINDOWS_VERSION AS runtime
 
 ARG FLUENTBIT_VERSION=master
 ARG IMAGE_CREATE_DATE
@@ -200,9 +200,12 @@ LABEL org.opencontainers.image.title="Fluent Bit" `
 
 COPY --from=builder [ "C:\\\\fluent-bit", "C:\\\\fluent-bit" ]
 
-RUN setx /M PATH "%PATH%;C:\fluent-bit\bin"
+# https://github.com/PowerShell/PowerShell-Docker/issues/236#issuecomment-498866081
+ENV WindowsPATH="C:\Windows\system32;C:\Windows"
 
-ENTRYPOINT [ "C:\\fluent-bit\\bin\\fluent-bit.exe" ]
+ENV PATH="$WindowsPATH;C:\fluent-bit\bin"
+
+ENTRYPOINT [ "fluent-bit.exe" ]
 # Hadolint gets confused by Windows it seems
 # hadolint ignore=DL3025
 CMD [ "fluent-bit.exe", "-c", "C:\\fluent-bit\\etc\\fluent-bit.conf" ]
