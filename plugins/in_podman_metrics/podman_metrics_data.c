@@ -17,6 +17,8 @@
  *  limitations under the License.
  */
 
+#include <sys/stat.h>
+
 #include <fluent-bit/flb_input_plugin.h>
 #include <fluent-bit/flb_config.h>
 #include <fluent-bit/flb_metrics.h>
@@ -268,6 +270,7 @@ int collect_sysfs_directories(struct flb_in_metrics *ctx, flb_sds_t name)
     DIR *dir;
     struct dirent *entry;
     struct sysfs_path *pth;
+    struct stat entry_stat;
 
     if (!(dir = opendir(name))) {
         flb_plg_warn(ctx->ins, "Failed to open %s", name);
@@ -275,28 +278,38 @@ int collect_sysfs_directories(struct flb_in_metrics *ctx, flb_sds_t name)
     }
 
     while ((entry = readdir(dir)) != NULL) {
-        if (entry->d_type == DT_DIR) {
-            if (strcmp(entry->d_name, CURRENT_DIR) == 0 || strcmp(entry->d_name, PREV_DIR) == 0) {
+        if (entry->d_type != DT_DIR && entry->d_type != DT_UNKNOWN) {
+            continue;
+        }
+        if (strcmp(entry->d_name, CURRENT_DIR) == 0 || strcmp(entry->d_name, PREV_DIR) == 0) {
+            continue;
+        }
+        snprintf(path, sizeof(path), "%s/%s", name, entry->d_name);
+        if (entry->d_type == DT_UNKNOWN) {
+            if (stat(path, &entry_stat) == -1) {
+                flb_errno();
+                closedir(dir);
+                return -1;
+            }
+            if (!S_ISDIR(entry_stat.st_mode)) {
                 continue;
             }
-            snprintf(path, sizeof(path), "%s/%s", name, entry->d_name);
-
-            if (name_starts_with(entry->d_name, SYSFS_CONTAINER_PREFIX) == 0 &&
-                strcmp(entry->d_name, SYSFS_LIBPOD_PARENT) != 0 &&
-                strstr(entry->d_name, SYSFS_CONMON) == 0) {
-                pth = flb_malloc(sizeof(struct sysfs_path));
-                if (!pth) {
-                    flb_errno();
-                    closedir(dir);
-                    return -1;
-                }
-                pth->path = flb_sds_create(path);
-                flb_plg_debug(ctx->ins, "Collected sysfs directory: %s", pth->path);
-                mk_list_add(&pth->_head, &ctx->sysfs_items);
-            }
-
-            collect_sysfs_directories(ctx, path);
         }
+        if (name_starts_with(entry->d_name, SYSFS_CONTAINER_PREFIX) == 0 &&
+            strcmp(entry->d_name, SYSFS_LIBPOD_PARENT) != 0 &&
+            strstr(entry->d_name, SYSFS_CONMON) == 0) {
+            pth = flb_malloc(sizeof(struct sysfs_path));
+            if (!pth) {
+                flb_errno();
+                closedir(dir);
+                return -1;
+            }
+            pth->path = flb_sds_create(path);
+            flb_plg_debug(ctx->ins, "Collected sysfs directory: %s", pth->path);
+            mk_list_add(&pth->_head, &ctx->sysfs_items);
+        }
+
+        collect_sysfs_directories(ctx, path);
     }
     closedir(dir);
     return 0;
