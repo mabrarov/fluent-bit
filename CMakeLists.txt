@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(fluent-bit C)
+project(fluent-bit LANGUAGES C CXX)
 
 # CMP0069 ensures that LTO is enabled for all compilers
 cmake_policy(SET CMP0069 NEW)
