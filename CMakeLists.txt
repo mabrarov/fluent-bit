@@ -56,31 +56,42 @@ endif()
 
 # Update CFLAGS
 if (MSVC)
+  # Use static C runtime
+  if (NOT (CMAKE_VERSION VERSION_LESS "3.15"))
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_compile_options(/MT$<$<CONFIG:Debug>:d>)
+  # Replace (/|-)MD(d?) with (/|-)MT(d?) to avoid D9025 warning
+  foreach(config_type ${CMAKE_CONFIGURATION_TYPES} ${CMAKE_BUILD_TYPE} Debug Release RelWithDebInfo MinSizeRel)
+    string(TOUPPER ${config_type} upper_config_type)
+    set(flag_var "CMAKE_C_FLAGS_${upper_config_type}")
+    string(REGEX REPLACE "(^| |\\t|\\r|\\n)(-|/)(MD)(d?)($| |\\t|\\r|\\n)" "\\1\\2MT\\4\\5" ${flag_var} "${${flag_var}}")
+    set(flag_var "CMAKE_CXX_FLAGS_${upper_config_type}")
+    string(REGEX REPLACE "(^| |\\t|\\r|\\n)(-|/)(MD)(d?)($| |\\t|\\r|\\n)" "\\1\\2MT\\4\\5" ${flag_var} "${${flag_var}}")
+  endforeach()
+  set(flag_var)
+  set(upper_config_type)
+  set(config_type)
+
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
   add_definitions(-D_CRT_NONSTDC_NO_WARNINGS)
 
   # Use custom CFLAGS for MSVC
   #
   #   /Zi ...... Generate pdb files.
-  #   /MT ...... Static link C runtimes.
   #   /wd4711 .. C4711 (function selected for inline expansion)
   #   /wd4100 .. C4100 (unreferenced formal parameter)
   #   /wd5045 .. C5045 (Spectre mitigation)
   #
   # Restore /OPT:REF after setting /Debug, enable /OPT:ICF for 64-bit
   # builds per Microsoft recommended best practices.
-  set(CMAKE_C_FLAGS "/DWIN32 /D_WINDOWS /DNDEBUG /O2 /Zi /wd4100 /wd4711 /wd5045")
+  set(CMAKE_C_FLAGS "/DWIN32 /D_WINDOWS /Zi /wd4100 /wd4711 /wd5045")
   set(CMAKE_EXE_LINKER_FLAGS "/DEBUG /OPT:REF /INCREMENTAL:NO")
   set(CMAKE_SHARED_LINKER_FLAGS "/DEBUG /OPT:REF /INCREMENTAL:NO")
-  set(CMAKE_BUILD_TYPE None)
   if (CMAKE_SIZEOF_VOID_P EQUAL 8)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /OPT:ICF")
     set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /OPT:ICF")
   endif()
-
-  # Use add_compile_options() to set /MT since Visual Studio
-  # Generator does not notice /MT in CMAKE_C_FLAGS.
-  add_compile_options(/MT)
 else()
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
   if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
@@ -471,9 +482,7 @@ if(FLB_COMPILER_STRICT_POINTER_TYPES)
 endif()
 
 # Enable Debug symbols if specified
-if(MSVC)
-  set(CMAKE_BUILD_TYPE None)  # Avoid flag conflicts (See CMakeList.txt:L18)
-elseif(FLB_RELEASE)
+if(FLB_RELEASE)
   set(CMAKE_BUILD_TYPE "RelWithDebInfo")
 elseif(FLB_DEBUG)
   set(CMAKE_BUILD_TYPE "Debug")
@@ -737,7 +746,9 @@ macro(MK_SET_OPTION option value)
   set(${option} ${value} CACHE INTERNAL "" FORCE)
 endmacro()
 MK_SET_OPTION(MK_SYSTEM_MALLOC    ON)
-MK_SET_OPTION(MK_DEBUG            ON)
+if(NOT MSVC)
+  MK_SET_OPTION(MK_DEBUG          ON)
+endif()
 
 # Monkey backend event loop
 if (FLB_EVENT_LOOP_EPOLL)
