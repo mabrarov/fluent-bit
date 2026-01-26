@@ -838,26 +838,25 @@ The following steps have been tested on a Windows Server 2022 Datacenter edition
     vcpkg integrate install
     ```
 
-6. **Generate the Visual Studio solution of Fluent Bit using CMake**
+6. **Generate NMake makefiles for Fluent Bit using CMake**
 
     ```bash
     cd build
-    cmake -G "Visual Studio 17 2022" -DFLB_TESTS_INTERNAL=Off -DFLB_TESTS_RUNTIME=Off -DCMAKE_TOOLCHAIN_FILE="C:/Program Files/Microsoft Visual Studio/2022/Community/VC/vcpkg/scripts/buildsystems/vcpkg.cmake" -DOPENSSL_ROOT_DIR=C:/path/to/your/vcpkg_installed/x64-windows-static -DFLB_LIBYAML_DIR=C:/path/to/your/vcpkg_installed/x64-windows-static ..
+    cmake -G "NMake Makefiles" -DFLB_RELEASE=On -DFLB_DEBUG=Off -DFLB_TESTS_INTERNAL=Off -DFLB_TESTS_RUNTIME=Off -DCMAKE_TOOLCHAIN_FILE="C:/Program Files/Microsoft Visual Studio/2022/Community/VC/vcpkg/scripts/buildsystems/vcpkg.cmake" -DOPENSSL_ROOT_DIR=C:/path/to/your/vcpkg_installed/x64-windows-static -DFLB_LIBYAML_DIR=C:/path/to/your/vcpkg_installed/x64-windows-static ..
     ```
 
     **Notes**:
     - Replace `C:/path/to/your/vcpkg_installed/x64-windows-static` with the actual path where `vcpkg` installed OpenSSL and LibYAML.
     - When installing with `vcpkg`, you can also specify a different install root using `--x-install-root`.
-    - This will generate a Visual Studio solution file, which you can open and compile.
+    - This will generate NMake makefiles, which you can use for building release version of Fluent Bit.
 
 7. **Run the binary build**
 
     ```bash
-    cmake --build . --parallel 4 --clean-first
+    cmake --build . --clean-first
     ```
 
     **Notes**:
-    - You can choose to omit the `--parallel` option.
     - The `--clean-first` option will clear cache and start a fresh clean build.
 
 ### Valgrind
