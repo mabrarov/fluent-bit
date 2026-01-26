@@ -51,14 +51,14 @@ struct bucket_queue_op {
     void *op_description;
 };
 
-void test_create_destroy()
+void test_create_destroy(void)
 {
     struct flb_bucket_queue *bucket_queue;
     bucket_queue = flb_bucket_queue_create(100);
     flb_bucket_queue_destroy(bucket_queue);
 }
 
-void test_add_priorities()
+void test_add_priorities(void)
 {
     struct flb_bucket_queue *bucket_queue;
 

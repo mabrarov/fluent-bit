@@ -22,7 +22,7 @@ struct check checks[] = {
     {"e1", "e2"},
 };
 
-static void test_basic()
+static void test_basic(void)
 {
     int i;
     int ret;
@@ -67,7 +67,7 @@ static void test_basic()
     flb_ring_buffer_destroy(rb);
 }
 
-static void test_smart_flush()
+static void test_smart_flush(void)
 {
     int i;
     int ret;

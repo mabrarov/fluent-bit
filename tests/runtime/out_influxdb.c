@@ -225,7 +225,7 @@ static void cb_check_tag_keys(void *ctx, int ffd,
     flb_free(out);
 }
 
-void flb_test_basic()
+void flb_test_basic(void)
 {
     int ret;
     int size = sizeof(JSON_BASIC) - 1;
@@ -275,7 +275,7 @@ void flb_test_basic()
     flb_destroy(ctx);
 }
 
-void flb_test_float_value()
+void flb_test_float_value(void)
 {
     int ret;
     int size = sizeof(JSON_FLOAT) - 1;
@@ -320,7 +320,7 @@ void flb_test_float_value()
 }
 
 /* Using integer type */
-void flb_test_integer_value()
+void flb_test_integer_value(void)
 {
     int ret;
     int size = sizeof(JSON_INTEGER) - 1;
@@ -371,7 +371,7 @@ void flb_test_integer_value()
     flb_destroy(ctx);
 }
 
-void flb_test_negative_integer_value()
+void flb_test_negative_integer_value(void)
 {
     int ret;
     int size = sizeof(JSON_NEGATIVE_INTEGER) - 1;
@@ -423,7 +423,7 @@ void flb_test_negative_integer_value()
 }
 
 /* Not using integer type of line protocol */
-void flb_test_integer_as_float_value()
+void flb_test_integer_as_float_value(void)
 {
     int ret;
     int size = sizeof(JSON_INTEGER) - 1;
@@ -474,7 +474,7 @@ void flb_test_integer_as_float_value()
     flb_destroy(ctx);
 }
 
-void flb_test_negative_integer_as_float_value()
+void flb_test_negative_integer_as_float_value(void)
 {
     int ret;
     int size = sizeof(JSON_NEGATIVE_INTEGER) - 1;

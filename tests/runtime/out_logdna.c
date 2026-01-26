@@ -95,7 +95,7 @@ static void cb_check_non_duplication(void *ctx, int ffd, int res_ret,
     flb_sds_destroy(json);
 }
 
-void flb_test_non_duplication()
+void flb_test_non_duplication(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -196,7 +196,7 @@ static void cb_check_data_completeness(void *ctx, int ffd, int res_ret,
     flb_sds_destroy(json);
 }
 
-void flb_test_data_completeness()
+void flb_test_data_completeness(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -267,7 +267,7 @@ static void cb_check_severity(void *ctx, int ffd, int res_ret,
     flb_sds_destroy(json);
 }
 
-void flb_test_severity_promoted_as_level()
+void flb_test_severity_promoted_as_level(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -353,7 +353,7 @@ static void cb_check_level_and_severity(void *ctx, int ffd, int res_ret,
     flb_sds_destroy(json);
 }
 
-void flb_test_level_and_severity()
+void flb_test_level_and_severity(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -418,7 +418,7 @@ static void cb_check_default_app(void *ctx, int ffd, int res_ret,
     flb_sds_destroy(json);
 }
 
-void flb_test_default_app()
+void flb_test_default_app(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -500,7 +500,7 @@ static void cb_check_no_primary_keys(void *ctx, int ffd, int res_ret,
     flb_sds_destroy(json);
 }
 
-void flb_test_no_primary_keys()
+void flb_test_no_primary_keys(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -567,7 +567,7 @@ static void cb_check_payload_structure(void *ctx, int ffd, int res_ret,
     flb_sds_destroy(json);
 }
 
-void flb_test_payload_structure()
+void flb_test_payload_structure(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -647,7 +647,7 @@ static void cb_check_backward_compat(void *ctx, int ffd, int res_ret,
     flb_sds_destroy(json);
 }
 
-void flb_test_backward_compat()
+void flb_test_backward_compat(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -703,7 +703,7 @@ static void cb_lifecycle_noop(void *ctx, int ffd, int res_ret,
     flb_sds_destroy(json);
 }
 
-void flb_test_lifecycle()
+void flb_test_lifecycle(void)
 {
     int i;
     int ret;

@@ -446,7 +446,7 @@ static int validate_extended_output(struct test_output *actual, msgpack_object *
 /* Unit tests                                                     */
 /* --------------------------------------------------------------- */
 
-void test_hex_to_id()
+void test_hex_to_id(void)
 {
     unsigned char out[16];
     int ret;
@@ -461,7 +461,7 @@ void test_hex_to_id()
     TEST_CHECK(memcmp(out, expect, sizeof(expect)) == 0);
 }
 
-void test_hex_to_id_error_cases()
+void test_hex_to_id_error_cases(void)
 {
     unsigned char out[16];
     int ret;
@@ -499,7 +499,7 @@ void test_hex_to_id_error_cases()
     TEST_CHECK(ret == 0); /* Should succeed with lowercase hex */
 }
 
-void test_convert_string_number_to_u64()
+void test_convert_string_number_to_u64(void)
 {
     uint64_t val;
 
@@ -507,7 +507,7 @@ void test_convert_string_number_to_u64()
     TEST_CHECK(val == 123456ULL);
 }
 
-void test_find_map_entry_by_key()
+void test_find_map_entry_by_key(void)
 {
     msgpack_sbuffer sbuf;
     msgpack_packer  pck;
@@ -538,7 +538,7 @@ void test_find_map_entry_by_key()
     msgpack_unpacked_destroy(&up);
 }
 
-void test_json_payload_get_wrapped_value()
+void test_json_payload_get_wrapped_value(void)
 {
     msgpack_sbuffer sbuf;
     msgpack_packer  pck;
@@ -1436,7 +1436,7 @@ static void run_metrics_case(msgpack_object *case_obj, const char *case_name)
     flb_free(input_json);
 }
 
-void test_opentelemetry_cases()
+void test_opentelemetry_cases(void)
 {
     int ret;
     char *cases_json;
@@ -1694,7 +1694,7 @@ void test_opentelemetry_cases()
     flb_free(cases_json);
 }
 
-void test_opentelemetry_traces_cases()
+void test_opentelemetry_traces_cases(void)
 {
     int ret;
     char *cases_json;
@@ -1821,7 +1821,7 @@ void test_opentelemetry_traces_cases()
     flb_free(cases_json);
 }
 
-void test_trace_span_binary_sizes()
+void test_trace_span_binary_sizes(void)
 {
     int ret;
     struct flb_log_event_encoder enc;
@@ -1909,7 +1909,7 @@ void test_trace_span_binary_sizes()
     TEST_CHECK(found_span_id == 1);
 }
 
-void test_opentelemetry_metrics_cases()
+void test_opentelemetry_metrics_cases(void)
 {
     int               ret;
     int               type;
@@ -1987,7 +1987,7 @@ void test_opentelemetry_metrics_cases()
     flb_free(cases_json);
 }
 
-void test_opentelemetry_logs_otlp_json_roundtrip()
+void test_opentelemetry_logs_otlp_json_roundtrip(void)
 {
     int ret;
     int result;
@@ -2056,7 +2056,7 @@ void test_opentelemetry_logs_otlp_json_roundtrip()
     flb_log_event_encoder_destroy(&encoder);
 }
 
-void test_opentelemetry_logs_otlp_json_preserves_appended_resources()
+void test_opentelemetry_logs_otlp_json_preserves_appended_resources(void)
 {
     int ret;
     int result;
@@ -2146,7 +2146,7 @@ void test_opentelemetry_logs_otlp_json_preserves_appended_resources()
     flb_log_event_encoder_destroy(&encoder);
 }
 
-void test_opentelemetry_logs_otlp_resource_schema_url_identity()
+void test_opentelemetry_logs_otlp_resource_schema_url_identity(void)
 {
     int ret;
     int result;
@@ -2258,7 +2258,7 @@ void test_opentelemetry_logs_otlp_resource_schema_url_identity()
     flb_log_event_encoder_destroy(&encoder);
 }
 
-void test_opentelemetry_logs_otlp_json_from_plain_logs()
+void test_opentelemetry_logs_otlp_json_from_plain_logs(void)
 {
     int ret;
     int result;
@@ -2343,7 +2343,7 @@ void test_opentelemetry_logs_otlp_json_from_plain_logs()
     flb_log_event_encoder_destroy(&encoder);
 }
 
-void test_opentelemetry_metrics_otlp_json_roundtrip()
+void test_opentelemetry_metrics_otlp_json_roundtrip(void)
 {
     int ret;
     int result;
@@ -2406,7 +2406,7 @@ void test_opentelemetry_metrics_otlp_json_roundtrip()
     destroy_metrics_context_list(&contexts);
 }
 
-void test_opentelemetry_traces_otlp_json_roundtrip()
+void test_opentelemetry_traces_otlp_json_roundtrip(void)
 {
     int ret;
     int result;
@@ -2465,7 +2465,7 @@ void test_opentelemetry_traces_otlp_json_roundtrip()
     ctr_destroy(trace_context);
 }
 
-void test_opentelemetry_logs_otlp_proto_from_plain_logs()
+void test_opentelemetry_logs_otlp_proto_from_plain_logs(void)
 {
     int ret;
     int result;
@@ -2547,7 +2547,7 @@ void test_opentelemetry_logs_otlp_proto_from_plain_logs()
     flb_log_event_encoder_destroy(&encoder);
 }
 
-void test_opentelemetry_metrics_otlp_proto_roundtrip()
+void test_opentelemetry_metrics_otlp_proto_roundtrip(void)
 {
     int ret;
     int result;
@@ -2596,7 +2596,7 @@ void test_opentelemetry_metrics_otlp_proto_roundtrip()
     destroy_metrics_context_list(&contexts);
 }
 
-void test_opentelemetry_metrics_msgpack_otlp_proto_merges_contexts()
+void test_opentelemetry_metrics_msgpack_otlp_proto_merges_contexts(void)
 {
     int ret;
     int result;
@@ -2692,7 +2692,7 @@ void test_opentelemetry_metrics_msgpack_otlp_proto_merges_contexts()
     destroy_metrics_context_list(&contexts);
 }
 
-void test_opentelemetry_traces_otlp_proto_roundtrip()
+void test_opentelemetry_traces_otlp_proto_roundtrip(void)
 {
     int result;
     flb_sds_t actual;

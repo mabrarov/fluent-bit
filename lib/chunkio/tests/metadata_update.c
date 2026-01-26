@@ -52,7 +52,7 @@ static int log_cb(struct cio_ctx *ctx, int level, const char *file, int line,
  * was using metadata size instead of content data size when moving content
  * after metadata update.
  */
-static void test_metadata_update_with_content()
+static void test_metadata_update_with_content(void)
 {
     int ret;
     int err;
@@ -188,7 +188,7 @@ static void test_metadata_update_with_content()
  * Test case: Update metadata multiple times with varying sizes to ensure
  * content data integrity is maintained throughout.
  */
-static void test_metadata_multiple_updates()
+static void test_metadata_multiple_updates(void)
 {
     int ret;
     int err;

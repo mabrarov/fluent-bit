@@ -130,7 +130,7 @@ static void filter_test_destroy(struct filter_test *ctx)
  * Original  tag: rewrite
  * Rewritten tag: updated
  */
-static void flb_test_matched()
+static void flb_test_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -184,7 +184,7 @@ static void flb_test_matched()
  * Original  tag: rewrite
  * Rewritten tag: updated
  */
-static void flb_test_not_matched()
+static void flb_test_not_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -239,7 +239,7 @@ static void flb_test_not_matched()
  * Original  tag: rewrite
  * Rewritten tag: updated
  */
-static void flb_test_keep_true()
+static void flb_test_keep_true(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -291,7 +291,7 @@ static void flb_test_keep_true()
 /* https://github.com/fluent/fluent-bit/issues/4049
  * Emitter should pause if tons of input come.
  */
-static void flb_test_heavy_input_pause_emitter()
+static void flb_test_heavy_input_pause_emitter(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -358,7 +358,7 @@ static void flb_test_heavy_input_pause_emitter()
     filter_test_destroy(ctx);
 }
 
-static void flb_test_issue_4793()
+static void flb_test_issue_4793(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -424,7 +424,7 @@ static void flb_test_issue_4793()
     filter_test_destroy(ctx);
 }
 
-static void flb_test_issue_4518()
+static void flb_test_issue_4518(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -506,7 +506,7 @@ static void flb_test_issue_4518()
 }
 
 /* $TAG as a key of rule causes SIGSEGV */
-static void flb_test_issue_5846()
+static void flb_test_issue_5846(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;

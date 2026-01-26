@@ -72,7 +72,7 @@ static int log_cb(struct cio_ctx *ctx, int level, const char *file, int line,
  * Expected behavior: Delete should succeed after automatically releasing
  *                    any outstanding mappings and handles.
  */
-static void test_win32_delete_while_open()
+static void test_win32_delete_while_open(void)
 {
     int ret;
     int err;
@@ -126,7 +126,7 @@ static void test_win32_delete_while_open()
  * Expected behavior: Delete should succeed after the implementation releases
  *                    the mapping safely.
  */
-static void test_win32_delete_while_mapped()
+static void test_win32_delete_while_mapped(void)
 {
     int ret;
     int err;
@@ -184,7 +184,7 @@ static void test_win32_delete_while_mapped()
  * Expected behavior: Should check if mapped before accessing cf->map
  * Current behavior:  Accesses cf->map without checking, may crash
  */
-static void test_win32_sync_without_map()
+static void test_win32_sync_without_map(void)
 {
     int ret;
     int err;
@@ -252,7 +252,7 @@ static void test_win32_sync_without_map()
  * Expected behavior: CreateFileMapping should use map_size, not current file size
  * Current behavior:  Creates mapping based on file size, then tries to map larger view
  */
-static void test_win32_map_size_mismatch()
+static void test_win32_map_size_mismatch(void)
 {
     int ret;
     int err;
@@ -374,7 +374,7 @@ static void test_win32_map_size_mismatch()
  * This tests the issue in cio_file.c line 804 where it checks cf->fd > 0
  * instead of using cio_file_native_is_open(cf)
  */
-static void test_win32_fd_check_inconsistency()
+static void test_win32_fd_check_inconsistency(void)
 {
     int ret;
     int err;

@@ -149,7 +149,7 @@ static void test_ctx_destroy(struct test_ctx *ctx)
     flb_free(ctx);
 }
 
-void flb_test_syslog_rfc5424()
+void flb_test_syslog_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -203,7 +203,7 @@ void flb_test_syslog_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_severity_key_rfc5424()
+void flb_test_severity_key_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -260,7 +260,7 @@ void flb_test_severity_key_rfc5424()
 }
 
 
-void flb_test_severity_preset_rfc5424()
+void flb_test_severity_preset_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -316,7 +316,7 @@ void flb_test_severity_preset_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_severity_key_rfc3164()
+void flb_test_severity_key_rfc3164(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -372,7 +372,7 @@ void flb_test_severity_key_rfc3164()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_severity_preset_rfc3164()
+void flb_test_severity_preset_rfc3164(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -428,7 +428,7 @@ void flb_test_severity_preset_rfc3164()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_facility_key_rfc5424()
+void flb_test_facility_key_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -484,7 +484,7 @@ void flb_test_facility_key_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_facility_preset_rfc5424()
+void flb_test_facility_preset_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -540,7 +540,7 @@ void flb_test_facility_preset_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_facility_key_rfc3164()
+void flb_test_facility_key_rfc3164(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -596,7 +596,7 @@ void flb_test_facility_key_rfc3164()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_facility_preset_rfc3164()
+void flb_test_facility_preset_rfc3164(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -652,7 +652,7 @@ void flb_test_facility_preset_rfc3164()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_severity_facility_key_rfc5424()
+void flb_test_severity_facility_key_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -709,7 +709,7 @@ void flb_test_severity_facility_key_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_severity_facility_key_rfc3164()
+void flb_test_severity_facility_key_rfc3164(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -766,7 +766,7 @@ void flb_test_severity_facility_key_rfc3164()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_hostname_key_rfc5424()
+void flb_test_hostname_key_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -822,7 +822,7 @@ void flb_test_hostname_key_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_hostname_preset_rfc5424()
+void flb_test_hostname_preset_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -878,7 +878,7 @@ void flb_test_hostname_preset_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_hostname_key_rfc3164()
+void flb_test_hostname_key_rfc3164(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -934,7 +934,7 @@ void flb_test_hostname_key_rfc3164()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_hostname_preset_rfc3164()
+void flb_test_hostname_preset_rfc3164(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -990,7 +990,7 @@ void flb_test_hostname_preset_rfc3164()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_appname_key_rfc5424()
+void flb_test_appname_key_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1046,7 +1046,7 @@ void flb_test_appname_key_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_appname_preset_rfc5424()
+void flb_test_appname_preset_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1102,7 +1102,7 @@ void flb_test_appname_preset_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_appname_key_rfc3164()
+void flb_test_appname_key_rfc3164(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1158,7 +1158,7 @@ void flb_test_appname_key_rfc3164()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_appname_preset_rfc3164()
+void flb_test_appname_preset_rfc3164(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1214,7 +1214,7 @@ void flb_test_appname_preset_rfc3164()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_procid_key_rfc5424()
+void flb_test_procid_key_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1270,7 +1270,7 @@ void flb_test_procid_key_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_procid_preset_rfc5424()
+void flb_test_procid_preset_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1326,7 +1326,7 @@ void flb_test_procid_preset_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_msgid_key_rfc5424()
+void flb_test_msgid_key_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1382,7 +1382,7 @@ void flb_test_msgid_key_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_msgid_preset_rfc5424()
+void flb_test_msgid_preset_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1438,7 +1438,7 @@ void flb_test_msgid_preset_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_sd_key_rfc5424()
+void flb_test_sd_key_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1494,7 +1494,7 @@ void flb_test_sd_key_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_allow_longer_sd_id_rfc5424()
+void flb_test_allow_longer_sd_id_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1551,7 +1551,7 @@ void flb_test_allow_longer_sd_id_rfc5424()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_malformed_longer_sd_id_rfc5424()
+void flb_test_malformed_longer_sd_id_rfc5424(void)
 {
     struct test_ctx *ctx;
     int ret;

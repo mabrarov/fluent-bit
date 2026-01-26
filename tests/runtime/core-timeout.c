@@ -22,7 +22,7 @@
 
 #define ELAPSED_TIME_LIMIT 9
 
-void flb_test_timeout_coroutine_recovery()
+void flb_test_timeout_coroutine_recovery(void)
 {
     int        output_instance_id;
     int        input_instance_id;

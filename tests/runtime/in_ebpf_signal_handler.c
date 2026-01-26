@@ -120,7 +120,7 @@ static void verify_decoded_values(struct flb_log_event *event, const struct even
 }
 
 /* Test encoding and decoding of signal events */
-void test_signal_event_encoding() {
+void test_signal_event_encoding(void) {
     struct test_context *ctx = init_test_context();
     TEST_CHECK(ctx != NULL);
 

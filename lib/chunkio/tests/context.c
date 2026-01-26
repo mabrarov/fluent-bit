@@ -38,7 +38,7 @@ static int log_cb(struct cio_ctx *ctx, int level, const char *file, int line,
 }
 
 /* Basic tests on context creation */
-static void test_context()
+static void test_context(void)
 {
     int flags;
     struct cio_ctx *ctx;
@@ -90,7 +90,7 @@ static void test_context()
     cio_destroy(ctx);
 }
 
-static void test_log_level()
+static void test_log_level(void)
 {
     struct cio_ctx *ctx;
     struct cio_options cio_opts;
@@ -154,7 +154,7 @@ static void test_log_level()
     cio_destroy(ctx);
 }
 
-static void test_open_flags()
+static void test_open_flags(void)
 {
     struct cio_ctx *ctx;
     struct cio_options cio_opts;

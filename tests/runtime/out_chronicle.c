@@ -254,7 +254,7 @@ static void cb_check_format_split_on_metadata_change(void *ctx, int ffd,
     flb_sds_destroy(res_data);
 }
 
-void test_format_no_log_key()
+void test_format_no_log_key(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd;
@@ -289,7 +289,7 @@ void test_format_no_log_key()
     flb_destroy(ctx);
 }
 
-void test_format_with_log_key_found()
+void test_format_with_log_key_found(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd;
@@ -327,7 +327,7 @@ void test_format_with_log_key_found()
     flb_destroy(ctx);
 }
 
-void test_format_with_log_key_not_found()
+void test_format_with_log_key_not_found(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd;
@@ -364,7 +364,7 @@ void test_format_with_log_key_not_found()
 }
 
 
-void test_format_multiple_records()
+void test_format_multiple_records(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd;
@@ -404,7 +404,7 @@ void test_format_multiple_records()
     flb_destroy(ctx);
 }
 
-void test_format_partially_suceeded_records()
+void test_format_partially_suceeded_records(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd;
@@ -445,7 +445,7 @@ void test_format_partially_suceeded_records()
     flb_destroy(ctx);
 }
 
-void test_format_namespace_and_labels()
+void test_format_namespace_and_labels(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd;
@@ -488,7 +488,7 @@ void test_format_namespace_and_labels()
     flb_destroy(ctx);
 }
 
-void test_format_namespace_fallback_and_missing_label()
+void test_format_namespace_fallback_and_missing_label(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd;
@@ -529,7 +529,7 @@ void test_format_namespace_fallback_and_missing_label()
     flb_destroy(ctx);
 }
 
-void test_format_split_on_metadata_change()
+void test_format_split_on_metadata_change(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd;

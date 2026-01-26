@@ -39,7 +39,7 @@ static void unsetenv_credentials()
 }
 
 /* test for the env provider */
-static void test_environment_provider()
+static void test_environment_provider(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -115,7 +115,7 @@ static void test_environment_provider()
 }
 
 /* token is not required */
-static void test_environment_provider_no_token()
+static void test_environment_provider_no_token(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -185,7 +185,7 @@ static void test_environment_provider_no_token()
 }
 
 /* access and secret key are required */
-static void test_environment_provider_only_access()
+static void test_environment_provider_only_access(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -237,7 +237,7 @@ static void test_environment_provider_only_access()
 }
 
 /* test the env provider when no cred env vars are set */
-static void test_environment_provider_unset()
+static void test_environment_provider_unset(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -274,7 +274,7 @@ static void test_environment_provider_unset()
     flb_config_exit(config);
 }
 
-static void test_credential_expiration()
+static void test_credential_expiration(void)
 {
     struct tm tm = {0};
     /* one hour in the future */
@@ -290,7 +290,7 @@ static void test_credential_expiration()
     TEST_CHECK(exp_actual == exp_expected);
 }
 
-static void test_standard_chain_provider()
+static void test_standard_chain_provider(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;

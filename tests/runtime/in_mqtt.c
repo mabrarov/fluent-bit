@@ -235,7 +235,7 @@ int send_PUBLISH(flb_sockfd_t fd, const char *payload, size_t payload_size)
     return 0;
 }
 
-void flb_test_mqtt()
+void flb_test_mqtt(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -309,7 +309,7 @@ void flb_test_mqtt()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_payload_key()
+void flb_test_payload_key(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;

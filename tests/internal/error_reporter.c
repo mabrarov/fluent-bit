@@ -33,7 +33,7 @@ const char* error_message_1 = "[engine] scheduler could not start";
 const char* error_message_2 = "[engine] scheduler could not stop";
 
 
-void test_flb_aws_error_reporter_create() {
+void test_flb_aws_error_reporter_create(void) {
 
     test_setenv(STATUS_MESSAGE_FILE_PATH_ENV, file_path, 1);
     struct flb_aws_error_reporter *error_reporter = flb_aws_error_reporter_create();
@@ -45,7 +45,7 @@ void test_flb_aws_error_reporter_create() {
     flb_aws_error_reporter_destroy(error_reporter);
 }
 
-void test_flb_aws_error_reporter_write() {
+void test_flb_aws_error_reporter_write(void) {
 
     int size;
     char error_message_3[1041];
@@ -78,7 +78,7 @@ void test_flb_aws_error_reporter_write() {
     flb_aws_error_reporter_destroy(error_reporter);
 }
 
-void test_flb_aws_error_reporter_clean() {
+void test_flb_aws_error_reporter_clean(void) {
 
     test_setenv(STATUS_MESSAGE_FILE_PATH_ENV, file_path, 1);
     struct flb_aws_error_reporter *error_reporter = flb_aws_error_reporter_create();
@@ -92,7 +92,7 @@ void test_flb_aws_error_reporter_clean() {
     flb_aws_error_reporter_destroy(error_reporter);
 }
 
-void test_flb_aws_error_reporter_write_open_failure()
+void test_flb_aws_error_reporter_write_open_failure(void)
 {
     int ret;
     struct flb_aws_error_reporter *error_reporter;

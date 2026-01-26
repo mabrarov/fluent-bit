@@ -254,7 +254,7 @@ static int set_context_resource_attributes(struct cmt *context,
     return 0;
 }
 
-static void test_counter_drop_first_and_delta()
+static void test_counter_drop_first_and_delta(void)
 {
     double value;
     struct cmt *context;
@@ -290,7 +290,7 @@ static void test_counter_drop_first_and_delta()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_counter_reset_drop_and_keep()
+static void test_counter_reset_drop_and_keep(void)
 {
     double value;
     struct cmt *context;
@@ -338,7 +338,7 @@ static void test_counter_reset_drop_and_keep()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_histogram_drop_first_and_delta()
+static void test_histogram_drop_first_and_delta(void)
 {
     double sum;
     uint64_t count;
@@ -389,7 +389,7 @@ static void test_histogram_drop_first_and_delta()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_counter_out_of_order_is_dropped()
+static void test_counter_out_of_order_is_dropped(void)
 {
     double value;
     struct cmt *context;
@@ -420,7 +420,7 @@ static void test_counter_out_of_order_is_dropped()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_counter_initial_value_auto()
+static void test_counter_initial_value_auto(void)
 {
     double value;
     struct cmt *context;
@@ -460,7 +460,7 @@ static void test_counter_initial_value_auto()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_counter_initial_value_auto_uses_start_timestamp()
+static void test_counter_initial_value_auto_uses_start_timestamp(void)
 {
     double value;
     struct cmt *context;
@@ -492,7 +492,7 @@ static void test_counter_initial_value_auto_uses_start_timestamp()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_histogram_sum_decrease_without_reset()
+static void test_histogram_sum_decrease_without_reset(void)
 {
     double sum;
     uint64_t count;
@@ -540,7 +540,7 @@ static void test_histogram_sum_decrease_without_reset()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_non_monotonic_sum_is_not_converted()
+static void test_non_monotonic_sum_is_not_converted(void)
 {
     double value;
     struct cmt *context;
@@ -576,7 +576,7 @@ static void test_non_monotonic_sum_is_not_converted()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_context_attribute_order_does_not_split_series()
+static void test_context_attribute_order_does_not_split_series(void)
 {
     double value;
     struct cmt *context;
@@ -611,7 +611,7 @@ static void test_context_attribute_order_does_not_split_series()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_max_series_evicts_least_recently_used()
+static void test_max_series_evicts_least_recently_used(void)
 {
     double value;
     struct cmt *context;
@@ -667,7 +667,7 @@ static void test_max_series_evicts_least_recently_used()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_max_staleness_evicts_series()
+static void test_max_staleness_evicts_series(void)
 {
     double value;
     struct cmt *context;
@@ -698,7 +698,7 @@ static void test_max_staleness_evicts_series()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_exp_histogram_scale_change_is_coarsened()
+static void test_exp_histogram_scale_change_is_coarsened(void)
 {
     double sum;
     uint64_t positive_a[2];
@@ -778,7 +778,7 @@ static void test_exp_histogram_scale_change_is_coarsened()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_exp_histogram_scale_change_is_coarsened_after_otlp_roundtrip()
+static void test_exp_histogram_scale_change_is_coarsened_after_otlp_roundtrip(void)
 {
     double sum;
     uint64_t positive_a[2];
@@ -863,7 +863,7 @@ static void test_exp_histogram_scale_change_is_coarsened_after_otlp_roundtrip()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_exp_histogram_scale_change_reset_detection()
+static void test_exp_histogram_scale_change_reset_detection(void)
 {
     uint64_t positive_a[2];
     uint64_t positive_b[4];
@@ -961,7 +961,7 @@ static void test_exp_histogram_scale_change_reset_detection()
     flb_cumulative_to_delta_ctx_destroy(converter);
 }
 
-static void test_exp_histogram_malformed_sample_is_dropped()
+static void test_exp_histogram_malformed_sample_is_dropped(void)
 {
     uint64_t positive_a[2];
     uint64_t positive_c[2];

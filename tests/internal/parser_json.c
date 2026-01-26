@@ -149,7 +149,7 @@ static int compare_msgpack(void *msgpack_data, size_t msgpack_size, struct str_l
     return 0;
 }
 
-void test_basic()
+void test_basic(void)
 {
     struct flb_parser *parser = NULL;
     struct flb_config *config = NULL;
@@ -197,7 +197,7 @@ void test_basic()
     flb_config_exit(config);
 }
 
-void test_time_key()
+void test_time_key(void)
 {
     struct flb_parser *parser = NULL;
     struct flb_config *config = NULL;
@@ -258,7 +258,7 @@ void test_time_key()
     flb_config_exit(config);
 }
 
-void test_time_keep()
+void test_time_keep(void)
 {
     struct flb_parser *parser = NULL;
     struct flb_config *config = NULL;
@@ -323,7 +323,7 @@ void test_time_keep()
  * JSON parser doesn't support 'types' option.
  * This test is to check that 'types' doesn't affect output.
  */
-void test_types_is_not_supported()
+void test_types_is_not_supported(void)
 {
     struct flb_parser *parser = NULL;
     struct flb_config *config = NULL;
@@ -393,7 +393,7 @@ void test_types_is_not_supported()
     flb_config_exit(config);
 }
 
-void test_decode_field_json()
+void test_decode_field_json(void)
 {
     struct flb_parser *parser = NULL;
     struct flb_config *config = NULL;
@@ -479,7 +479,7 @@ void test_decode_field_json()
     flb_config_exit(config);
 }
 
-void test_time_key_kept_if_parse_fails() 
+void test_time_key_kept_if_parse_fails(void)
 {
     struct flb_parser *parser = NULL;
     struct flb_config *config = NULL;

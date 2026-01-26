@@ -75,7 +75,7 @@ int test_ctx_destroy(struct test_ctx* ctx)
     return 0;
 }
 
-void test_task_map_limit()
+void test_task_map_limit(void)
 {
     struct test_ctx *ctx;
     ssize_t index;
@@ -114,7 +114,7 @@ void test_task_map_limit()
     test_ctx_destroy(ctx);
 }
 
-void test_task_route_data_preserved_across_retry()
+void test_task_route_data_preserved_across_retry(void)
 {
     int ret;
     int records;

@@ -72,7 +72,7 @@ static int read_file(const char *file, char *buf, size_t size)
 }
 
 /* Test API generating files to the file system and then scanning them back */
-static void test_memfs_write()
+static void test_memfs_write(void)
 {
     int i;
     int err;

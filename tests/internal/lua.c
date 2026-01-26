@@ -73,7 +73,7 @@ static void check_equals(lua_State *l, const char *expected)
     lua_pop(l, 1);
 }
 
-static void test_is_valid_func()
+static void test_is_valid_func(void)
 {
     lua_State *l = lua_setup(NULL);
     TEST_CHECK(flb_lua_is_valid_func(l, "invalid_function") == false);
@@ -81,7 +81,7 @@ static void test_is_valid_func()
     lua_close(l);
 }
 
-static void test_pushtimetable()
+static void test_pushtimetable(void)
 {
     lua_State *l = lua_setup(NULL);
     struct flb_time t = {{ 5, 6 }};
@@ -94,7 +94,7 @@ static void test_pushtimetable()
     lua_close(l);
 }
 
-static void test_pushmsgpack()
+static void test_pushmsgpack(void)
 {
     msgpack_packer pck;
     msgpack_sbuffer sbuf;
@@ -120,7 +120,7 @@ static void test_pushmsgpack()
     lua_close(l);
 }
 
-static void test_pushmpack()
+static void test_pushmpack(void)
 {
     msgpack_packer pck;
     msgpack_sbuffer sbuf;
@@ -144,7 +144,7 @@ static void test_pushmpack()
     lua_close(l);
 }
 
-static void test_tomsgpack()
+static void test_tomsgpack(void)
 {
     const char expected[] = "[{\"key\"=>\"value\"}, \"msgpack-str\", 4]";
     char buf[256];
@@ -175,7 +175,7 @@ static void test_tomsgpack()
     lua_close(l);
 }
 
-static void test_tompack()
+static void test_tompack(void)
 {
     const char expected[] = "[{\"key\"=>\"value\"}, \"msgpack-str\", 4]";
     char buf[256];
@@ -205,7 +205,7 @@ static void test_tompack()
 }
 
 
-static void test_lua_arraylength()
+static void test_lua_arraylength(void)
 {
     lua_State *l;
     int i;
@@ -237,7 +237,7 @@ static void test_lua_arraylength()
     lua_close(l);
 }
 
-static void test_lua_arraylength_with_index()
+static void test_lua_arraylength_with_index(void)
 {
     lua_State *l;
     int i;
@@ -273,7 +273,7 @@ static void test_lua_arraylength_with_index()
     lua_close(l);
 }
 
-static void test_lua_arraylength_for_array_contains_nil()
+static void test_lua_arraylength_for_array_contains_nil(void)
 {
     lua_State *l;
     int i;

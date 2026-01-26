@@ -641,7 +641,7 @@ int create_dump_file(char *filename, unsigned char *buffer, size_t buffer_length
 }
 #endif
 
-static void test_encoder()
+static void test_encoder(void)
 {
     cfl_sds_t     msgpack_encoder_result;
     struct cprof *context;
@@ -672,7 +672,7 @@ static void test_encoder()
     }
 }
 
-static void test_decoder()
+static void test_decoder(void)
 {
     struct cprof *context;
     int           result;

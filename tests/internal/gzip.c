@@ -12,7 +12,7 @@ char *morpheus = "This is your last chance. After this, there is no "
     "your bed and believe whatever you want to believe. You take the red pill,"
     "you stay in Wonderland and I show you how deep the rabbit-hole goes.";
 
-void test_compress()
+void test_compress(void)
 {
     int ret;
     int sample_len;
@@ -41,7 +41,7 @@ void test_compress()
 }
 
 /* Multiple gzip buffers concatenated together */
-void test_compress_multi()
+void test_compress_multi(void)
 {
     int ret = 0;
 
@@ -125,7 +125,7 @@ void test_compress_multi()
 }
 
 /* Uncompressed data is more than FLB_GZIP_BUFFER_SIZE */
-void test_compress_large()
+void test_compress_large(void)
 {
     int ret = 0;
     const int original_len = 10 * 1000 * 1000;
@@ -159,7 +159,7 @@ void test_compress_large()
 }
 
 /* Uncompressed data is more than FLB_GZIP_BUFFER_SIZE * FLB_GZIP_MAX_BUFFERS */
-void test_compress_too_large()
+void test_compress_too_large(void)
 {
     int ret = 0;
     const int original_len = 150 * 1000 * 1000;
@@ -181,7 +181,7 @@ void test_compress_too_large()
 }
 
 /* When compressed the gzip body contains a valid gzip header */
-void test_header_in_gzip_body()
+void test_header_in_gzip_body(void)
 {
     char original[] = {
         0x06, 0x03, 0x00, 0x00, 0x07, 0x01, 0x05, 0x04, 0x07, 0x07, 0x02, 0x03, 0x00, 0x01, 0x00, 0x04, 0x06, 0x02,
@@ -214,7 +214,7 @@ void test_header_in_gzip_body()
 }
 
 /* When compressed the gzip body contains a valid gzip header */
-void test_header_in_gzip_body_multi()
+void test_header_in_gzip_body_multi(void)
 {
     char original[] = {
         0x06, 0x03, 0x00, 0x00, 0x07, 0x01, 0x05, 0x04, 0x07, 0x07, 0x02, 0x03, 0x00, 0x01, 0x00, 0x04, 0x06, 0x02,
@@ -249,7 +249,7 @@ void test_header_in_gzip_body_multi()
 }
 
 
-void test_decompress_concatenated()
+void test_decompress_concatenated(void)
 {
     int ret;
     char *in_data = morpheus;

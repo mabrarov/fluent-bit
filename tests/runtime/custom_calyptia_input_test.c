@@ -115,7 +115,7 @@ static void cleanup_test_context(struct test_context *t_ctx)
     flb_free(t_ctx);
 }
 
-void test_set_fleet_input_properties()
+void test_set_fleet_input_properties(void)
 {
     struct test_context *t_ctx = init_test_context();
     TEST_CHECK(t_ctx != NULL);
@@ -198,7 +198,7 @@ static struct test_context * update_config_dir(struct test_context * t_ctx, cons
     return NULL;
 }
 
-static void test_calyptia_machine_id_generation() {
+static void test_calyptia_machine_id_generation(void) {
     struct test_context *t_ctx = init_test_context();
     TEST_CHECK(t_ctx != NULL);
 

@@ -135,7 +135,7 @@ static void filter_test_destroy(struct filter_test *ctx)
     flb_free(ctx);
 }
 
-static void flb_ver_key()
+static void flb_ver_key(void)
 {
     int len;
     int ret;
@@ -184,7 +184,7 @@ static void flb_ver_key()
     filter_test_destroy(ctx);
 }
 
-static void hostname_key()
+static void hostname_key(void)
 {
     int len;
     int ret;
@@ -231,7 +231,7 @@ static void hostname_key()
     filter_test_destroy(ctx);
 }
 
-static void os_name_key()
+static void os_name_key(void)
 {
     int len;
     int ret;

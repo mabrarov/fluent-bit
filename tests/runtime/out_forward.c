@@ -805,7 +805,7 @@ static void cb_check_forward_compat_mode(void *ctx, int ffd,
     flb_free(res_data);
 }
 
-void flb_test_message_mode()
+void flb_test_message_mode(void)
 {
     int ret;
     int in_ffd;
@@ -846,7 +846,7 @@ void flb_test_message_mode()
     flb_destroy(ctx);
 }
 
-void flb_test_message_compat_mode()
+void flb_test_message_compat_mode(void)
 {
     int ret;
     int in_ffd;
@@ -888,7 +888,7 @@ void flb_test_message_compat_mode()
     flb_destroy(ctx);
 }
 
-void flb_test_forward_mode()
+void flb_test_forward_mode(void)
 {
     int ret;
     int in_ffd;
@@ -930,7 +930,7 @@ void flb_test_forward_mode()
     flb_destroy(ctx);
 }
 
-void flb_test_forward_mode_ack_options()
+void flb_test_forward_mode_ack_options(void)
 {
     int ret;
     int in_ffd;
@@ -966,7 +966,7 @@ void flb_test_forward_mode_ack_options()
     flb_destroy(ctx);
 }
 
-void flb_test_forward_compat_mode()
+void flb_test_forward_compat_mode(void)
 {
     int ret;
     int in_ffd;
@@ -1008,7 +1008,7 @@ void flb_test_forward_compat_mode()
     flb_destroy(ctx);
 }
 
-void flb_test_forward_mode_traces_options()
+void flb_test_forward_mode_traces_options(void)
 {
     int ret;
     int in_ffd;
@@ -1044,7 +1044,7 @@ void flb_test_forward_mode_traces_options()
     flb_destroy(ctx);
 }
 
-void flb_test_forward_mode_profiles_no_crash()
+void flb_test_forward_mode_profiles_no_crash(void)
 {
     int ret;
     int in_ffd;
@@ -1108,7 +1108,7 @@ void flb_test_forward_mode_profiles_no_crash()
     flb_destroy(ctx);
 }
 
-void flb_test_forward_mode_blobs_no_crash()
+void flb_test_forward_mode_blobs_no_crash(void)
 {
     int ret;
     int in_ffd;
@@ -1173,7 +1173,7 @@ void flb_test_forward_mode_blobs_no_crash()
 }
 
 #ifdef FLB_HAVE_METRICS
-void flb_test_forward_mode_metrics_options()
+void flb_test_forward_mode_metrics_options(void)
 {
     int ret;
     int in_ffd;
@@ -1207,7 +1207,7 @@ void flb_test_forward_mode_metrics_options()
 #endif
 
 #ifndef FLB_SYSTEM_WINDOWS
-void flb_test_secure_forward_oversized_pong_reason()
+void flb_test_secure_forward_oversized_pong_reason(void)
 {
     int ret;
     int in_ffd;

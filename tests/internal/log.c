@@ -49,7 +49,7 @@ static int update_and_check_clock(uint64_t timeout, int ret, struct flb_time *cl
     return ret_val;
 }
 
-static void cache_basic_timeout()
+static void cache_basic_timeout(void)
 {
     int i;
     int ret;
@@ -129,7 +129,7 @@ static void cache_basic_timeout()
     flb_log_cache_destroy(cache);
 }
 
-static void cache_one_slot()
+static void cache_one_slot(void)
 {
     int i;
     int ret_1;

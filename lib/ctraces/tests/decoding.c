@@ -546,7 +546,7 @@ static void msgpack_encode_decode_and_compare(struct ctrace *context)
     ctr_destroy(decoded_context);
 }
 
-void test_msgpack_to_cmt()
+void test_msgpack_to_cmt(void)
 {
     struct ctrace *context;
 
@@ -558,7 +558,7 @@ void test_msgpack_to_cmt()
     ctr_destroy(context);
 }
 
-void test_msgpack_to_ctr_with_empty_spans()
+void test_msgpack_to_ctr_with_empty_spans(void)
 {
     struct ctrace *context;
     char          *referece_text_buffer;
@@ -576,7 +576,7 @@ void test_msgpack_to_ctr_with_empty_spans()
     ctr_destroy(context);
 }
 
-void test_simple_to_msgpack_and_back()
+void test_simple_to_msgpack_and_back(void)
 {
     struct ctrace *ctx;
     struct ctrace_opts opts;

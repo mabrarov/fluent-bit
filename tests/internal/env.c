@@ -29,7 +29,7 @@
 #include "flb_tests_internal.h"
 
 /* https://github.com/fluent/fluent-bit/issues/6313 */
-void test_translate_long_env()
+void test_translate_long_env(void)
 {
     struct flb_env *env;
     flb_sds_t buf = NULL;
@@ -88,7 +88,7 @@ void test_translate_long_env()
 }
 
 /* Test file-based environment variable with refresh interval */
-void test_file_env_var_basic()
+void test_file_env_var_basic(void)
 {
     struct flb_env *env;
     flb_sds_t buf = NULL;
@@ -148,7 +148,7 @@ void test_file_env_var_basic()
 }
 
 /* Test file-based environment variable with refresh interval */
-void test_file_env_var_refresh()
+void test_file_env_var_refresh(void)
 {
     struct flb_env *env;
     flb_sds_t buf = NULL;
@@ -243,7 +243,7 @@ void test_file_env_var_refresh()
 }
 
 /* Test file-based environment variable with file:// URI */
-void test_file_env_var_uri()
+void test_file_env_var_uri(void)
 {
     struct flb_env *env;
     flb_sds_t buf = NULL;
@@ -304,7 +304,7 @@ void test_file_env_var_uri()
 }
 
 /* Test mixed static and dynamic environment variables */
-void test_mixed_env_vars()
+void test_mixed_env_vars(void)
 {
     struct flb_env *env;
     flb_sds_t buf = NULL;
@@ -374,7 +374,7 @@ void test_mixed_env_vars()
 }
 
 /* Test error handling for missing file */
-void test_file_env_var_missing()
+void test_file_env_var_missing(void)
 {
     struct flb_env *env;
     flb_sds_t buf = NULL;
@@ -414,7 +414,7 @@ void test_file_env_var_missing()
 }
 
 /* ${name:-word} when unset or empty */
-void test_expand_default_hyphen()
+void test_expand_default_hyphen(void)
 {
     struct flb_env *env;
     flb_sds_t buf = NULL;
@@ -464,7 +464,7 @@ void test_expand_default_hyphen()
 
 
 /* ${name:-} should return an empty string if name is unset or empty */
-void test_expand_empty_default()
+void test_expand_empty_default(void)
 {
     struct flb_env *env;
     flb_sds_t buf = NULL;
@@ -513,7 +513,7 @@ void test_expand_empty_default()
 }
 
 
-void test_expand_default_hyphen_from_os()
+void test_expand_default_hyphen_from_os(void)
 {
     struct flb_env *env;
     flb_sds_t buf = NULL;
