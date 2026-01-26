@@ -26,7 +26,7 @@
 #include "flb_tests_internal.h"
 
 /* https://github.com/fluent/fluent-bit/issues/6313 */
-void test_translate_long_env()
+void test_translate_long_env(void)
 {
     struct flb_env *env;
     flb_sds_t buf = NULL;

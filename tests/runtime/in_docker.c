@@ -82,7 +82,7 @@ void do_destroy(flb_ctx_t *ctx) {
     flb_destroy(ctx);
 }
 
-void flb_test_in_docker_cgroupv1() {
+void flb_test_in_docker_cgroupv1(void) {
     flb_ctx_t *ctx = flb_create();
     do_create(ctx,
               "docker",
@@ -97,7 +97,7 @@ void flb_test_in_docker_cgroupv1() {
     do_destroy(ctx);
 }
 
-void flb_test_in_docker_cgroupv2() {
+void flb_test_in_docker_cgroupv2(void) {
     flb_ctx_t *ctx = flb_create();
     do_create(ctx,
               "docker",

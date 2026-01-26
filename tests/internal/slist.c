@@ -34,7 +34,7 @@ void token_check(struct mk_list *list, int id, char *str)
     }
 }
 
-void test_slist_add()
+void test_slist_add(void)
 {
     int ret;
     struct mk_list list;
@@ -66,7 +66,7 @@ void test_slist_add()
     flb_slist_destroy(&list);
 }
 
-void test_slist_split_string()
+void test_slist_split_string(void)
 {
     int ret;
     struct mk_list list;
@@ -142,7 +142,7 @@ void test_slist_split_string()
     TEST_CHECK(mk_list_size(&list) == 0);
 }
 
-void test_slist_split_tokens()
+void test_slist_split_tokens(void)
 {
     struct mk_list list;
     char *txt =                                             \
@@ -179,7 +179,7 @@ void test_slist_split_tokens()
 
 }
 
-void test_bugs()
+void test_bugs(void)
 {
     int ret;
     struct mk_list list;

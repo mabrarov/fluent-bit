@@ -82,7 +82,7 @@ static void cleanup_test_context(struct test_context *t_ctx)
     flb_free(t_ctx);
 }
 
-static void test_in_fleet_format() {
+static void test_in_fleet_format(void) {
     struct test_context *t_ctx = init_test_context();
     TEST_CHECK(t_ctx != NULL);
 

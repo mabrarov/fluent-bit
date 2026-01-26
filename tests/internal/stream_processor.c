@@ -193,7 +193,7 @@ static int file_to_buf(char *path, struct sp_buffer *out_buf)
     return 0;
 }
 
-static void invalid_queries()
+static void invalid_queries(void)
 {
     int i;
     int checks;
@@ -232,7 +232,7 @@ static void invalid_queries()
     flb_free(config);
 }
 
-static void test_select_keys()
+static void test_select_keys(void)
 {
     int i;
     int checks;
@@ -320,7 +320,7 @@ static void test_select_keys()
 #endif
 }
 
-static void test_select_subkeys()
+static void test_select_subkeys(void)
 {
     int i;
     int checks;
@@ -448,7 +448,7 @@ void set_record_timestamps(struct sp_buffer *data_buf, double *record_timestamp)
     data_buf->size = mp_sbuf.size;
 }
 
-static void test_window()
+static void test_window(void)
 {
     int i;
     int t;
@@ -626,7 +626,7 @@ static void test_window()
 #endif
 }
 
-static void test_snapshot()
+static void test_snapshot(void)
 {
     int i;
     int t;
@@ -790,7 +790,7 @@ static void test_snapshot()
 #endif
 }
 
-static void test_conv_from_str_to_num()
+static void test_conv_from_str_to_num(void)
 {
     struct flb_config *config = NULL;
     struct flb_sp *sp = NULL;

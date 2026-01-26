@@ -175,7 +175,7 @@ static int init_udp(char *in_host, int in_port, struct sockaddr_in *addr)
     return fd;
 }
 
-void flb_test_udp()
+void flb_test_udp(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -235,7 +235,7 @@ void flb_test_udp()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_udp_with_source_address()
+void flb_test_udp_with_source_address(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -300,7 +300,7 @@ void flb_test_udp_with_source_address()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_none()
+void flb_test_format_none(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -365,7 +365,7 @@ void flb_test_format_none()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_none_separator()
+void flb_test_format_none_separator(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;

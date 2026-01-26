@@ -197,7 +197,7 @@ static flb_sockfd_t connect_tcp(char *in_host, int in_port)
     return fd;
 }
 
-void flb_test_tcp()
+void flb_test_tcp(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -255,7 +255,7 @@ void flb_test_tcp()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_tcp_with_source_address()
+void flb_test_tcp_with_source_address(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -318,7 +318,7 @@ void flb_test_tcp_with_source_address()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_tcp_with_tls()
+void flb_test_tcp_with_tls(void)
 {
     struct flb_connection *client_connection;
     struct flb_upstream   *upstream;
@@ -420,7 +420,7 @@ void flb_test_tcp_with_tls()
     flb_free(ctx);
 }
 
-void flb_test_format_none()
+void flb_test_format_none(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -483,7 +483,7 @@ void flb_test_format_none()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_none_separator()
+void flb_test_format_none_separator(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -551,7 +551,7 @@ void flb_test_format_none_separator()
  * Ingest 64k records.
  * https://github.com/fluent/fluent-bit/issues/5336
  */
-void flb_test_issue_5336()
+void flb_test_issue_5336(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;

@@ -63,7 +63,7 @@ static int create_msgpack_records(char **out_buf, size_t *out_size)
     return 0;
 }
 
-static void processor()
+static void processor(void)
 {
     int ret;
     struct flb_processor *proc;
@@ -125,7 +125,7 @@ static void processor()
     flb_sds_destroy(hostname_prop_key);
 }
 
-static void processor_private_inputs_use_main_loop()
+static void processor_private_inputs_use_main_loop(void)
 {
     int ret;
     struct flb_config *config;

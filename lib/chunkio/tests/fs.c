@@ -52,7 +52,7 @@ static int log_cb(struct cio_ctx *ctx, int level, const char *file, int line,
 }
 
 /* Test API generating files to the file system and then scanning them back */
-static void test_fs_write()
+static void test_fs_write(void)
 {
     int i;
     int ret;
@@ -178,7 +178,7 @@ static void test_fs_write()
  * Create one file chunk and check it updated sha1 after a couple of writes
  * and sync.
  */
-static void test_fs_checksum()
+static void test_fs_checksum(void)
 {
     int ret;
     int err;
@@ -290,7 +290,7 @@ static void test_fs_checksum()
  * Create one file chunk, do writes and invoke up()/down() calls, then validate
  * it checksum.
  */
-static void test_fs_up_down()
+static void test_fs_up_down(void)
 {
     int ret;
     int err;
@@ -432,7 +432,7 @@ static void test_fs_up_down()
 }
 
 /* ref: https://github.com/edsiper/chunkio/pull/51 */
-static void test_issue_51()
+static void test_issue_51(void)
 {
     int fd;
     int err;
@@ -479,7 +479,7 @@ static void test_issue_51()
 }
 
 /* ref: https://github.com/fluent/fluent-bit/2025 */
-static void test_issue_flb_2025()
+static void test_issue_flb_2025(void)
 {
     int i;
     int ret;
@@ -525,7 +525,7 @@ static void test_issue_flb_2025()
     cio_destroy(ctx);
 }
 
-void test_fs_size_chunks_up()
+void test_fs_size_chunks_up(void)
 {
     int i;
     int ret;
@@ -630,7 +630,7 @@ void test_fs_size_chunks_up()
     cio_destroy(ctx);
 }
 
-void test_issue_write_at()
+void test_issue_write_at(void)
 {
     int ret;
     int len;
@@ -724,7 +724,7 @@ void test_issue_write_at()
 }
 
 
-void test_fs_up_down_up_append()
+void test_fs_up_down_up_append(void)
 {
     int ret;
     int err;
@@ -802,7 +802,7 @@ void test_fs_up_down_up_append()
     cio_destroy(ctx);
 }
 
-static void test_deep_hierarchy()
+static void test_deep_hierarchy(void)
 {
     int i;
     int ret;
@@ -954,12 +954,12 @@ static void test_legacy_core(int trigger_checksum_error)
     free(in_data);
 }
 
-void test_legacy_success()
+void test_legacy_success(void)
 {
     test_legacy_core(CIO_FALSE);
 }
 
-void test_legacy_failure()
+void test_legacy_failure(void)
 {
     test_legacy_core(CIO_TRUE);
 }
@@ -980,7 +980,7 @@ void test_legacy_failure()
  *   old code: content_av = 100 - 24 - 80 = -4 (wraps to huge unsigned)
  * - Verify resize happens correctly and no buffer overrun occurs
  */
-static void test_metadata_unsigned_underflow()
+static void test_metadata_unsigned_underflow(void)
 {
     int ret;
     int err;

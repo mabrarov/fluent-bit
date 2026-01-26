@@ -292,7 +292,7 @@ unsigned char serialized_data[] = {
     0x72, 0x64
 };
 
-static void test_encoder()
+static void test_encoder(void)
 {
     cfl_sds_t     otlp_encoder_result;
     struct cprof *context;
@@ -322,7 +322,7 @@ static void test_encoder()
     }
 }
 
-static void test_decoder()
+static void test_decoder(void)
 {
     struct cprof *context;
     int           result;

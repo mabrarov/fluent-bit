@@ -33,7 +33,7 @@
 
 #include <stdlib.h>
 
-void cb_keys()
+void cb_keys(void)
 {
     struct flb_cfl_record_accessor *cra;
 
@@ -84,7 +84,7 @@ void cb_keys()
     flb_cfl_ra_destroy(cra);
 }
 
-void cb_dash_key()
+void cb_dash_key(void)
 {
     struct cfl_kvlist *kvlist = NULL;
     struct cfl_variant *vobj = NULL;
@@ -135,7 +135,7 @@ void cb_dash_key()
     flb_cfl_ra_destroy(cra);
 }
 
-void cb_translate()
+void cb_translate(void)
 {
     char *fmt;
     char *fmt_out;
@@ -217,7 +217,7 @@ error:
     flb_cfl_ra_destroy(cra);
 }
 
-void cb_translate_tag()
+void cb_translate_tag(void)
 {
     char *fmt;
     flb_sds_t str;
@@ -280,7 +280,7 @@ void cb_translate_tag()
     flb_cfl_ra_destroy(cra);
 }
 
-void cb_dots_subkeys()
+void cb_dots_subkeys(void)
 {
     char *fmt;
     char *fmt_out;
@@ -346,7 +346,7 @@ void cb_dots_subkeys()
     flb_cfl_ra_destroy(cra);
 }
 
-void cb_array_id()
+void cb_array_id(void)
 {
     char *fmt;
     char *fmt_out;
@@ -427,7 +427,7 @@ void cb_array_id()
     flb_cfl_ra_destroy(cra);
 }
 
-void cb_get_kv_pair()
+void cb_get_kv_pair(void)
 {
     int ret;
     char *fmt;
@@ -551,7 +551,7 @@ static int order_lookup_check(struct cfl_variant *vobj,
     return 0;
 }
 
-void cb_key_order_lookup()
+void cb_key_order_lookup(void)
 {
     struct cfl_kvlist *kvlist = NULL;
     struct cfl_variant *vobj = NULL;
@@ -591,7 +591,7 @@ void cb_key_order_lookup()
     cfl_variant_destroy(vobj);
 }
 
-void cb_update_key_val()
+void cb_update_key_val(void)
 {
     int ret;
     struct cfl_kvlist *kvlist = NULL;
@@ -707,7 +707,7 @@ void cb_update_key_val()
     cfl_sds_destroy(in_key);
 }
 
-void cb_update_val()
+void cb_update_val(void)
 {
     int ret;
     struct cfl_kvlist *kvlist = NULL;
@@ -805,7 +805,7 @@ void cb_update_val()
     cfl_variant_destroy(vobj);
 }
 
-void cb_update_key()
+void cb_update_key(void)
 {
     int ret;
     struct cfl_kvlist *kvlist = NULL;
@@ -910,7 +910,7 @@ error:
     cfl_sds_destroy(in_key);
 }
 
-void cb_update_root_key()
+void cb_update_root_key(void)
 {
     int ret;
     struct cfl_kvlist *kvlist = NULL;
@@ -1015,7 +1015,7 @@ void cb_update_root_key()
     cfl_sds_destroy(in_key);
 }
 
-void cb_update_root_key_val()
+void cb_update_root_key_val(void)
 {
     int ret;
     struct cfl_kvlist *kvlist = NULL;
@@ -1131,7 +1131,7 @@ void cb_update_root_key_val()
     cfl_sds_destroy(in_key);
 }
 
-void cb_ra_translate_check()
+void cb_ra_translate_check(void)
 {
     char *fmt;
     flb_sds_t str;
@@ -1188,7 +1188,7 @@ struct char_list_cobj_ra_str{
     char *expect;
 };
 
-void cb_ra_create_str_from_list()
+void cb_ra_create_str_from_list(void)
 {
     char *case1[] = {"a", NULL};
     char *case2[] = {"aa", "bb", "cc", NULL};
@@ -1253,7 +1253,7 @@ void cb_ra_create_str_from_list()
     flb_sds_list_destroy(list);
 }
 
-void cb_add_key_val()
+void cb_add_key_val(void)
 {
     int ret;
     struct cfl_kvlist *kvlist = NULL;
@@ -1365,7 +1365,7 @@ void cb_add_key_val()
     cfl_variant_destroy(vobj);
 }
 
-void cb_add_root_key_val()
+void cb_add_root_key_val(void)
 {
     int ret;
     struct cfl_kvlist *kvlist = NULL;
@@ -1477,7 +1477,7 @@ void cb_add_root_key_val()
     cfl_variant_destroy(vobj);
 }
 
-void cb_direct_array_access()
+void cb_direct_array_access(void)
 {
     struct cfl_kvlist *kvlist = NULL;
     struct cfl_array *array = NULL;
@@ -1539,7 +1539,7 @@ void cb_direct_array_access()
     cfl_variant_destroy(vobj);
 }
 
-void cb_nested_array_access()
+void cb_nested_array_access(void)
 {
     struct cfl_kvlist *kvlist = NULL;
     struct cfl_array *matrix = NULL;
@@ -1622,7 +1622,7 @@ void cb_nested_array_access()
     cfl_variant_destroy(vobj);
 }
 
-void cb_mixed_array_map_access()
+void cb_mixed_array_map_access(void)
 {
     struct cfl_kvlist *kvlist = NULL;
     struct cfl_kvlist *person1 = NULL;

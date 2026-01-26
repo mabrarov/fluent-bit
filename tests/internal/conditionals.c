@@ -351,7 +351,7 @@ static void destroy_test_record(struct test_record *record)
     flb_free(record);
 }
 
-void test_condition_equals()
+void test_condition_equals(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -390,7 +390,7 @@ void test_condition_equals()
     destroy_test_record(record_data);
 }
 
-void test_condition_numeric()
+void test_condition_numeric(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -432,7 +432,7 @@ void test_condition_numeric()
     destroy_test_record(record_data);
 }
 
-void test_condition_not_equals()
+void test_condition_not_equals(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -471,7 +471,7 @@ void test_condition_not_equals()
     destroy_test_record(record_data);
 }
 
-void test_condition_in()
+void test_condition_in(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -511,7 +511,7 @@ void test_condition_in()
     destroy_test_record(record_data);
 }
 
-void test_condition_not_in()
+void test_condition_not_in(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -551,7 +551,7 @@ void test_condition_not_in()
     destroy_test_record(record_data);
 }
 
-void test_condition_and()
+void test_condition_and(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -594,7 +594,7 @@ void test_condition_and()
     destroy_test_record(record_data);
 }
 
-void test_condition_or()
+void test_condition_or(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -637,7 +637,7 @@ void test_condition_or()
     destroy_test_record(record_data);
 }
 
-void test_condition_empty()
+void test_condition_empty(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -666,7 +666,7 @@ void test_condition_empty()
     destroy_test_record(record_data);
 }
 
-void test_condition_regex()
+void test_condition_regex(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -721,7 +721,7 @@ void test_condition_regex()
     destroy_test_record(record_data);
 }
 
-void test_condition_invalid_expressions()
+void test_condition_invalid_expressions(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -816,7 +816,7 @@ void test_condition_invalid_expressions()
     destroy_test_record(record_data);
 }
 
-void test_condition_metadata()
+void test_condition_metadata(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -876,7 +876,7 @@ void test_condition_metadata()
     destroy_test_record(record_data);
 }
 
-void test_condition_missing_values()
+void test_condition_missing_values(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -948,7 +948,7 @@ void test_condition_missing_values()
     destroy_test_record(record_data);
 }
 
-void test_condition_border_cases()
+void test_condition_border_cases(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -1055,7 +1055,7 @@ void test_condition_border_cases()
     destroy_test_record(record_data);
 }
 
-void test_condition_numeric_edge_cases()
+void test_condition_numeric_edge_cases(void)
 {
     struct test_record *record_data = NULL;
     struct flb_condition *cond = NULL;
@@ -1205,7 +1205,7 @@ void test_condition_numeric_edge_cases()
     destroy_test_record(record_data);
 }
 
-void test_condition_not_regex()
+void test_condition_not_regex(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -1285,7 +1285,7 @@ void test_condition_not_regex()
     flb_condition_destroy(cond);
 }
 
-void test_condition_not_regex_multiple()
+void test_condition_not_regex_multiple(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -1413,7 +1413,7 @@ void test_condition_not_regex_multiple()
     destroy_test_record(record_data);
 }
 
-void test_condition_not_regex_border_cases()
+void test_condition_not_regex_border_cases(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -1563,7 +1563,7 @@ void test_condition_not_regex_border_cases()
     destroy_test_record(record_data);
 }
 
-void test_condition_gte_lte()
+void test_condition_gte_lte(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -1673,7 +1673,7 @@ void test_condition_gte_lte()
     destroy_test_record(record_data);
 }
 
-void test_condition_gte_lte_multiple()
+void test_condition_gte_lte_multiple(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;
@@ -1741,7 +1741,7 @@ void test_condition_gte_lte_multiple()
     destroy_test_record(record_data);
 }
 
-void test_condition_gte_lte_border_cases()
+void test_condition_gte_lte_border_cases(void)
 {
     struct test_record *record_data;
     struct flb_condition *cond;

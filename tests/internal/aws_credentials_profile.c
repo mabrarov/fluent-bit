@@ -40,7 +40,7 @@ HjefwKEk9HjZfejC5WuCS173qFrU9kNb4IrYhnK+wmRzzJfgpWUwerdiJKBz95j1iW9rP1a\
 #define CUSTOM_PROFILE_ACCESS_KEY_ID "custom_access_key_id"
 #define CUSTOM_PROFILE_SECRET_ACCESS_KEY "custom_secret_access_key"
 
-static void test_profile_default()
+static void test_profile_default(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials*creds;
@@ -90,7 +90,7 @@ static void test_profile_default()
     TEST_CHECK(unset_profile_env() == 0);
 }
 
-static void test_profile_custom()
+static void test_profile_custom(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials*creds;
@@ -138,7 +138,7 @@ static void test_profile_custom()
     TEST_CHECK(unset_profile_env() == 0);
 }
 
-static void test_profile_non_default()
+static void test_profile_non_default(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials*creds;
@@ -191,7 +191,7 @@ static void test_profile_non_default()
     TEST_CHECK(unset_profile_env() == 0);
 }
 
-static void test_profile_no_space()
+static void test_profile_no_space(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials*creds;
@@ -244,7 +244,7 @@ static void test_profile_no_space()
     TEST_CHECK(unset_profile_env() == 0);
 }
 
-static void test_profile_weird_whitespace()
+static void test_profile_weird_whitespace(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials*creds;
@@ -305,7 +305,7 @@ static void test_profile_weird_whitespace()
     TEST_CHECK(unset_profile_env() == 0);
 }
 
-static void test_profile_missing()
+static void test_profile_missing(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials*creds;
@@ -350,7 +350,7 @@ static void test_profile_missing()
     TEST_CHECK(unset_profile_env() == 0);
 }
 
-static void test_profile_nodefault()
+static void test_profile_nodefault(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials*creds;

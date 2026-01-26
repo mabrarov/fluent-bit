@@ -169,7 +169,7 @@ static struct cmt *generate_encoder_test_data()
  *          |---> compare <----|
  */
 
-void test_cmt_to_msgpack()
+void test_cmt_to_msgpack(void)
 {
     int ret;
     size_t offset = 0;
@@ -220,7 +220,7 @@ void test_cmt_to_msgpack()
  * valgrind
  */
 
-void test_cmt_to_msgpack_cleanup_on_error()
+void test_cmt_to_msgpack_cleanup_on_error(void)
 {
 #ifdef __linux__
     int ret;
@@ -275,7 +275,7 @@ void test_cmt_to_msgpack_cleanup_on_error()
  *          |                  |
  *          |---> compare <----|
  */
-void test_cmt_to_msgpack_integrity()
+void test_cmt_to_msgpack_integrity(void)
 {
     int ret;
     size_t offset = 0;
@@ -323,7 +323,7 @@ void test_cmt_to_msgpack_integrity()
     cmt_encode_text_destroy(text2_buf);
 }
 
-void test_cmt_msgpack_partial_processing()
+void test_cmt_msgpack_partial_processing(void)
 {
     int ret = 0;
     int iteration = 0;
@@ -429,7 +429,7 @@ void test_cmt_msgpack_partial_processing()
     cfl_sds_destroy(serialized_data_buffer);
 }
 
-void test_cmt_to_msgpack_stability()
+void test_cmt_to_msgpack_stability(void)
 {
     int ret = 0;
     int iteration = 0;
@@ -457,7 +457,7 @@ void test_cmt_to_msgpack_stability()
 
 }
 
-void test_cmt_to_msgpack_labels()
+void test_cmt_to_msgpack_labels(void)
 {
     int ret;
     size_t offset = 0;
@@ -509,7 +509,7 @@ void test_cmt_to_msgpack_labels()
     cmt_encode_msgpack_destroy(mp2_buf);
 }
 
-void test_prometheus_remote_write()
+void test_prometheus_remote_write(void)
 {
     struct cmt *cmt;
     cfl_sds_t   payload;
@@ -550,7 +550,7 @@ curl -v 'http://localhost:9090/receive' -H 'Content-Type: application/x-protobuf
     cmt_destroy(cmt);
 }
 
-void test_prometheus_remote_write_with_outdated_timestamps()
+void test_prometheus_remote_write_with_outdated_timestamps(void)
 {
     struct cmt *cmt;
     cfl_sds_t   payload;
@@ -578,7 +578,7 @@ void test_prometheus_remote_write_with_outdated_timestamps()
     cmt_destroy(cmt);
 }
 
-void test_opentelemetry()
+void test_opentelemetry(void)
 {
     cfl_sds_t payload;
     struct cmt *cmt;
@@ -614,7 +614,7 @@ curl -v 'http://localhost:9090/v1/metrics' -H 'Content-Type: application/x-proto
     cmt_destroy(cmt);
 }
 
-void test_cloudwatch_emf()
+void test_cloudwatch_emf(void)
 {
     int ret;
     struct cmt *cmt;
@@ -654,7 +654,7 @@ fluent-bit\n\n");
     cmt_destroy(cmt);
 }
 
-void test_prometheus()
+void test_prometheus(void)
 {
     uint64_t ts;
     cfl_sds_t text;
@@ -705,7 +705,7 @@ void test_prometheus()
     cmt_destroy(cmt);
 }
 
-void test_text()
+void test_text(void)
 {
     uint64_t ts;
     cfl_sds_t text;
@@ -751,7 +751,7 @@ void test_text()
     cmt_destroy(cmt);
 }
 
-void test_influx()
+void test_influx(void)
 {
     uint64_t ts;
     cfl_sds_t text;
@@ -803,7 +803,7 @@ void test_influx()
     cmt_destroy(cmt);
 }
 
-void test_influx_without_namespaces()
+void test_influx_without_namespaces(void)
 {
     uint64_t ts;
     cfl_sds_t text;
@@ -855,7 +855,7 @@ void test_influx_without_namespaces()
     cmt_destroy(cmt);
 }
 
-void test_splunk_hec()
+void test_splunk_hec(void)
 {
     uint64_t ts;
     cfl_sds_t text;
@@ -909,7 +909,7 @@ void test_splunk_hec()
 }
 
 
-void test_splunk_hec_floating_point()
+void test_splunk_hec_floating_point(void)
 {
     uint64_t ts;
     cfl_sds_t text;
@@ -986,7 +986,7 @@ static int histogram_observe_all(struct cmt_histogram *h,
     return i;
 }
 
-void test_splunk_hec_histogram()
+void test_splunk_hec_histogram(void)
 {
     uint64_t ts;
     cfl_sds_t text;
@@ -1072,7 +1072,7 @@ void test_splunk_hec_histogram()
     cmt_destroy(cmt);
 }
 
-void test_splunk_hec_summary()
+void test_splunk_hec_summary(void)
 {
     double sum;
     uint64_t count;

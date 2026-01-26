@@ -140,7 +140,7 @@ void flb_test_dummy_records_trace_simple(struct callback_records *records)
     }
 }
 
-void flb_test_trace()
+void flb_test_trace(void)
 {
     do_test_records_trace(flb_test_dummy_records_trace_simple);
 }

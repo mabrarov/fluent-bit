@@ -22,7 +22,7 @@
 #include "cfl_tests_internal.h"
 
 
-static void regular_operation()
+static void regular_operation(void)
 {
     struct cfl_list *entry_iterator;
     size_t           entry_index;

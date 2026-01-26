@@ -20,7 +20,7 @@
 #include <cfl/cfl.h>
 #include "cfl_tests_internal.h"
 
-static void test_sds_usage()
+static void test_sds_usage(void)
 {
     cfl_sds_t s;
 
@@ -36,7 +36,7 @@ static void test_sds_usage()
     cfl_sds_destroy(s);
 }
 
-static void test_sds_printf()
+static void test_sds_printf(void)
 {
     int len;
     cfl_sds_t s;

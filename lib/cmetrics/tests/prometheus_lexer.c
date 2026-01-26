@@ -55,14 +55,14 @@ int lex(struct fixture *f)
     return cmt_decode_prometheus_lex(&f->lval, f->scanner, &(f->context));
 }
 
-void test_comment()
+void test_comment(void)
 {
     struct fixture *f = init("# this is just a comment");
     TEST_CHECK(lex(f) == 0);  // 0 means EOF
     destroy(f);
 }
 
-void test_help()
+void test_help(void)
 {
     struct fixture *f = init("# HELP cmt_labels_test Static \\\\labels\\n test");
 
@@ -89,7 +89,7 @@ void test_help()
     destroy(f);
 }
 
-void test_type()
+void test_type(void)
 {
     struct fixture *f = init("# TYPE metric_name gauge");
 
@@ -102,7 +102,7 @@ void test_type()
     destroy(f);
 }
 
-void test_simple()
+void test_simple(void)
 {
     struct fixture *f = init(
             "# HELP cmt_labels_test Static labels test\n"

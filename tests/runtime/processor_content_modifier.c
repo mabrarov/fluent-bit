@@ -183,7 +183,7 @@ static void processor_test_destroy(struct processor_test *ctx)
     flb_free(ctx);
 }
 
-static void flb_logs_action_insert()
+static void flb_logs_action_insert(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -252,7 +252,7 @@ static void flb_logs_action_insert()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_delete()
+static void flb_logs_action_delete(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -321,7 +321,7 @@ static void flb_logs_action_delete()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_rename()
+static void flb_logs_action_rename(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -391,7 +391,7 @@ static void flb_logs_action_rename()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_upsert()
+static void flb_logs_action_upsert(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -460,7 +460,7 @@ static void flb_logs_action_upsert()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_hash()
+static void flb_logs_action_hash(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -525,7 +525,7 @@ static void flb_logs_action_hash()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_extract()
+static void flb_logs_action_extract(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -595,7 +595,7 @@ static void flb_logs_action_extract()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_string_to_int()
+static void flb_logs_action_convert_from_string_to_int(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -664,7 +664,7 @@ static void flb_logs_action_convert_from_string_to_int()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_int_to_string()
+static void flb_logs_action_convert_from_int_to_string(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -733,7 +733,7 @@ static void flb_logs_action_convert_from_int_to_string()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_string_to_double()
+static void flb_logs_action_convert_from_string_to_double(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -802,7 +802,7 @@ static void flb_logs_action_convert_from_string_to_double()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_double_to_string()
+static void flb_logs_action_convert_from_double_to_string(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -871,7 +871,7 @@ static void flb_logs_action_convert_from_double_to_string()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_string_to_boolean()
+static void flb_logs_action_convert_from_string_to_boolean(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -940,7 +940,7 @@ static void flb_logs_action_convert_from_string_to_boolean()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_int_to_boolean()
+static void flb_logs_action_convert_from_int_to_boolean(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -1009,7 +1009,7 @@ static void flb_logs_action_convert_from_int_to_boolean()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_int_to_double()
+static void flb_logs_action_convert_from_int_to_double(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -1078,7 +1078,7 @@ static void flb_logs_action_convert_from_int_to_double()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_double_to_int()
+static void flb_logs_action_convert_from_double_to_int(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -1148,7 +1148,7 @@ static void flb_logs_action_convert_from_double_to_int()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_double_to_boolean()
+static void flb_logs_action_convert_from_double_to_boolean(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -1217,7 +1217,7 @@ static void flb_logs_action_convert_from_double_to_boolean()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_null_to_string()
+static void flb_logs_action_convert_from_null_to_string(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -1286,7 +1286,7 @@ static void flb_logs_action_convert_from_null_to_string()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_null_to_int()
+static void flb_logs_action_convert_from_null_to_int(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;
@@ -1355,7 +1355,7 @@ static void flb_logs_action_convert_from_null_to_int()
     processor_test_destroy(ctx);
 }
 
-static void flb_logs_action_convert_from_null_to_double()
+static void flb_logs_action_convert_from_null_to_double(void)
 {
     struct processor_test *ctx;
     struct flb_lib_out_cb cb_data;

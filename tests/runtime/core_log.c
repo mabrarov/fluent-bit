@@ -98,7 +98,7 @@ static int cb_log_level(void *record, size_t size, void *data)
     return 0;
 }
 
-void test_not_truncated_log()
+void test_not_truncated_log(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -148,7 +148,7 @@ void test_not_truncated_log()
 
 }
 
-void test_truncated_log()
+void test_truncated_log(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -198,7 +198,7 @@ void test_truncated_log()
 
 }
 
-void test_resize()
+void test_resize(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -248,7 +248,7 @@ void test_resize()
 
 }
 
-void test_log_level()
+void test_log_level(void)
 {
     int ret;
     flb_ctx_t *ctx;

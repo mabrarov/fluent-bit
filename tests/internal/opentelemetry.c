@@ -393,7 +393,7 @@ static int validate_extended_output(struct test_output *actual, msgpack_object *
 /* Unit tests                                                     */
 /* --------------------------------------------------------------- */
 
-void test_hex_to_id()
+void test_hex_to_id(void)
 {
     unsigned char out[16];
     int ret;
@@ -408,7 +408,7 @@ void test_hex_to_id()
     TEST_CHECK(memcmp(out, expect, sizeof(expect)) == 0);
 }
 
-void test_hex_to_id_error_cases()
+void test_hex_to_id_error_cases(void)
 {
     unsigned char out[16];
     int ret;
@@ -446,7 +446,7 @@ void test_hex_to_id_error_cases()
     TEST_CHECK(ret == 0); /* Should succeed with lowercase hex */
 }
 
-void test_convert_string_number_to_u64()
+void test_convert_string_number_to_u64(void)
 {
     uint64_t val;
 
@@ -454,7 +454,7 @@ void test_convert_string_number_to_u64()
     TEST_CHECK(val == 123456ULL);
 }
 
-void test_find_map_entry_by_key()
+void test_find_map_entry_by_key(void)
 {
     msgpack_sbuffer sbuf;
     msgpack_packer  pck;
@@ -485,7 +485,7 @@ void test_find_map_entry_by_key()
     msgpack_unpacked_destroy(&up);
 }
 
-void test_json_payload_get_wrapped_value()
+void test_json_payload_get_wrapped_value(void)
 {
     msgpack_sbuffer sbuf;
     msgpack_packer  pck;
@@ -540,7 +540,7 @@ void test_json_payload_get_wrapped_value()
 #define OTEL_TEST_CASES_PATH      FLB_TESTS_DATA_PATH "/data/opentelemetry/logs.json"
 #define OTEL_TRACES_TEST_CASES_PATH FLB_TESTS_DATA_PATH "/data/opentelemetry/traces.json"
 
-void test_opentelemetry_cases()
+void test_opentelemetry_cases(void)
 {
     int ret;
     char *cases_json;
@@ -798,7 +798,7 @@ void test_opentelemetry_cases()
     flb_free(cases_json);
 }
 
-void test_opentelemetry_traces_cases()
+void test_opentelemetry_traces_cases(void)
 {
     int ret;
     char *cases_json;
@@ -925,7 +925,7 @@ void test_opentelemetry_traces_cases()
     flb_free(cases_json);
 }
 
-void test_trace_span_binary_sizes()
+void test_trace_span_binary_sizes(void)
 {
     int ret;
     struct flb_log_event_encoder enc;

@@ -15,7 +15,7 @@
 
 #define APACHE_10K    FLB_TESTS_DATA_PATH "/data/mp/apache_10k.mp"
 
-void test_count()
+void test_count(void)
 {
     int ret;
     int count;
@@ -37,7 +37,7 @@ void test_count()
     flb_free(data);
 }
 
-void test_map_header()
+void test_map_header(void)
 {
     int i;
     int ret;
@@ -76,7 +76,7 @@ void test_map_header()
     msgpack_sbuffer_destroy(&mp_sbuf);
 }
 
-void test_accessor_keys_remove()
+void test_accessor_keys_remove(void)
 {
     int len;
     int ret;
@@ -146,7 +146,7 @@ void test_accessor_keys_remove()
 }
 
 /* https://github.com/fluent/fluent-bit/issues/5546 */
-void test_keys_remove_subkey_key()
+void test_keys_remove_subkey_key(void)
 {
     int len;
     int ret;
@@ -232,7 +232,7 @@ void test_keys_remove_subkey_key()
 
 }
 
-void test_remove_sibling_subkeys()
+void test_remove_sibling_subkeys(void)
 {
     int len;
     int ret;
@@ -424,7 +424,7 @@ void remove_subkey_keys(char *list[], int list_size, int index_start)
     flb_slist_destroy(&patterns);
 }
 
-void test_keys_remove_subkey_keys()
+void test_keys_remove_subkey_keys(void)
 {
     char *list[] = {"$kubernetes[2]['annotations']['fluentbit.io/tag']",
                     "$kubernetes[2]['a']",
@@ -444,7 +444,7 @@ void test_keys_remove_subkey_keys()
     }
 }
 
-void test_object_to_cfl_to_msgpack()
+void test_object_to_cfl_to_msgpack(void)
 {
     int len;
     int ret;

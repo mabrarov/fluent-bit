@@ -56,7 +56,7 @@
  */
 
 /* data/config_format/fluent-bit.yaml */
-static void test_basic()
+static void test_basic(void)
 {
     struct mk_list *head;
     struct flb_cf *cf;
@@ -168,7 +168,7 @@ static void test_basic()
 }
 
 /* https://github.com/fluent/fluent-bit/issues/7559 */
-static void test_customs_section()
+static void test_customs_section(void)
 {
     struct flb_cf *cf;
     struct flb_cf_section *s;
@@ -194,7 +194,7 @@ static void test_customs_section()
     flb_cf_destroy(cf);
 }
 
-static void test_broken_plugin_variant_yaml()
+static void test_broken_plugin_variant_yaml(void)
 {
     struct flb_cf *cf;
 
@@ -208,7 +208,7 @@ static void test_broken_plugin_variant_yaml()
     }
 }
 
-static void test_slist_even()
+static void test_slist_even(void)
 {
     struct flb_cf *cf;
     struct flb_cf_section *s;
@@ -241,7 +241,7 @@ static void test_slist_even()
     flb_cf_destroy(cf);
 }
 
-static void test_slist_odd()
+static void test_slist_odd(void)
 {
     struct flb_cf *cf;
     struct flb_cf_section *s;
@@ -275,7 +275,7 @@ static void test_slist_odd()
 }
 
 
-static void test_parser_conf()
+static void test_parser_conf(void)
 {
     struct flb_cf *cf;
     struct flb_config *config;
@@ -338,7 +338,7 @@ static inline int check_camel_to_snake(char *input, char *output)
 }
 
 
-static void test_camel_case_key()
+static void test_camel_case_key(void)
 {
     /* normal conversion */
     TEST_CHECK(check_camel_to_snake("a", "a") == FLB_TRUE);
@@ -355,7 +355,7 @@ static void test_camel_case_key()
 }
 
 /* data/config_format/processors.yaml */
-static void test_processors()
+static void test_processors(void)
 {
     struct mk_list *head;
     struct flb_cf *cf;
@@ -468,7 +468,7 @@ static void test_processors()
     flb_cf_destroy(cf);
 }
 
-static void test_parsers_and_multiline_parsers()
+static void test_parsers_and_multiline_parsers(void)
 {
     int idx = 0;
     flb_sds_t str;
@@ -571,7 +571,7 @@ static void test_parsers_and_multiline_parsers()
     flb_cf_destroy(cf);
 }
 
-static void test_stream_processor()
+static void test_stream_processor(void)
 {
     int idx = 0;
     struct mk_list *head;
@@ -631,7 +631,7 @@ static void test_stream_processor()
     flb_cf_destroy(cf);
 }
 
-static void test_plugins()
+static void test_plugins(void)
 {
     int idx = 0;
     struct mk_list *head;
@@ -683,7 +683,7 @@ static void test_plugins()
     flb_cf_destroy(cf);
 }
 
-static void test_upstream_servers()
+static void test_upstream_servers(void)
 {
     int idx = 0;
     int g_idx = 0;
@@ -835,7 +835,7 @@ static void test_upstream_servers()
     flb_cf_destroy(cf);
 }
 
-static void test_invalid_property()
+static void test_invalid_property(void)
 {
     char* test_cases[] = {
         FLB_TESTS_CONF_PATH "/invalid_input_property.yaml",

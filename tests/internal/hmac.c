@@ -50,7 +50,7 @@ static void hexlify(uint8_t *hash, char *out)
     }
 }
 
-static void test_hmac_standard()
+static void test_hmac_standard(void)
 {
     int               ref_signature_type;
     char              hex_signature[64];
@@ -94,7 +94,7 @@ static void test_hmac_standard()
 }
 
 
-static void test_hmac_simple_batch()
+static void test_hmac_simple_batch(void)
 {
     int               ref_signature_type;
     char              hex_signature[64];

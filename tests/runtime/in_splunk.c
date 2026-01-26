@@ -211,7 +211,7 @@ static void test_ctx_destroy(struct test_ctx *ctx)
     flb_free(ctx);
 }
 
-void flb_test_splunk_health()
+void flb_test_splunk_health(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -360,12 +360,12 @@ void flb_test_splunk(int port, char *endpoint)
     test_ctx_destroy(ctx);
 }
 
-void flb_test_splunk_collector()
+void flb_test_splunk_collector(void)
 {
     flb_test_splunk(8809, "/services/collector");
 }
 
-void flb_test_splunk_collector_event()
+void flb_test_splunk_collector_event(void)
 {
     flb_test_splunk(8810, "/services/collector/event");
 }
@@ -446,7 +446,7 @@ void flb_test_splunk_raw(int port, char *endpoint)
     test_ctx_destroy(ctx);
 }
 
-void flb_test_splunk_collector_raw()
+void flb_test_splunk_collector_raw(void)
 {
     flb_test_splunk_raw(8811, "/services/collector/raw");
 }
@@ -531,12 +531,12 @@ void flb_test_splunk_raw_multilines(int port)
     test_ctx_destroy(ctx);
 }
 
-void flb_test_splunk_collector_raw_multilines()
+void flb_test_splunk_collector_raw_multilines(void)
 {
     flb_test_splunk_raw_multilines(8812);
 }
 
-void flb_test_splunk_tag_key()
+void flb_test_splunk_tag_key(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -705,12 +705,12 @@ void flb_test_splunk_gzip(int port, char *endpoint)
     test_ctx_destroy(ctx);
 }
 
-void flb_test_splunk_collector_gzip()
+void flb_test_splunk_collector_gzip(void)
 {
     flb_test_splunk_gzip(8813, "/services/collector");
 }
 
-void flb_test_splunk_collector_event_gzip()
+void flb_test_splunk_collector_event_gzip(void)
 {
     flb_test_splunk_gzip(8814, "/services/collector/event");
 }
@@ -805,7 +805,7 @@ void flb_test_splunk_raw_multilines_gzip(int port)
     test_ctx_destroy(ctx);
 }
 
-void flb_test_splunk_collector_raw_multilines_gzip()
+void flb_test_splunk_collector_raw_multilines_gzip(void)
 {
     flb_test_splunk_raw_multilines_gzip(8815);
 }
@@ -900,24 +900,24 @@ void flb_test_splunk_auth_header(int port, char *endpoint)
     test_ctx_destroy(ctx);
 }
 
-void flb_test_splunk_collector_event_hec_token_key()
+void flb_test_splunk_collector_event_hec_token_key(void)
 {
     flb_test_splunk_auth_header(8816, "/services/collector/event");
 }
 
-void flb_test_splunk_collector_raw_hec_token_key()
+void flb_test_splunk_collector_raw_hec_token_key(void)
 {
     flb_test_splunk_auth_header(8817, "/services/collector/raw");
 }
 
 /* 1.0 endpoints */
 
-void flb_test_splunk_collector_raw_1_0()
+void flb_test_splunk_collector_raw_1_0(void)
 {
     flb_test_splunk_raw(8818, "/services/collector/raw/1.0");
 }
 
-void flb_test_splunk_collector_event_1_0()
+void flb_test_splunk_collector_event_1_0(void)
 {
     flb_test_splunk(8819, "/services/collector/event/1.0");
 }

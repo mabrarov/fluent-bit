@@ -44,7 +44,7 @@
 pthread_once_t uds_connection_tls_slot_init_once_control = PTHREAD_ONCE_INIT;
 FLB_TLS_DEFINE(struct flb_forward_uds_connection, uds_connection);
 
-void initialize_uds_connection_tls_slot()
+void initialize_uds_connection_tls_slot(void)
 {
     FLB_TLS_INIT(uds_connection);
 }

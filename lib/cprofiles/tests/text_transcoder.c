@@ -621,7 +621,7 @@ unsigned char serialized_data[] = {
     0x68, 0x65, 0x6D, 0x61, 0x5F, 0x75, 0x72, 0x6C, 0xA0
 };
 
-static void test_encoder()
+static void test_encoder(void)
 {
     cfl_sds_t     text_encoder_result;
     struct cprof *context;

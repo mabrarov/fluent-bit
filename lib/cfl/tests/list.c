@@ -24,7 +24,7 @@ struct test {
 	struct cfl_list _head;
 };
 
-static void checks()
+static void checks(void)
 {
     struct test *t;
     struct cfl_list list;
@@ -42,7 +42,7 @@ static void checks()
     free(t);
 }
 
-static void add()
+static void add(void)
 {
     int i;
     int count = 0;

@@ -392,7 +392,7 @@ static void mock_k8s_api_destroy(struct test_k8s_server_ctx* server)
     flb_free(server);
 }
 
-void flb_test_events_v1_with_lastTimestamp()
+void flb_test_events_v1_with_lastTimestamp(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -432,7 +432,7 @@ void flb_test_events_v1_with_lastTimestamp()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_events_v1_with_creationTimestamp()
+void flb_test_events_v1_with_creationTimestamp(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -472,7 +472,7 @@ void flb_test_events_v1_with_creationTimestamp()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_events_with_chunkedrecv()
+void flb_test_events_with_chunkedrecv(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -517,7 +517,7 @@ void flb_test_events_with_chunkedrecv()
 
 #ifdef FLB_HAVE_SQLDB
 /* Test valid db.sync values */
-void flb_test_config_db_sync_values()
+void flb_test_config_db_sync_values(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -551,7 +551,7 @@ void flb_test_config_db_sync_values()
 }
 
 /* Test valid db.journal_mode values */
-void flb_test_config_db_journal_mode_values()
+void flb_test_config_db_journal_mode_values(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -585,7 +585,7 @@ void flb_test_config_db_journal_mode_values()
 }
 
 /* Test valid db.locking values */
-void flb_test_config_db_locking_values()
+void flb_test_config_db_locking_values(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;

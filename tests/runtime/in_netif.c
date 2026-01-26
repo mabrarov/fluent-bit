@@ -178,7 +178,7 @@ static int cb_count_msgpack_events(void *record, size_t size, void *data)
     return 0;
 }
 
-static void flb_test_normal()
+static void flb_test_normal(void)
 {
     int ret;
     int got;
@@ -229,7 +229,7 @@ static void flb_test_normal()
     test_ctx_destroy(ctx);
 }
 
-static void flb_test_no_interface()
+static void flb_test_no_interface(void)
 {
     int ret;
     int unused = 0;
@@ -254,7 +254,7 @@ static void flb_test_no_interface()
     test_ctx_destroy(ctx);
 }
 
-static void flb_test_invalid_interface()
+static void flb_test_invalid_interface(void)
 {
     int ret;
     int unused = 0;
@@ -288,7 +288,7 @@ static void flb_test_invalid_interface()
     test_ctx_destroy(ctx);
 }
 
-static void flb_test_verbose()
+static void flb_test_verbose(void)
 {
     int ret;
     int got;

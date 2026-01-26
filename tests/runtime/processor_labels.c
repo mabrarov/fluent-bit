@@ -75,7 +75,7 @@ static int cb_insert_labels(void *record, size_t size, void *data)
     return 0;
 }
 
-static void insert_label()
+static void insert_label(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -181,7 +181,7 @@ static int cb_update_labels(void *record, size_t size, void *data)
     return 0;
 }
 
-static void update_label()
+static void update_label(void)
 {
     int ret;
     int in_ffd;
@@ -286,7 +286,7 @@ static int cb_upsert_labels(void *record, size_t size, void *data)
     return 0;
 }
 
-static void upsert_label()
+static void upsert_label(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -389,7 +389,7 @@ static int cb_delete_labels(void *record, size_t size, void *data)
     return 0;
 }
 
-static void delete_label()
+static void delete_label(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -486,7 +486,7 @@ static int cb_hash_labels(void *record, size_t size, void *data)
     return 0;
 }
 
-static void hash_label()
+static void hash_label(void)
 {
     int ret;
     flb_ctx_t *ctx;

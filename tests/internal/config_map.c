@@ -152,7 +152,7 @@ struct flb_config_map config_map_mult[] = {
     {0}
 };
 
-void test_helper()
+void test_helper(void)
 {
     int ret;
     struct context ctx;
@@ -183,7 +183,7 @@ void test_helper()
     flb_config_exit(config);
 }
 
-void test_create()
+void test_create(void)
 {
     int ret;
     struct context ctx;
@@ -224,7 +224,7 @@ void test_create()
     flb_config_exit(config);
 }
 
-void test_override_defaults()
+void test_override_defaults(void)
 {
     int ret;
     struct context ctx;
@@ -278,7 +278,7 @@ void test_override_defaults()
 }
 
 /* Check that single property raise an error if are set multiple times (dups) */
-void test_no_multiple()
+void test_no_multiple(void)
 {
     int ret;
     struct context ctx;
@@ -310,7 +310,7 @@ void test_no_multiple()
     flb_config_exit(config);
 }
 
-void test_multiple()
+void test_multiple(void)
 {
     int ret;
     int i;
@@ -377,7 +377,7 @@ void test_multiple()
 }
 
 /* Test that special properties like 'condition' are properly handled */
-void test_special_properties()
+void test_special_properties(void)
 {
     int ret;
     struct context ctx;

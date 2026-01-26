@@ -5,7 +5,7 @@
 
 #include "flb_tests_internal.h"
 
-static void test_sds_usage()
+static void test_sds_usage(void)
 {
     flb_sds_t s;
 
@@ -21,7 +21,7 @@ static void test_sds_usage()
     flb_sds_destroy(s);
 }
 
-static void test_sds_printf()
+static void test_sds_printf(void)
 {
     int len;
     flb_sds_t s;
@@ -38,7 +38,7 @@ static void test_sds_printf()
 }
 
 /* https://github.com/fluent/fluent-bit/issues/7143 */
-static void test_sds_printf_7143_off_by_1()
+static void test_sds_printf_7143_off_by_1(void)
 {
     flb_sds_t tmp;
     flb_sds_t test;
@@ -67,7 +67,7 @@ static void test_sds_printf_7143_off_by_1()
 
 }
 
-static void test_sds_cat_utf8()
+static void test_sds_cat_utf8(void)
 {
     int ret;
     flb_sds_t s;

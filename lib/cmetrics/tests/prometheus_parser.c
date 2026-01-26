@@ -64,7 +64,7 @@ int parse(struct fixture *f)
     return cmt_decode_prometheus_parse(f->scanner, &f->context);
 }
 
-void test_header_help()
+void test_header_help(void)
 {
     struct fixture *f = init(START_HEADER,
             "# HELP cmt_labels_test Static labels test\n"
@@ -84,7 +84,7 @@ void test_header_help()
     destroy(f);
 }
 
-void test_header_type()
+void test_header_type(void)
 {
     struct fixture *f = init(START_HEADER,
             "# TYPE cmt_labels_test counter\n"
@@ -102,7 +102,7 @@ void test_header_type()
     destroy(f);
 }
 
-void test_header_help_type()
+void test_header_help_type(void)
 {
     struct fixture *f = init(START_HEADER,
             "# HELP cmt_labels_test Static labels test\n"
@@ -123,7 +123,7 @@ void test_header_help_type()
     destroy(f);
 }
 
-void test_header_type_help()
+void test_header_type_help(void)
 {
     struct fixture *f = init(START_HEADER,
             "# TYPE cmt_labels_test gauge\n"
@@ -153,7 +153,7 @@ struct cmt_decode_prometheus_context_sample *add_empty_sample(struct fixture *f)
     return sample;
 }
 
-void test_labels()
+void test_labels(void)
 {
     struct fixture *f = init(START_LABELS, "dev=\"Calyptia\",lang=\"C\"");
     struct cmt_decode_prometheus_context_sample *sample = add_empty_sample(f);
@@ -171,7 +171,7 @@ void test_labels()
     destroy(f);
 }
 
-void test_labels_trailing_comma()
+void test_labels_trailing_comma(void)
 {
     struct fixture *f = init(START_LABELS, "dev=\"Calyptia\",lang=\"C\",");
     struct cmt_decode_prometheus_context_sample *sample = add_empty_sample(f);
@@ -189,7 +189,7 @@ void test_labels_trailing_comma()
     destroy(f);
 }
 
-void test_sample()
+void test_sample(void)
 {
     cfl_sds_t result;
     const char expected[] = (
@@ -212,7 +212,7 @@ void test_sample()
     destroy(f);
 }
 
-void test_samples()
+void test_samples(void)
 {
     cfl_sds_t result;
     const char expected[] = (
@@ -238,7 +238,7 @@ void test_samples()
     destroy(f);
 }
 
-void test_escape_sequences()
+void test_escape_sequences(void)
 {
     cfl_sds_t result;
     const char expected[] = (
@@ -260,7 +260,7 @@ void test_escape_sequences()
     destroy(f);
 }
 
-void test_metric_without_labels()
+void test_metric_without_labels(void)
 {
     cfl_sds_t result;
 
@@ -283,7 +283,7 @@ void test_metric_without_labels()
     destroy(f);
 }
 
-void test_prometheus_spec_example()
+void test_prometheus_spec_example(void)
 {
     char errbuf[256];
     int status;
@@ -383,7 +383,7 @@ void test_prometheus_spec_example()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_bison_parsing_error()
+void test_bison_parsing_error(void)
 {
     // Note that in this test I commented checks for the error message. The
     // reason is that the message is different depending on which bison
@@ -444,7 +444,7 @@ void test_bison_parsing_error()
     //             "FPOINT or INTEGER") == 0);
 }
 
-void test_label_limits()
+void test_label_limits(void)
 {
     int i;
     int status;
@@ -480,7 +480,7 @@ void test_label_limits()
     TEST_CHECK(strcmp(errbuf, "maximum number of labels exceeded") == 0);
 }
 
-void test_invalid_value()
+void test_invalid_value(void)
 {
     int status;
     char errbuf[256];
@@ -499,7 +499,7 @@ void test_invalid_value()
                 "failed to parse sample: \"10e\" is not a valid value") == 0);
 }
 
-void test_invalid_timestamp()
+void test_invalid_timestamp(void)
 {
     int status;
     char errbuf[256];
@@ -518,7 +518,7 @@ void test_invalid_timestamp()
                 "failed to parse sample: \"3e\" is not a valid timestamp") == 0);
 }
 
-void test_default_timestamp()
+void test_default_timestamp(void)
 {
     int status;
     cfl_sds_t result;
@@ -542,7 +542,7 @@ void test_default_timestamp()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_values()
+void test_values(void)
 {
     int status = 0;
     cfl_sds_t result = NULL;
@@ -582,7 +582,7 @@ void test_values()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_in_size()
+void test_in_size(void)
 {
     int status;
     cfl_sds_t result;
@@ -607,7 +607,7 @@ void test_in_size()
 }
 
 // reproduces https://github.com/calyptia/cmetrics/issues/71
-void test_issue_71()
+void test_issue_71(void)
 {
     int status;
     struct cmt *cmt;
@@ -620,7 +620,7 @@ void test_issue_71()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_histogram()
+void test_histogram(void)
 {
     int status;
     struct cmt *cmt;
@@ -656,7 +656,7 @@ void test_histogram()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_histogram_labels()
+void test_histogram_labels(void)
 {
     int status;
     struct cmt *cmt;
@@ -692,7 +692,7 @@ void test_histogram_labels()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_summary()
+void test_summary(void)
 {
     int status;
     struct cmt *cmt;
@@ -726,7 +726,7 @@ void test_summary()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_null_labels()
+void test_null_labels(void)
 {
     int status;
     cfl_sds_t result;
@@ -756,7 +756,7 @@ void test_null_labels()
 }
 
 // reproduces https://github.com/fluent/fluent-bit/issues/5541
-void test_issue_fluent_bit_5541()
+void test_issue_fluent_bit_5541(void)
 {
     int status;
     char *result;
@@ -798,7 +798,7 @@ void test_issue_fluent_bit_5541()
 }
 
 // reproduces https://github.com/fluent/fluent-bit/issues/5894
-void test_issue_fluent_bit_5894()
+void test_issue_fluent_bit_5894(void)
 {
     char errbuf[256];
     int status;
@@ -974,7 +974,7 @@ void test_issue_fluent_bit_5894()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_empty_metrics()
+void test_empty_metrics(void)
 {
     int status;
     cfl_sds_t result;
@@ -1022,7 +1022,7 @@ void test_empty_metrics()
 }
 
 // reproduces https://github.com/fluent/fluent-bit/issues/5894
-void test_issue_fluent_bit_6021()
+void test_issue_fluent_bit_6021(void)
 {
     char errbuf[256];
     int status;
@@ -1278,7 +1278,7 @@ void test_issue_fluent_bit_6021()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_override_timestamp()
+void test_override_timestamp(void)
 {
     int status;
     cfl_sds_t result = NULL;
@@ -1363,7 +1363,7 @@ void test_override_timestamp()
 }
 
 // testing bug uncovered by https://github.com/fluent/cmetrics/pull/168
-void test_pr_168()
+void test_pr_168(void)
 {
     char errbuf[256];
     int status;
@@ -1414,7 +1414,7 @@ void test_pr_168()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_histogram_different_label_count()
+void test_histogram_different_label_count(void)
 {
     char errbuf[256];
     int status;
@@ -1461,7 +1461,7 @@ void test_histogram_different_label_count()
 }
 
 // reproduces https://github.com/fluent/fluent-bit/issues/6534
-void test_issue_fluent_bit_6534()
+void test_issue_fluent_bit_6534(void)
 {
     char errbuf[256];
     int status;
@@ -1665,7 +1665,7 @@ void test_issue_fluent_bit_6534()
     cmt_decode_prometheus_destroy(cmt);
 }
 
-void test_issue_fluent_bit_9267()
+void test_issue_fluent_bit_9267(void)
 {
     char errbuf[256];
     int status;

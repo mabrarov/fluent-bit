@@ -22,7 +22,7 @@
 #define ERROR_LOG "fluentbit_conf_error.log"
 
 /* data/config_format/fluent-bit.conf */
-void test_basic()
+void test_basic(void)
 {
     struct mk_list *head;
 	struct flb_cf *cf;
@@ -128,7 +128,7 @@ static int check_str_list(struct str_list *list, FILE *fp)
 
 
 /* https://github.com/fluent/fluent-bit/issues/5880 */
-void missing_value()
+void missing_value(void)
 {
 	struct flb_cf *cf;
     FILE *fp = NULL;
@@ -164,7 +164,7 @@ void missing_value()
     unlink(ERROR_LOG);
 }
 
-void indent_level_error()
+void indent_level_error(void)
 {
 	struct flb_cf *cf;
     FILE *fp = NULL;
@@ -211,7 +211,7 @@ void indent_level_error()
     unlink(ERROR_LOG);
 }
 
-void recursion()
+void recursion(void)
 {
 	struct flb_cf *cf;
 
@@ -238,7 +238,7 @@ void recursion()
  *                |
  *                +-- issue6281_output.conf
  */
-void not_current_dir_files()
+void not_current_dir_files(void)
 {
     struct flb_cf *cf;
 
@@ -260,7 +260,7 @@ void not_current_dir_files()
 }
 
 /* data/config_format/nolimitline.conf */
-void test_nolimit_line()
+void test_nolimit_line(void)
 {
     struct flb_cf *cf;
     struct flb_cf_section *s;
@@ -332,7 +332,7 @@ static inline int check_snake_case(char *input, char *output)
     return FLB_FALSE;
 }
 
-static void test_snake_case_key()
+static void test_snake_case_key(void)
 {
     /* normal conversion */
     TEST_CHECK(check_snake_case("a", "a") == FLB_TRUE);

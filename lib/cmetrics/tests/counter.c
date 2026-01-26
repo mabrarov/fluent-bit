@@ -56,7 +56,7 @@ static struct cmt *generate_encoder_test_data()
     return cmt;
 }
 
-void test_msgpack()
+void test_msgpack(void)
 {
     struct cmt *cmt = NULL;
     struct cmt *cmt2 = NULL;
@@ -92,7 +92,7 @@ void test_msgpack()
     cmt_encode_msgpack_destroy(msgpack_buffer_b);
 }
 
-void test_prometheus()
+void test_prometheus(void)
 {
     struct cmt *cmt = NULL;
     cfl_sds_t   prom = NULL;
@@ -110,7 +110,7 @@ void test_prometheus()
     cmt_encode_prometheus_destroy(prom);
 }
 
-void test_text()
+void test_text(void)
 {
     struct cmt *cmt = NULL;
     cfl_sds_t   text = NULL;
@@ -128,7 +128,7 @@ void test_text()
 }
 
 
-void test_counter()
+void test_counter(void)
 {
     int ret;
     double val = 1;
@@ -169,7 +169,7 @@ void test_counter()
     cmt_destroy(cmt);
 }
 
-void test_labels()
+void test_labels(void)
 {
     int ret;
     double val;

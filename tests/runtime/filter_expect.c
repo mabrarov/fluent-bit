@@ -119,7 +119,7 @@ static void test_ctx_destroy(struct test_ctx *ctx)
     flb_free(ctx);
 }
 
-void flb_test_key_exists_matched()
+void flb_test_key_exists_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -161,7 +161,7 @@ void flb_test_key_exists_matched()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_key_exists_not_matched()
+void flb_test_key_exists_not_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -203,7 +203,7 @@ void flb_test_key_exists_not_matched()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_key_not_exists_matched()
+void flb_test_key_not_exists_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -245,7 +245,7 @@ void flb_test_key_not_exists_matched()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_key_not_exists_not_matched()
+void flb_test_key_not_exists_not_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -287,7 +287,7 @@ void flb_test_key_not_exists_not_matched()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_key_val_is_null_matched()
+void flb_test_key_val_is_null_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -329,7 +329,7 @@ void flb_test_key_val_is_null_matched()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_key_val_is_null_not_matched()
+void flb_test_key_val_is_null_not_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -371,7 +371,7 @@ void flb_test_key_val_is_null_not_matched()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_key_val_is_not_null_matched()
+void flb_test_key_val_is_not_null_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -413,7 +413,7 @@ void flb_test_key_val_is_not_null_matched()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_key_val_is_not_null_not_matched()
+void flb_test_key_val_is_not_null_not_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -455,7 +455,7 @@ void flb_test_key_val_is_not_null_not_matched()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_key_val_eq_matched()
+void flb_test_key_val_eq_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -497,7 +497,7 @@ void flb_test_key_val_eq_matched()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_key_val_eq_not_matched()
+void flb_test_key_val_eq_not_matched(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;

@@ -2,7 +2,7 @@
 
 #include "flb_tests_internal.h"
 
-void test_generic_converters()
+void test_generic_converters(void)
 {
     const char *encoding_names[] = {
       "ShiftJIS", "GB18030", "UHC", "Big5",
@@ -30,7 +30,7 @@ void test_generic_converters()
     }
 }
 
-void test_generic_converters_alias()
+void test_generic_converters_alias(void)
 {
     const char *encoding_names[] = {
       "SJIS",
@@ -55,7 +55,7 @@ struct test_enc_types {
     int type;
 };
 
-void test_generic_encoding_types()
+void test_generic_encoding_types(void)
 {
     int encoding_type;
     const char *encoding_name;
@@ -95,7 +95,7 @@ void test_generic_encoding_types()
     }
 }
 
-void test_generic_alias_encoding_types()
+void test_generic_alias_encoding_types(void)
 {
     int encoding_type;
     int i;
@@ -124,7 +124,7 @@ void test_generic_alias_encoding_types()
     }
 }
 
-void test_generic_conversions_sjis()
+void test_generic_conversions_sjis(void)
 {
     /* "こんにちは" in SJIS */
     const char *sjis_input = "\x82\xb1\x82\xf1\x82\xc9\x82\xbf\x82\xcd";
@@ -158,7 +158,7 @@ void test_generic_conversions_sjis()
     flb_free(sjis_output);
 }
 
-void test_generic_conversions_gbk()
+void test_generic_conversions_gbk(void)
 {
     const char *gbk_input = "\xc4\xe3\xba\xc3"; // "你好" (Nǐ hǎo) in GBK
     const char *utf8_equivalent = "\xE4\xBD\xA0\xE5\xA5\xBD";
@@ -189,7 +189,7 @@ void test_generic_conversions_gbk()
     flb_free(gbk_output);
 }
 
-void test_generic_conversions_big5()
+void test_generic_conversions_big5(void)
 {
     const char *big5_input = "\xa4\xa4\xa4\xe5"; // "中文" (Zhōngwén) in Big5
     const char *utf8_equivalent = "\xE4\xB8\xAD\xE6\x96\x87";
@@ -220,7 +220,7 @@ void test_generic_conversions_big5()
     flb_free(big5_output);
 }
 
-void test_generic_conversions_gb18030()
+void test_generic_conversions_gb18030(void)
 {
     const char *gb18030_input = "\xd6\xd0\xce\xc4";
     const char *utf8_equivalent = "\xe4\xb8\xad\xe6\x96\x87";
@@ -338,7 +338,7 @@ cleanup:
 }
 
 /* Main test function to iterate through all defined cases */
-void test_all_generic_conversions()
+void test_all_generic_conversions(void)
 {
     int i;
     int count = sizeof(ALL_TEST_CASES) / sizeof(struct encoding_test_case);

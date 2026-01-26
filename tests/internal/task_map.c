@@ -49,7 +49,7 @@ int test_ctx_destroy(struct test_ctx* ctx)
     return 0;
 }
 
-void test_task_map_limit()
+void test_task_map_limit(void)
 {
     struct test_ctx *ctx;
     ssize_t index;

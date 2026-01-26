@@ -40,7 +40,7 @@ static int log_cb(struct cio_ctx *ctx, int level, const char *file, int line,
     return 0;
 }
 
-static void test_stream_delete()
+static void test_stream_delete(void)
 {
     int i;
     int ret;

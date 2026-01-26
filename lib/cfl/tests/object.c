@@ -21,7 +21,7 @@
 #include <cfl/cfl.h>
 #include "cfl_tests_internal.h"
 
-static void test_basics()
+static void test_basics(void)
 {
     int ret;
     struct cfl_object *object;

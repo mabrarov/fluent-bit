@@ -12,7 +12,7 @@ static void debug_cb_request_headers(char *name, void *p1, void *p2)
     fprintf(stderr, "[http] request headers\n%s", c->header_buf);
 }
 
-void flb_test_http_callbacks()
+void flb_test_http_callbacks(void)
 {
     int ret;
     flb_ctx_t *ctx;

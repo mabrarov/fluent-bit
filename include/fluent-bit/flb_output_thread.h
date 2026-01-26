@@ -105,7 +105,7 @@ int flb_output_thread_pool_flush(struct flb_task *task,
                                  struct flb_config *config);
 
 
-void flb_output_thread_instance_init();
+void flb_output_thread_instance_init(void);
 struct flb_out_thread_instance *flb_output_thread_instance_get();
 void flb_output_thread_instance_set(struct flb_out_thread_instance *th_ins);
 

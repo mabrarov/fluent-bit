@@ -556,33 +556,33 @@ void do_test(char *system, const char *target, int tExpected, int nExpected, ...
     }
 }
 
-void flb_test_in_tail_dockermode()
+void flb_test_in_tail_dockermode(void)
 {
     do_test("tail", "dockermode", 20000, 3,
             NULL);
 }
 
-void flb_test_in_tail_dockermode_splitted_line()
+void flb_test_in_tail_dockermode_splitted_line(void)
 {
     do_test("tail", "dockermode_splitted_line", 20000, 2,
             NULL);
 }
 
-void flb_test_in_tail_dockermode_multiple_lines()
+void flb_test_in_tail_dockermode_multiple_lines(void)
 {
     do_test("tail", "dockermode_multiple_lines", 20000, 2,
             "Docker_Mode_Parser", "docker_multiline",
             NULL);
 }
 
-void flb_test_in_tail_dockermode_splitted_multiple_lines()
+void flb_test_in_tail_dockermode_splitted_multiple_lines(void)
 {
     do_test("tail", "dockermode_splitted_multiple_lines", 20000, 2,
             "Docker_Mode_Parser", "docker_multiline",
             NULL);
 }
 
-void flb_test_in_tail_dockermode_firstline_detection()
+void flb_test_in_tail_dockermode_firstline_detection(void)
 {
     do_test("tail", "dockermode_firstline_detection", 20000, 5,
             "Docker_Mode_Parser", "docker_multiline",
@@ -676,67 +676,67 @@ void do_test_generic_enctype(char *system, const char *target, const char *enc, 
     }
 }
 
-void flb_test_in_tail_generic_enc_big5()
+void flb_test_in_tail_generic_enc_big5(void)
 {
     do_test_generic_enctype("tail", "generic_enc_big5", "BIG5",
                             20000, 10, NULL);
 }
 
-void flb_test_in_tail_generic_enc_gb18030()
+void flb_test_in_tail_generic_enc_gb18030(void)
 {
     do_test_generic_enctype("tail", "generic_enc_gb18030", "GB18030",
                             20000, 12, NULL);
 }
 
-void flb_test_in_tail_generic_enc_gbk()
+void flb_test_in_tail_generic_enc_gbk(void)
 {
     do_test_generic_enctype("tail", "generic_enc_gbk", "GBK",
                             20000, 11, NULL);
 }
 
-void flb_test_in_tail_generic_enc_sjis()
+void flb_test_in_tail_generic_enc_sjis(void)
 {
     do_test_generic_enctype("tail", "generic_enc_sjis", "ShiftJIS",
                             20000, 11, NULL);
 }
 
-void flb_test_in_tail_generic_enc_win1250()
+void flb_test_in_tail_generic_enc_win1250(void)
 {
     do_test_generic_enctype("tail", "generic_enc_win1250", "WIN1250",
                             20000, 6, NULL);
 }
 
-void flb_test_in_tail_generic_enc_win1251()
+void flb_test_in_tail_generic_enc_win1251(void)
 {
     do_test_generic_enctype("tail", "generic_enc_win1251", "WIN1251",
                             20000, 9, NULL);
 }
 
-void flb_test_in_tail_generic_enc_win1252()
+void flb_test_in_tail_generic_enc_win1252(void)
 {
     do_test_generic_enctype("tail", "generic_enc_win1252", "WIN1252",
                             20000, 14, NULL);
 }
 
-void flb_test_in_tail_generic_enc_win1253()
+void flb_test_in_tail_generic_enc_win1253(void)
 {
     do_test_generic_enctype("tail", "generic_enc_win1253", "WIN1253",
                             20000, 8, NULL);
 }
 
-void flb_test_in_tail_generic_enc_win1254()
+void flb_test_in_tail_generic_enc_win1254(void)
 {
     do_test_generic_enctype("tail", "generic_enc_win1254", "WIN1254",
                             20000, 13, NULL);
 }
 
-void flb_test_in_tail_generic_enc_win1255()
+void flb_test_in_tail_generic_enc_win1255(void)
 {
     do_test_generic_enctype("tail", "generic_enc_win1255", "WIN1255",
                             20000, 8, NULL);
 }
 
-void flb_test_in_tail_generic_enc_win1256()
+void flb_test_in_tail_generic_enc_win1256(void)
 {
     do_test_generic_enctype("tail", "generic_enc_win1256", "WIN1256",
                             20000, 8, NULL);
@@ -829,42 +829,42 @@ void do_test_unicode(char *system, const char *target, int nExpected, ...)
     }
 }
 
-void flb_test_in_tail_utf16le_c()
+void flb_test_in_tail_utf16le_c(void)
 {
     do_test_unicode("tail", "unicode_c", 1,
                     "Unicode.Encoding", "auto",
                     NULL);
 }
 
-void flb_test_in_tail_utf16be_c()
+void flb_test_in_tail_utf16be_c(void)
 {
     do_test_unicode("tail", "unicode_be_c", 1,
                     "Unicode.Encoding", "auto",
                     NULL);
 }
 
-void flb_test_in_tail_utf16le_j()
+void flb_test_in_tail_utf16le_j(void)
 {
     do_test_unicode("tail", "unicode_j", 1,
                     "Unicode.Encoding", "auto",
                     NULL);
 }
 
-void flb_test_in_tail_utf16be_j()
+void flb_test_in_tail_utf16be_j(void)
 {
     do_test_unicode("tail", "unicode_be_j", 1,
                     "Unicode.Encoding", "auto",
                     NULL);
 }
 
-void flb_test_in_tail_utf16le_subdivision_flags()
+void flb_test_in_tail_utf16le_subdivision_flags(void)
 {
     do_test_unicode("tail", "unicode_subdivision_flags", 1,
                     "Unicode.Encoding", "auto",
                     NULL);
 }
 
-void flb_test_in_tail_utf16be_subdivision_flags()
+void flb_test_in_tail_utf16be_subdivision_flags(void)
 {
     do_test_unicode("tail", "unicode_subdivision_flags_be", 1,
                     "Unicode.Encoding", "auto",
@@ -893,7 +893,7 @@ int write_long_lines(int fd) {
     return 0;
 }
 
-void flb_test_in_tail_skip_long_lines()
+void flb_test_in_tail_skip_long_lines(void)
 {
     int64_t ret;
     flb_ctx_t    *ctx    = NULL;
@@ -1060,7 +1060,7 @@ static int write_long_utf8_line(int fd, size_t total_bytes)
     return 0;
 }
 
-void flb_test_in_tail_truncate_long_lines()
+void flb_test_in_tail_truncate_long_lines(void)
 {
     int64_t ret;
     flb_ctx_t    *ctx = NULL;
@@ -1144,7 +1144,7 @@ void flb_test_in_tail_truncate_long_lines()
     unlink(path);
 }
 
-void flb_test_in_tail_truncate_long_lines_utf8()
+void flb_test_in_tail_truncate_long_lines_utf8(void)
 {
     int64_t ret;
     flb_ctx_t    *ctx = NULL;
@@ -1226,7 +1226,7 @@ void flb_test_in_tail_truncate_long_lines_utf8()
  *
  * test to read the lines "CRLF + empty_line + LF"
  */
-void flb_test_in_tail_issue_3943()
+void flb_test_in_tail_issue_3943(void)
 {
     int64_t ret;
     flb_ctx_t    *ctx    = NULL;
@@ -1302,7 +1302,7 @@ void flb_test_in_tail_issue_3943()
     }
 }
 
-void flb_test_in_tail_multiline_json_and_regex()
+void flb_test_in_tail_multiline_json_and_regex(void)
 {
     int64_t ret;
     int in_ffd;
@@ -1385,7 +1385,7 @@ void flb_test_in_tail_multiline_json_and_regex()
     }
 }
 
-void flb_test_path_comma()
+void flb_test_path_comma(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -1437,7 +1437,7 @@ void flb_test_path_comma()
     test_tail_ctx_destroy(ctx);
 }
 
-void flb_test_path_key()
+void flb_test_path_key(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -1496,7 +1496,7 @@ void flb_test_path_key()
     test_tail_ctx_destroy(ctx);
 }
 
-void flb_test_exclude_path()
+void flb_test_exclude_path(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -1546,7 +1546,7 @@ void flb_test_exclude_path()
     test_tail_ctx_destroy(ctx);
 }
 
-void flb_test_offset_key()
+void flb_test_offset_key(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -1620,7 +1620,7 @@ void flb_test_offset_key()
     test_tail_ctx_destroy(ctx);
 }
 
-void flb_test_multiline_offset_key()
+void flb_test_multiline_offset_key(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -1705,7 +1705,7 @@ void flb_test_multiline_offset_key()
     test_tail_ctx_destroy(ctx);
 }
 
-void flb_test_skip_empty_lines()
+void flb_test_skip_empty_lines(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -1774,7 +1774,7 @@ void flb_test_skip_empty_lines()
     test_tail_ctx_destroy(ctx);
 }
 
-void flb_test_skip_empty_lines_crlf()
+void flb_test_skip_empty_lines_crlf(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -1924,7 +1924,7 @@ static int ignore_older(int expected, char *ignore_older)
     return 0;
 }
 
-void flb_test_ignore_older()
+void flb_test_ignore_older(void)
 {
     int ret;
     char *ignore_olders[] = {"10m", "40m", "4h", "4d"};
@@ -1942,7 +1942,7 @@ void flb_test_ignore_older()
     }
 }
 
-void flb_test_in_tail_ignore_active_older_files()
+void flb_test_in_tail_ignore_active_older_files(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -2012,7 +2012,7 @@ void flb_test_in_tail_ignore_active_older_files()
     test_tail_ctx_destroy(ctx);
 }
 
-void flb_test_inotify_watcher_false()
+void flb_test_inotify_watcher_false(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -2071,7 +2071,7 @@ void flb_test_inotify_watcher_false()
 }
 
 #ifdef FLB_HAVE_REGEX
-void flb_test_parser()
+void flb_test_parser(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -2131,7 +2131,7 @@ void flb_test_parser()
     test_tail_ctx_destroy(ctx);
 }
 
-void flb_test_tag_regex()
+void flb_test_tag_regex(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -2195,7 +2195,7 @@ void flb_test_tag_regex()
 #endif /* FLB_HAVE_REGEX */
 
 #ifdef FLB_HAVE_SQLDB
-void flb_test_db()
+void flb_test_db(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -2315,7 +2315,7 @@ void flb_test_db()
     unlink(db);
 }
 
-void flb_test_db_delete_stale_file()
+void flb_test_db_delete_stale_file(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;
@@ -2503,7 +2503,7 @@ void flb_test_db_delete_stale_file()
     unlink(db);
 }
 
-void flb_test_db_compare_filename()
+void flb_test_db_compare_filename(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_tail_ctx *ctx;

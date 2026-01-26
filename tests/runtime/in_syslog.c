@@ -364,7 +364,7 @@ static size_t build_two_frames(char *out, size_t outsz,
     return off;
 }
 
-void flb_test_syslog_tcp()
+void flb_test_syslog_tcp(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -429,7 +429,7 @@ void flb_test_syslog_tcp()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_syslog_tcp_port()
+void flb_test_syslog_tcp_port(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -496,7 +496,7 @@ void flb_test_syslog_tcp_port()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_syslog_tcp_source_address()
+void flb_test_syslog_tcp_source_address(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -562,7 +562,7 @@ void flb_test_syslog_tcp_source_address()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_syslog_unknown_mode()
+void flb_test_syslog_unknown_mode(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -604,7 +604,7 @@ void flb_test_syslog_unknown_mode()
     flb_free(ctx);
 }
 
-void flb_test_syslog_unix_perm()
+void flb_test_syslog_unix_perm(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -659,7 +659,7 @@ void flb_test_syslog_unix_perm()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_syslog_udp()
+void flb_test_syslog_udp(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -725,7 +725,7 @@ void flb_test_syslog_udp()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_syslog_udp_port()
+void flb_test_syslog_udp_port(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -793,7 +793,7 @@ void flb_test_syslog_udp_port()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_syslog_udp_source_address()
+void flb_test_syslog_udp_source_address(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -861,7 +861,7 @@ void flb_test_syslog_udp_source_address()
 }
 
 #ifdef FLB_HAVE_UNIX_SOCKET
-void flb_test_syslog_tcp_unix()
+void flb_test_syslog_tcp_unix(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -928,7 +928,7 @@ void flb_test_syslog_tcp_unix()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_syslog_udp_unix()
+void flb_test_syslog_udp_unix(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -996,7 +996,7 @@ void flb_test_syslog_udp_unix()
 }
 #endif
 
-void flb_test_syslog_rfc3164()
+void flb_test_syslog_rfc3164(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -1061,7 +1061,7 @@ void flb_test_syslog_rfc3164()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_syslog_tcp_octet_counting()
+void flb_test_syslog_tcp_octet_counting(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -1124,7 +1124,7 @@ void flb_test_syslog_tcp_octet_counting()
 }
 
 /* -------- TCP + RFC6587 octet-counting: frame with trailing LF -------- */
-void flb_test_syslog_tcp_octet_counting_lf()
+void flb_test_syslog_tcp_octet_counting_lf(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -1187,7 +1187,7 @@ void flb_test_syslog_tcp_octet_counting_lf()
 }
 
 /* -------- TCP + RFC6587 octet-counting: fragmented send (header then body) -------- */
-void flb_test_syslog_tcp_octet_counting_fragmented()
+void flb_test_syslog_tcp_octet_counting_fragmented(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -1266,7 +1266,7 @@ void flb_test_syslog_tcp_octet_counting_fragmented()
 }
 
 /* -------- TCP + RFC6587 octet-counting: two frames back-to-back -------- */
-void flb_test_syslog_tcp_octet_counting_multi()
+void flb_test_syslog_tcp_octet_counting_multi(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;

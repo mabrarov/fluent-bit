@@ -3,7 +3,7 @@
 #include <fluent-bit.h>
 #include "flb_tests_runtime.h"
 
-void flb_test_input_event()
+void flb_test_input_event(void)
 {
     int ret;
     flb_ctx_t *ctx;

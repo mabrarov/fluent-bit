@@ -185,7 +185,7 @@ static void cb_check_forward_compat_mode(void *ctx, int ffd,
     flb_free(res_data);
 }
 
-void flb_test_message_mode()
+void flb_test_message_mode(void)
 {
     int ret;
     int in_ffd;
@@ -226,7 +226,7 @@ void flb_test_message_mode()
     flb_destroy(ctx);
 }
 
-void flb_test_message_compat_mode()
+void flb_test_message_compat_mode(void)
 {
     int ret;
     int in_ffd;
@@ -268,7 +268,7 @@ void flb_test_message_compat_mode()
     flb_destroy(ctx);
 }
 
-void flb_test_forward_mode()
+void flb_test_forward_mode(void)
 {
     int ret;
     int in_ffd;
@@ -310,7 +310,7 @@ void flb_test_forward_mode()
     flb_destroy(ctx);
 }
 
-void flb_test_forward_compat_mode()
+void flb_test_forward_compat_mode(void)
 {
     int ret;
     int in_ffd;

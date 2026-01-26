@@ -7,7 +7,7 @@
 #include "flb_tests_internal.h"
 
 /* try a small string */
-static void test_compress_small_string()
+static void test_compress_small_string(void)
 {
     int len;
     int ret;
@@ -28,7 +28,7 @@ static void test_compress_small_string()
 }
 
 /* compress and decompress string */
-static void test_decompress_small_string()
+static void test_decompress_small_string(void)
 {
     int len;
     int ret;
@@ -55,7 +55,7 @@ static void test_decompress_small_string()
 }
 
 /* empty buffer */
-static void test_compress_empty_input()
+static void test_compress_empty_input(void)
 {
     void *compressed_data = NULL;
     size_t compressed_len = 0;
@@ -70,7 +70,7 @@ static void test_compress_empty_input()
 }
 
 
-static void test_decompress_invalid_data()
+static void test_decompress_invalid_data(void)
 {
     int len;
     int ret;
@@ -87,7 +87,7 @@ static void test_decompress_invalid_data()
 }
 
 /* large data test compression/decompression */
-static void test_compress_decompress_large_data() {
+static void test_compress_decompress_large_data(void) {
     int ret;
     char *input;
     void *compressed_data = NULL;
@@ -135,7 +135,7 @@ static void test_compress_decompress_large_data() {
  *
  *   $ xxd -i data.json.stream.zstd
  */
-static void test_decompress_unknown_size()
+static void test_decompress_unknown_size(void)
 {
     int ret;
     int input_len = 0;

@@ -42,7 +42,7 @@ int callback_test(void* data, size_t size, void* cb_data)
     return 0;
 }
 
-void flb_test_aws_instance_id() {
+void flb_test_aws_instance_id(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -139,7 +139,7 @@ void flb_test_aws_instance_id() {
     set_output(NULL);
 }
 
-void flb_test_aws_instance_type() {
+void flb_test_aws_instance_type(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -238,7 +238,7 @@ void flb_test_aws_instance_type() {
     set_output(NULL);
 }
 
-void flb_test_aws_private_ip() {
+void flb_test_aws_private_ip(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -337,7 +337,7 @@ void flb_test_aws_private_ip() {
     set_output(NULL);
 }
 
-void flb_test_aws_vpc_id() {
+void flb_test_aws_vpc_id(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -443,7 +443,7 @@ void flb_test_aws_vpc_id() {
     set_output(NULL);
 }
 
-void flb_test_aws_ami_id() {
+void flb_test_aws_ami_id(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -542,7 +542,7 @@ void flb_test_aws_ami_id() {
     set_output(NULL);
 }
 
-void flb_test_aws_account_id() {
+void flb_test_aws_account_id(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -641,7 +641,7 @@ void flb_test_aws_account_id() {
     set_output(NULL);
 }
 
-void flb_test_aws_hostname() {
+void flb_test_aws_hostname(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -740,7 +740,7 @@ void flb_test_aws_hostname() {
     set_output(NULL);
 }
 
-void flb_test_aws_az() {
+void flb_test_aws_az(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -837,7 +837,7 @@ void flb_test_aws_az() {
     set_output(NULL);
 }
 
-void flb_test_aws_ec2_tags_present() {
+void flb_test_aws_ec2_tags_present(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -965,7 +965,7 @@ void flb_test_aws_ec2_tags_present() {
     set_output(NULL);
 }
 
-void flb_test_aws_ec2_tags_404() {
+void flb_test_aws_ec2_tags_404(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -1066,7 +1066,7 @@ void flb_test_aws_ec2_tags_404() {
     set_output(NULL);
 }
 
-void flb_test_aws_ec2_tags_list_500() {
+void flb_test_aws_ec2_tags_list_500(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -1177,7 +1177,7 @@ void flb_test_aws_ec2_tags_list_500() {
     set_output(NULL);
 }
 
-void flb_test_aws_ec2_tags_value_404() {
+void flb_test_aws_ec2_tags_value_404(void) {
      int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -1289,7 +1289,7 @@ void flb_test_aws_ec2_tags_value_404() {
     set_output(NULL);
 }
 
-void flb_test_aws_ec2_tags_value_500() {
+void flb_test_aws_ec2_tags_value_500(void) {
      int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -1401,7 +1401,7 @@ void flb_test_aws_ec2_tags_value_500() {
     set_output(NULL);
 }
 
-void flb_test_aws_ec2_tags_include() {
+void flb_test_aws_ec2_tags_include(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";
@@ -1521,7 +1521,7 @@ void flb_test_aws_ec2_tags_include() {
     set_output(NULL);
 }
 
-void flb_test_aws_ec2_tags_exclude() {
+void flb_test_aws_ec2_tags_exclude(void) {
     int ret;
     int bytes;
     char *p = "[0, {\"log\": \"hello, from my ec2 instance\"}]";

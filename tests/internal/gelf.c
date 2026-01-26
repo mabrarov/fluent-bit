@@ -12,7 +12,7 @@
 #define EXPECTED_OUT \
     "{\"version\":\"1.1\", \"short_message\":\"true, 2019, str\", \"_t2\":\"false\", \"timestamp\":337647600.1234}"
 
-void test_gelf_pack()
+void test_gelf_pack(void)
 {
     msgpack_sbuffer mp_sbuf;
     msgpack_packer mp_pck;
@@ -54,7 +54,7 @@ void test_gelf_pack()
     "{\"version\":\"1.1\", \"short_message\":\"true, 2019, str\", \"_t2\":\"false\", \"timestamp\":337647600.012}"
 
 /* https://github.com/fluent/fluent-bit/issues/3727 */
-void test_gelf_pack_msec()
+void test_gelf_pack_msec(void)
 {
     msgpack_sbuffer mp_sbuf;
     msgpack_packer mp_pck;
@@ -100,7 +100,7 @@ void test_gelf_pack_msec()
     "\"_tag\":\"test.gelf.fluent-bit\", \"timestamp\":337647600.012}"
 
 /* https://github.com/fluent/fluent-bit/issues/8921 */
-void test_gelf_pack_tag_key()
+void test_gelf_pack_tag_key(void)
 {
     msgpack_sbuffer mp_sbuf;
     msgpack_packer mp_pck;

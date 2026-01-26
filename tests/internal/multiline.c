@@ -465,7 +465,7 @@ static int flush_callback(struct flb_ml_parser *parser,
     return 0;
 }
 
-static void test_parser_docker()
+static void test_parser_docker(void)
 {
     int i;
     int len;
@@ -520,7 +520,7 @@ static void test_parser_docker()
     flb_config_exit(config);
 }
 
-static void test_parser_cri()
+static void test_parser_cri(void)
 {
     int i;
     int len;
@@ -574,7 +574,7 @@ static void test_parser_cri()
     flb_config_exit(config);
 }
 
-static void test_container_mix()
+static void test_container_mix(void)
 {
     int i;
     int len;
@@ -628,7 +628,7 @@ static void test_container_mix()
     flb_config_exit(config);
 }
 
-static void test_parser_docker_cri_chain()
+static void test_parser_docker_cri_chain(void)
 {
     int i;
     int len;
@@ -690,7 +690,7 @@ static void test_parser_docker_cri_chain()
     flb_config_exit(config);
 }
 
-static void test_parser_java()
+static void test_parser_java(void)
 {
     int i;
     int len;
@@ -781,7 +781,7 @@ static void test_parser_java()
     flb_config_exit(config);
 }
 
-static void test_parser_python()
+static void test_parser_python(void)
 {
     int i;
     int len;
@@ -840,7 +840,7 @@ static void test_parser_python()
     flb_config_exit(config);
 }
 
-static void test_parser_ruby()
+static void test_parser_ruby(void)
 {
     int i;
     int len;
@@ -899,7 +899,7 @@ static void test_parser_ruby()
     flb_config_exit(config);
 }
 
-static void test_issue_4949()
+static void test_issue_4949(void)
 {
     int i;
     int len;
@@ -966,7 +966,7 @@ static void test_issue_4949()
     flb_config_exit(config);
 }
 
-static void test_parser_elastic()
+static void test_parser_elastic(void)
 {
     int i;
     int len;
@@ -1079,7 +1079,7 @@ static void test_parser_elastic()
     flb_config_exit(config);
 }
 
-static void test_endswith()
+static void test_endswith(void)
 {
     int i;
     int len;
@@ -1142,7 +1142,7 @@ static void test_endswith()
     flb_config_exit(config);
 }
 
-static void test_parser_go()
+static void test_parser_go(void)
 {
     int i;
     int len;
@@ -1298,7 +1298,7 @@ static void run_test(struct flb_config *config, char *test_name,
     flb_ml_destroy(ml);
 }
 
-void test_issue_3817_1()
+void test_issue_3817_1(void)
 {
     int ret;
     int in_len  = sizeof(issue_3817_1_input) / sizeof(struct record_check);
@@ -1366,7 +1366,7 @@ void test_issue_3817_1()
     flb_config_exit(config);
 }
 
-static void test_issue_4034()
+static void test_issue_4034(void)
 {
     int i;
     int len;
@@ -1458,7 +1458,7 @@ static void test_issue_4034()
     flb_config_exit(config);
 }
 
-static void test_issue_5504()
+static void test_issue_5504(void)
 {
     uint64_t last_flush;
     struct flb_config *config;
@@ -1547,7 +1547,7 @@ static void test_issue_5504()
 #endif
 }
 
-static void test_buffer_limit_truncation()
+static void test_buffer_limit_truncation(void)
 {
     int ret;
     uint64_t stream_id;
@@ -1620,7 +1620,7 @@ static void test_buffer_limit_truncation()
     flb_config_exit(config);
 }
 
-static void test_buffer_limit_disabled()
+static void test_buffer_limit_disabled(void)
 {
     struct flb_config *config;
     struct flb_ml *ml;

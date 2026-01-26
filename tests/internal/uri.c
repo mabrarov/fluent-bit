@@ -23,7 +23,7 @@
 
 #include "flb_tests_internal.h"
 
-void uri_create_destroy()
+void uri_create_destroy(void)
 {
     struct flb_uri *uri;
     const char *uri_str = "https://fluentbit.io";
@@ -37,7 +37,7 @@ void uri_create_destroy()
     flb_uri_destroy(uri);
 }
 
-void uri_get()
+void uri_get(void)
 {
     struct flb_uri *uri;
     struct flb_uri_field *field;
@@ -64,7 +64,7 @@ void uri_get()
     flb_uri_destroy(uri);
 }
 
-void uri_encode()
+void uri_encode(void)
 {
     flb_sds_t encoded_uri;
     const char *input = "&# ";

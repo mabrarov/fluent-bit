@@ -124,7 +124,7 @@ static struct cmt *generate_encoder_test_data()
     return cmt;
 }
 
-void test_opentelemetry()
+void test_opentelemetry(void)
 {
     cfl_sds_t        reference_prometheus_context;
     cfl_sds_t        opentelemetry_context;
@@ -182,7 +182,7 @@ void test_opentelemetry()
     cmt_destroy(cmt);
 }
 
-void test_prometheus_remote_write()
+void test_prometheus_remote_write(void)
 {
     int ret;
     struct cmt *decoded_context;
@@ -198,7 +198,7 @@ void test_prometheus_remote_write()
     cfl_sds_destroy(payload);
 }
 
-void test_statsd()
+void test_statsd(void)
 {
     int ret;
     struct cmt *decoded_context;

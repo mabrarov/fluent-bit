@@ -83,7 +83,7 @@
  * key and then ensures the results match.
  */
 
-static void test_rsa_simple_encrypt()
+static void test_rsa_simple_encrypt(void)
 {
     unsigned char decrypted_data_buffer[1024 * 10];
     size_t        decrypted_data_buffer_size;
@@ -124,7 +124,7 @@ static void test_rsa_simple_encrypt()
  * with a pre-generated 1024 bit RSA key and then ensures the results match.
  */
 
-static void test_rsa_simple_decrypt()
+static void test_rsa_simple_decrypt(void)
 {
     unsigned char decrypted_data_buffer[1024 * 10];
     size_t        decrypted_data_buffer_size;
@@ -154,7 +154,7 @@ static void test_rsa_simple_decrypt()
  * openssls pkeyutil.
  */
 
-static void test_rsa_simple_sign()
+static void test_rsa_simple_sign(void)
 {
     unsigned char signature_buffer[1024];
     size_t        signature_buffer_size;

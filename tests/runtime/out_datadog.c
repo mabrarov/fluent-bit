@@ -120,7 +120,7 @@ static void cb_check_dd_properties(void *ctx, int ffd,
     flb_sds_destroy(res_data);
 }
 
-void flb_test_dd_properties()
+void flb_test_dd_properties(void)
 {
     int ret;
     flb_ctx_t *ctx;

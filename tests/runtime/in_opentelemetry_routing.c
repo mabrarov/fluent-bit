@@ -453,7 +453,7 @@ static void flb_test_otlp_routing(const char *config_file,
 }
 
 /* Test case: Comprehensive routing with multiple routes */
-void flb_test_otlp_comprehensive_routing()
+void flb_test_otlp_comprehensive_routing(void)
 {
     struct route_expectation expectations[] = {
         {"service_a_logs", "service_a_logs.out", 2},          /* Record 1, Record 2 */

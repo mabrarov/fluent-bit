@@ -226,7 +226,7 @@ void do_test(char *system, const char *target, ...)
     }
 }
 
-void flb_test_input_chunk_exceed_limit()
+void flb_test_input_chunk_exceed_limit(void)
 {
     /*
      * For this test, the input is a log file with more than 1000 bytes.
@@ -238,13 +238,13 @@ void flb_test_input_chunk_exceed_limit()
             NULL);
 }
 
-void flb_test_input_chunk_buffer_valid()
+void flb_test_input_chunk_buffer_valid(void)
 {
     do_test("tail", "test_buffer_valid",
             NULL);
 }
 
-void flb_test_input_chunk_dropping_chunks()
+void flb_test_input_chunk_dropping_chunks(void)
 {
     int i;
     int ret;
@@ -347,7 +347,7 @@ static int log_cb(struct cio_ctx *data, int level, const char *file, int line,
 /* This tests uses the subsystems of the engine directly
  * to avoid threading issues when submitting chunks.
  */
-void flb_test_input_chunk_fs_chunks_size_real()
+void flb_test_input_chunk_fs_chunks_size_real(void)
 {
     int records;
     bool have_size_discrepancy = FLB_FALSE;

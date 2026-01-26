@@ -38,7 +38,7 @@
 #define FSF_STORE_PATH "/tmp/flb-fstore"
 #endif
 
-void cb_all()
+void cb_all(void)
 {
     int ret;
     void *out_buf;
@@ -79,7 +79,7 @@ void cb_all()
     flb_fstore_destroy(fs);
 }
 
-void cb_delete_after_external_close()
+void cb_delete_after_external_close(void)
 {
     int ret;
     struct stat st_data;

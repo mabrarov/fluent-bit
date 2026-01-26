@@ -271,7 +271,7 @@ static void test_ctx_destroy(struct test_ctx *ctx)
     flb_free(ctx);
 }
 
-void flb_test_format_msgpack()
+void flb_test_format_msgpack(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -324,7 +324,7 @@ void flb_test_format_msgpack()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_json()
+void flb_test_format_json(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -381,7 +381,7 @@ void flb_test_format_json()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_json_stream()
+void flb_test_format_json_stream(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -438,7 +438,7 @@ void flb_test_format_json_stream()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_json_lines()
+void flb_test_format_json_lines(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -495,7 +495,7 @@ void flb_test_format_json_lines()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_gelf()
+void flb_test_format_gelf(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -550,7 +550,7 @@ void flb_test_format_gelf()
 }
 
 
-void flb_test_format_gelf_host_key()
+void flb_test_format_gelf_host_key(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -605,7 +605,7 @@ void flb_test_format_gelf_host_key()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_gelf_timestamp_key()
+void flb_test_format_gelf_timestamp_key(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -660,7 +660,7 @@ void flb_test_format_gelf_timestamp_key()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_gelf_full_message_key()
+void flb_test_format_gelf_full_message_key(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -715,7 +715,7 @@ void flb_test_format_gelf_full_message_key()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_gelf_level_key()
+void flb_test_format_gelf_level_key(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -770,7 +770,7 @@ void flb_test_format_gelf_level_key()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_set_json_date_key()
+void flb_test_set_json_date_key(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -824,7 +824,7 @@ void flb_test_set_json_date_key()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_disable_json_date_key()
+void flb_test_disable_json_date_key(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -878,7 +878,7 @@ void flb_test_disable_json_date_key()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_json_date_format_epoch()
+void flb_test_json_date_format_epoch(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -932,7 +932,7 @@ void flb_test_json_date_format_epoch()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_json_date_format_iso8601()
+void flb_test_json_date_format_iso8601(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -986,7 +986,7 @@ void flb_test_json_date_format_iso8601()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_json_date_format_java_sql_timestamp()
+void flb_test_json_date_format_java_sql_timestamp(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -1052,7 +1052,7 @@ int callback_test(void* data, size_t size, void* cb_data)
 }
 
 /* test to make sure out_http is always able to work with in_http by default. */
-void flb_test_in_http()
+void flb_test_in_http(void)
 {
     struct test_ctx *ctx;
     int ret;

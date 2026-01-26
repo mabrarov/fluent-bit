@@ -14,7 +14,7 @@ struct data {
     char str[32];
 };
 
-static void test_pipe_usage()
+static void test_pipe_usage(void)
 {
     int i;
     int ret;

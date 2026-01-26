@@ -50,7 +50,7 @@ msgpack_unpacked test_init(avro_value_t *aobject, avro_schema_t *aschema, const 
     return msg;
 }
 /* Unpack msgpack per avro schema */
-void test_unpack_to_avro()
+void test_unpack_to_avro(void)
 {
     avro_value_t  aobject;
     avro_schema_t aschema;
@@ -143,7 +143,7 @@ void test_unpack_to_avro()
     msgpack_unpacked_destroy(&mp);
 }
 
-void test_parse_reordered_schema()
+void test_parse_reordered_schema(void)
 {
     // test same schema but different order of fields
     const char *ts1 = "{\"name\":\"qavrov2_record\",\"type\":\"record\",\"fields\":[{\"name\":\"log\",\"type\":\"string\"},{\"name\":\"capture\",\"type\":\"string\"},{\"name\":\"kubernetes\",\"type\":{\"name\":\"krec\",\"type\":\"record\",\"fields\":[{\"name\":\"pod_name\",\"type\":\"string\"},{\"name\":\"namespace_name\",\"type\":\"string\"},{\"name\":\"pod_id\",\"type\":\"string\"},{\"name\":\"labels\",\"type\":{\"type\":\"map\",\"values\":\"string\"}},{\"name\":\"annotations\",\"type\":{\"type\":\"map\",\"values\":\"string\"}},{\"name\":\"host\",\"type\":\"string\"},{\"name\":\"container_name\",\"type\":\"string\"},{\"name\":\"docker_id\",\"type\":\"string\"},{\"name\":\"container_hash\",\"type\":\"string\"},{\"name\":\"container_image\",\"type\":\"string\"}]}}]}";
@@ -235,7 +235,7 @@ void test_parse_reordered_schema()
 // http://avro.apache.org/docs/current/api/c/index.html#_examples
 // ../lib/msgpack-3.2.0/include/msgpack/pack.h
 // static int msgpack_pack_nil(msgpack_packer* pk);
-void test_msgpack2avro()
+void test_msgpack2avro(void)
 {
     avro_value_t  aobject;
     avro_schema_t schema = avro_schema_null();
@@ -280,7 +280,7 @@ const char  JSON_SINGLE_MAP_001_SCHEMA_WITH_UNION[] =
      {\"name\": \"key004\", \"type\":\
         {\"type\": \"array\", \"items\":\
              {\"type\": \"map\",\"values\": \"int\"}}}]}";
-void test_union_type_sanity()
+void test_union_type_sanity(void)
 {
     avro_value_t  aobject;
     avro_schema_t aschema;
@@ -343,7 +343,7 @@ void test_union_type_sanity()
     msgpack_unpacked_destroy(&msg);
 }
 
-void test_union_type_branches()
+void test_union_type_branches(void)
 {
     avro_value_t  aobject;
     avro_schema_t aschema;

@@ -23,7 +23,7 @@
 
 #include "cmt_tests.h"
 
-void test_labels()
+void test_labels(void)
 {
     int ret;
     double val = 1;
@@ -80,7 +80,7 @@ void test_labels()
     cmt_destroy(cmt);
 }
 
-void test_encoding()
+void test_encoding(void)
 {
     cfl_sds_t result;
     struct cmt *cmt;

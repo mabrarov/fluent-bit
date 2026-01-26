@@ -5,7 +5,7 @@
 
 #include "flb_tests_internal.h"
 
-static void b64_basic_test_encode()
+static void b64_basic_test_encode(void)
 {
     char* data = "Hello world";
     char out[100];
@@ -26,7 +26,7 @@ static void b64_basic_test_encode()
     return;
 }
 
-static void b64_basic_test_decode()
+static void b64_basic_test_decode(void)
 {
     char* data = "SGVsbG8gd29ybGQ=";
     char out[100] = { 0 };

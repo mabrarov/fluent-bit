@@ -24,7 +24,7 @@
 
 #include "cfl_tests_internal.h"
 
-static void create_destroy()
+static void create_destroy(void)
 {
     struct cfl_kvlist *list = NULL;
 
@@ -36,7 +36,7 @@ static void create_destroy()
     cfl_kvlist_destroy(list);
 }
 
-static void count()
+static void count(void)
 {
     struct cfl_kvlist *list = NULL;
     int i;
@@ -69,7 +69,7 @@ static void count()
     cfl_kvlist_destroy(list);
 }
 
-static void fetch()
+static void fetch(void)
 {
     int ret;
     struct cfl_variant *var = NULL;
@@ -126,7 +126,7 @@ static void fetch()
     cfl_kvlist_destroy(list);
 }
 
-static void fetch_s()
+static void fetch_s(void)
 {
     int ret;
     struct cfl_variant *var = NULL;
@@ -183,7 +183,7 @@ static void fetch_s()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_string()
+static void insert_string(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_STRING;
@@ -225,7 +225,7 @@ static void insert_string()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_bytes()
+static void insert_bytes(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_BYTES;
@@ -267,7 +267,7 @@ static void insert_bytes()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_reference()
+static void insert_reference(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_REFERENCE;
@@ -309,7 +309,7 @@ static void insert_reference()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_bool()
+static void insert_bool(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_BOOL;
@@ -351,7 +351,7 @@ static void insert_bool()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_int64()
+static void insert_int64(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_INT;
@@ -393,7 +393,7 @@ static void insert_int64()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_uint64()
+static void insert_uint64(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_UINT;
@@ -435,7 +435,7 @@ static void insert_uint64()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_double()
+static void insert_double(void)
 {
     int ret;
     double input = 123456.789;
@@ -478,7 +478,7 @@ static void insert_double()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_new_array()
+static void insert_new_array(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_ARRAY;
@@ -520,7 +520,7 @@ static void insert_new_array()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_empty_array()
+static void insert_empty_array(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_ARRAY;
@@ -571,7 +571,7 @@ static void insert_empty_array()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_empty_kvlist()
+static void insert_empty_kvlist(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_KVLIST;
@@ -616,7 +616,7 @@ static void insert_empty_kvlist()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_string_s()
+static void insert_string_s(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_STRING;
@@ -658,7 +658,7 @@ static void insert_string_s()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_bytes_s()
+static void insert_bytes_s(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_BYTES;
@@ -700,7 +700,7 @@ static void insert_bytes_s()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_reference_s()
+static void insert_reference_s(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_REFERENCE;
@@ -742,7 +742,7 @@ static void insert_reference_s()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_bool_s()
+static void insert_bool_s(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_BOOL;
@@ -784,7 +784,7 @@ static void insert_bool_s()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_int64_s()
+static void insert_int64_s(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_INT;
@@ -826,7 +826,7 @@ static void insert_int64_s()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_uint64_s()
+static void insert_uint64_s(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_UINT;
@@ -868,7 +868,7 @@ static void insert_uint64_s()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_double_s()
+static void insert_double_s(void)
 {
     int ret;
     double input = 123456.789;
@@ -911,7 +911,7 @@ static void insert_double_s()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_new_array_s()
+static void insert_new_array_s(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_ARRAY;
@@ -953,7 +953,7 @@ static void insert_new_array_s()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_empty_array_s()
+static void insert_empty_array_s(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_ARRAY;
@@ -1004,7 +1004,7 @@ static void insert_empty_array_s()
     cfl_kvlist_destroy(list);
 }
 
-static void insert_empty_kvlist_s()
+static void insert_empty_kvlist_s(void)
 {
     int ret;
     int expect_type = CFL_VARIANT_KVLIST;
@@ -1048,7 +1048,7 @@ static void insert_empty_kvlist_s()
     cfl_kvlist_destroy(list);
 }
 
-static void test_basics()
+static void test_basics(void)
 {
     int ret;
     struct cfl_kvlist *list;

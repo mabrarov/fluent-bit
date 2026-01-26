@@ -23,7 +23,7 @@
 #include <msgpack.h>
 #include <string.h>
 
-void str_to_int()
+void str_to_int(void)
 {
     char *input = "1234";
         
@@ -70,7 +70,7 @@ void str_to_int()
     msgpack_unpacked_destroy(&result);
 }
 
-void int_to_str()
+void int_to_str(void)
 {
     int input = 1234;
         
@@ -116,7 +116,7 @@ void int_to_str()
     msgpack_unpacked_destroy(&result);
 }
 
-void bool_to_str()
+void bool_to_str(void)
 {
     msgpack_sbuffer sbuf;
     msgpack_packer  pck;
@@ -160,7 +160,7 @@ void bool_to_str()
     msgpack_unpacked_destroy(&result);
 }
 
-void str_to_bool()
+void str_to_bool(void)
 {
     char *input = "true";
         
@@ -207,7 +207,7 @@ void str_to_bool()
     msgpack_unpacked_destroy(&result);
 }
 
-void str_to_hex()
+void str_to_hex(void)
 {
     char *input = "0xdeadbeef";
         
@@ -254,7 +254,7 @@ void str_to_hex()
     msgpack_unpacked_destroy(&result);
 }
 
-void str_to_float()
+void str_to_float(void)
 {
     char *input = "1234.567";
         
@@ -301,7 +301,7 @@ void str_to_float()
     msgpack_unpacked_destroy(&result);
 }
 
-void float_to_str()
+void float_to_str(void)
 {
     double input = 1234.567;
         

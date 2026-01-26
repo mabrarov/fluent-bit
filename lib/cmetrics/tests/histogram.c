@@ -110,7 +110,7 @@ static void prometheus_encode_test(struct cmt *cmt)
 }
 
 
-void test_histogram()
+void test_histogram(void)
 {
     uint64_t ts;
     struct cmt *cmt;
@@ -158,7 +158,7 @@ void test_histogram()
     cmt_destroy(cmt);
 }
 
-void test_set_defaults()
+void test_set_defaults(void)
 {
     uint64_t ts;
     struct cmt *cmt;

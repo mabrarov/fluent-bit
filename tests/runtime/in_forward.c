@@ -189,7 +189,7 @@ static flb_sockfd_t connect_tcp(char *in_host, int in_port)
     return fd;
 }
 
-void flb_test_forward()
+void flb_test_forward(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -248,7 +248,7 @@ void flb_test_forward()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_forward_port()
+void flb_test_forward_port(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -315,7 +315,7 @@ void flb_test_forward_port()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_tag_prefix()
+void flb_test_tag_prefix(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -381,7 +381,7 @@ void flb_test_tag_prefix()
 }
 
 #ifdef FLB_HAVE_UNIX_SOCKET
-void flb_test_unix_path()
+void flb_test_unix_path(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -464,7 +464,7 @@ void flb_test_unix_path()
 }
 
 
-void flb_test_unix_perm()
+void flb_test_unix_perm(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -616,7 +616,7 @@ static int create_simple_json_gzip(msgpack_sbuffer *sbuf)
     return 0;
 }
 
-void flb_test_forward_gzip()
+void flb_test_forward_gzip(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -727,7 +727,7 @@ static int create_simple_json_zstd(msgpack_sbuffer *sbuf)
     return 0;
 }
 
-void flb_test_forward_zstd()
+void flb_test_forward_zstd(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -798,7 +798,7 @@ static int cb_count_only(void *record, size_t size, void *data)
     return 0;
 }
 
-void flb_test_threaded_forward_issue_10946()
+void flb_test_threaded_forward_issue_10946(void)
 {
     struct flb_lib_out_cb cb = {0};
     flb_ctx_t *ctx;
@@ -945,7 +945,7 @@ static flb_ctx_t *fw_make_ctx_with_forward(int *in_ffd_out, int *out_ffd_out)
 }
 
 /* 1) users-only => must fail to start (fail-close) */
-void flb_test_fw_auth_users_only_fail_start()
+void flb_test_fw_auth_users_only_fail_start(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd, ret;
@@ -972,7 +972,7 @@ void flb_test_fw_auth_users_only_fail_start()
 }
 
 /* 2) empty_shared_key + users => start OK */
-void flb_test_fw_auth_empty_shared_key_plus_users_start_ok()
+void flb_test_fw_auth_empty_shared_key_plus_users_start_ok(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd, ret;
@@ -997,7 +997,7 @@ void flb_test_fw_auth_empty_shared_key_plus_users_start_ok()
 }
 
 /* 3) shared_key only => start OK (backward compatible) */
-void flb_test_fw_auth_shared_key_only_start_ok()
+void flb_test_fw_auth_shared_key_only_start_ok(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd, ret;
@@ -1021,7 +1021,7 @@ void flb_test_fw_auth_shared_key_only_start_ok()
 }
 
 /* 4) shared_key + users => start OK (both checks) */
-void flb_test_fw_auth_shared_key_plus_users_start_ok()
+void flb_test_fw_auth_shared_key_plus_users_start_ok(void)
 {
     flb_ctx_t *ctx;
     int in_ffd, out_ffd, ret;

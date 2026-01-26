@@ -137,7 +137,7 @@ int assert_internal_log_metrics(struct http_client_ctx *http_ctx, int fail_test)
  * Test that internal logs (i.e. those created by flb_info, flb_error, etc)
  * tick internal v2 metrics.
  */
-static void test_internal_log_metrics()
+static void test_internal_log_metrics(void)
 {
     flb_ctx_t *ctx;
     int ret;

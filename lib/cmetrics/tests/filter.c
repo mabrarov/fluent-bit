@@ -195,7 +195,7 @@ struct cmt *generate_filter_test_data()
     return cmt;
 }
 
-void test_filter()
+void test_filter(void)
 {
     int ret;
     cfl_sds_t text;
@@ -317,7 +317,7 @@ void test_filter()
     cmt_destroy(cmt6);
 }
 
-void test_filter_with_label_key_value_pairs()
+void test_filter_with_label_key_value_pairs(void)
 {
     int ret;
     cfl_sds_t text;

@@ -79,7 +79,7 @@ static int compare_split_entry(const char* input, int separator, int max_split, 
     return 0;
 }
 
-void test_cfl_utils_split()
+void test_cfl_utils_split(void)
 {
     compare_split_entry("aa,bb", ',', 2, CFL_FALSE, "aa","bb" );
     compare_split_entry("localhost:12345", ':', 2, CFL_FALSE, "localhost","12345" );
@@ -111,7 +111,7 @@ void test_cfl_utils_split()
     compare_split_entry("aa \"bb cc\" dd", ' ', 256, CFL_FALSE, "aa", "\"bb", "cc\"", "dd");
 }
 
-void test_cfl_utils_split_quoted()
+void test_cfl_utils_split_quoted(void)
 {
    /* Tokens quoted with "..." */
     compare_split_entry("aa \"double quote\" bb", ' ', 256, CFL_TRUE, "aa", "double quote", "bb");
@@ -143,7 +143,7 @@ void test_cfl_utils_split_quoted()
     compare_split_entry("aa\\ bb", ' ', 256, CFL_TRUE, "aa\\", "bb");
 }
 
-void test_cfl_utils_split_quoted_errors()
+void test_cfl_utils_split_quoted_errors(void)
 {
     struct cfl_list *split = NULL;
 

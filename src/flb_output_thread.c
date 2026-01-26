@@ -30,7 +30,7 @@
 static pthread_once_t local_thread_instance_init = PTHREAD_ONCE_INIT;
 FLB_TLS_DEFINE(struct flb_out_thread_instance, local_thread_instance);
 
-void flb_output_thread_instance_init()
+void flb_output_thread_instance_init(void)
 {
     FLB_TLS_INIT(local_thread_instance);
 }

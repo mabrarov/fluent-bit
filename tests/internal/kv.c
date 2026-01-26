@@ -3,7 +3,7 @@
 #include <fluent-bit/flb_kv.h>
 #include "flb_tests_internal.h"
 
-static void test_kv_item_set_duplicate()
+static void test_kv_item_set_duplicate(void)
 {
     struct mk_list list;
     struct flb_kv *kv;

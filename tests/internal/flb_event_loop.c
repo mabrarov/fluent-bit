@@ -124,7 +124,7 @@ void evl_context_destroy(struct test_evl_context *ctx)
     flb_free(ctx);
 }
 
-void test_simple_timeout_1000ms()
+void test_simple_timeout_1000ms(void)
 {
     struct test_evl_context *ctx;
 
@@ -170,7 +170,7 @@ void test_simple_timeout_1000ms()
  * Remove timer event
  * Blocking wait with 2.1s timeout: 2.1s, no event
  */
-void test_non_blocking_and_blocking_timeout()
+void test_non_blocking_and_blocking_timeout(void)
 {
     struct test_evl_context *ctx;
 
@@ -277,7 +277,7 @@ void test_non_blocking_and_blocking_timeout()
  * Infinite wait: 1 event, < 1s + epsilon
  * Remove timer
  */
-void test_infinite_wait()
+void test_infinite_wait(void)
 {
     struct test_evl_context *ctx;
 
@@ -359,7 +359,7 @@ void synchronize_tests()
  * Confirm delete properly deletes events before ready, after ready,
  *      and after tracked by event loop.
  */
-void event_loop_stress_priority_add_delete()
+void event_loop_stress_priority_add_delete(void)
 {
     struct test_evl_context *ctx;
 

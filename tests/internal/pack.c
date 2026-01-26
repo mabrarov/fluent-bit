@@ -43,7 +43,7 @@ static inline void consume_bytes(char *buf, int bytes, int length)
 }
 
 /* Pack a simple JSON map */
-void test_json_pack()
+void test_json_pack(void)
 {
     int ret;
     int root_type;
@@ -64,7 +64,7 @@ void test_json_pack()
     flb_free(out_buf);
 }
 
-void test_json_pack_ext_default_backend()
+void test_json_pack_ext_default_backend(void)
 {
     int ret;
     int root_type;
@@ -82,7 +82,7 @@ void test_json_pack_ext_default_backend()
     flb_free(out_buf);
 }
 
-void test_json_pack_ext_jsmn_backend()
+void test_json_pack_ext_jsmn_backend(void)
 {
     int ret;
     int root_type;
@@ -103,7 +103,7 @@ void test_json_pack_ext_jsmn_backend()
     flb_free(out_buf);
 }
 
-void test_json_pack_recs_ext_default_backend()
+void test_json_pack_recs_ext_default_backend(void)
 {
     int ret;
     int records;
@@ -123,7 +123,7 @@ void test_json_pack_recs_ext_default_backend()
     flb_free(out_buf);
 }
 
-void test_json_pack_recs_ext_jsmn_backend()
+void test_json_pack_recs_ext_jsmn_backend(void)
 {
     int ret;
     int records;
@@ -147,7 +147,7 @@ void test_json_pack_recs_ext_jsmn_backend()
 }
 
 /* Pack a simple JSON map using a state */
-void test_json_pack_iter()
+void test_json_pack_iter(void)
 {
     int i;
     int ret;
@@ -180,7 +180,7 @@ void test_json_pack_iter()
 }
 
 /* Pack two concatenated JSON maps using a state */
-void test_json_pack_mult()
+void test_json_pack_mult(void)
 
 {
     int ret;
@@ -246,7 +246,7 @@ void test_json_pack_mult()
 }
 
 /* Pack two concatenated JSON maps byte by byte using a state */
-void test_json_pack_mult_iter()
+void test_json_pack_mult_iter(void)
 
 {
     int i;
@@ -326,7 +326,7 @@ void test_json_pack_mult_iter()
 }
 
 /* Validate default values of macros used in flb_msgpack_raw_to_json_sds */
-void test_msgpack_to_json_macros()
+void test_msgpack_to_json_macros(void)
 {
     /* Verify default values */
     TEST_CHECK(FLB_MSGPACK_TO_JSON_INIT_BUFFER_SIZE == 2.0);
@@ -334,7 +334,7 @@ void test_msgpack_to_json_macros()
 }
 
 /* Validate that duplicated keys are removed */
-void test_json_dup_keys()
+void test_json_dup_keys(void)
 {
     int ret;
     int type;
@@ -378,7 +378,7 @@ void test_json_dup_keys()
 }
 
 /* https://github.com/fluent/fluent-bit/issues/342 */
-void test_json_pack_bug342()
+void test_json_pack_bug342(void)
 {
     int i = 0;
     int records = 0;
@@ -542,7 +542,7 @@ static void utf8_tests_destroy(int s)
     }
 }
 
-void test_utf8_to_json()
+void test_utf8_to_json(void)
 {
     int i;
     int ret;
@@ -604,7 +604,7 @@ void test_utf8_to_json()
     utf8_tests_destroy(n_tests);
 }
 
-void test_json_pack_surrogate_pairs()
+void test_json_pack_surrogate_pairs(void)
 {
     int i;
     int ret;
@@ -674,7 +674,7 @@ void test_json_pack_surrogate_pairs()
     }
 }
 
-void test_json_pack_surrogate_pairs_with_replacement()
+void test_json_pack_surrogate_pairs_with_replacement(void)
 {
     int i;
     int ret;
@@ -744,7 +744,7 @@ void test_json_pack_surrogate_pairs_with_replacement()
     }
 }
 
-void test_json_pack_bug1278()
+void test_json_pack_bug1278(void)
 {
     int i;
     int len;
@@ -859,7 +859,7 @@ void test_json_pack_bug1278()
     }
 }
 
-void test_json_pack_nan()
+void test_json_pack_nan(void)
 {
     int ret;
     char json_str[128] = {0};
@@ -976,7 +976,7 @@ static int check_msgpack_val(msgpack_object obj, int expected_type, char *expect
  * Pack "valid JSON + partial JSON"
  */
 #define JSON_BUG5336 "{\"int\":10, \"string\":\"hello\", \"bool\":true, \"array\":[0,1,2]}"
-void test_json_pack_bug5336()
+void test_json_pack_bug5336(void)
 {
     int ret;
     char *json_valid = JSON_BUG5336;
@@ -1055,7 +1055,7 @@ void test_json_pack_bug5336()
 }
 
 /* Ensure empty arrays inside nested objects are handled */
-void test_json_pack_empty_array()
+void test_json_pack_empty_array(void)
 {
     int ret;
     int root_type;
@@ -1123,32 +1123,32 @@ void test_json_date(char* expect, int date_format)
     flb_sds_destroy(ret);
 }
 
-void test_json_date_iso8601()
+void test_json_date_iso8601(void)
 {
     test_json_date("1973-11-29T21:33:09.123456Z", FLB_PACK_JSON_DATE_ISO8601);
 }
 
-void test_json_date_double()
+void test_json_date_double(void)
 {
     test_json_date("123456789.123456", FLB_PACK_JSON_DATE_DOUBLE);
 }
 
-void test_json_date_java_sql()
+void test_json_date_java_sql(void)
 {
     test_json_date("1973-11-29 21:33:09.123456", FLB_PACK_JSON_DATE_JAVA_SQL_TIMESTAMP);
 }
 
-void test_json_date_epoch()
+void test_json_date_epoch(void)
 {
     test_json_date("123456789", FLB_PACK_JSON_DATE_EPOCH);
 }
 
-void test_json_date_epoch_ms()
+void test_json_date_epoch_ms(void)
 {
     test_json_date("123456789123", FLB_PACK_JSON_DATE_EPOCH_MS);
 }
 
-void test_json_invalid()
+void test_json_invalid(void)
 {
     const char *malformed_json = "{\"key1\": \"value1\", \"key2\": "; // incomplete JSON
     char *buffer = NULL;
@@ -1163,7 +1163,7 @@ void test_json_invalid()
     TEST_CHECK(buffer == NULL);
 }
 
-void test_json_pack_large_uint64()
+void test_json_pack_large_uint64(void)
 {
     int i;
     int ret;
@@ -1221,7 +1221,7 @@ void test_json_pack_large_uint64()
     }
 }
 
-void test_json_pack_token_count_overflow()
+void test_json_pack_token_count_overflow(void)
 {
     int i;
     flb_sds_t json = NULL;

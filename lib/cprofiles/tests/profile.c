@@ -89,7 +89,7 @@ void print_profile(struct cprof_profile *profile)
 }
 
 /* a basic test */
-static void test_profile()
+static void test_profile(void)
 {
     int i;
     int ret;

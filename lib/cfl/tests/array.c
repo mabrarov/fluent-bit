@@ -23,7 +23,7 @@
 
 #include "cfl_tests_internal.h"
 
-static void create()
+static void create(void)
 {
     struct cfl_array *arr;
 
@@ -36,7 +36,7 @@ static void create()
     cfl_array_destroy(arr);
 }
 
-static void resizable()
+static void resizable(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -73,7 +73,7 @@ static void resizable()
     cfl_array_destroy(arr);
 }
 
-static void append_string()
+static void append_string(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -87,7 +87,7 @@ static void append_string()
     cfl_array_destroy(arr);
 }
 
-static void append_string_s()
+static void append_string_s(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -101,7 +101,7 @@ static void append_string_s()
     cfl_array_destroy(arr);
 }
 
-static void append_string_s_ref()
+static void append_string_s_ref(void)
 {
     int ret;
     char *buf;
@@ -122,7 +122,7 @@ static void append_string_s_ref()
     free(buf);
 }
 
-static void append_bytes()
+static void append_bytes(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -136,7 +136,7 @@ static void append_bytes()
     cfl_array_destroy(arr);
 }
 
-static void append_bytes_ref()
+static void append_bytes_ref(void)
 {
     int ret;
     char *buf;
@@ -159,7 +159,7 @@ static void append_bytes_ref()
 }
 
 
-static void append_reference()
+static void append_reference(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -179,7 +179,7 @@ static void append_reference()
     cfl_variant_destroy(v);
 }
 
-static void append_bool()
+static void append_bool(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -196,7 +196,7 @@ static void append_bool()
     cfl_array_destroy(arr);
 }
 
-static void append_int64()
+static void append_int64(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -210,7 +210,7 @@ static void append_int64()
     cfl_array_destroy(arr);
 }
 
-static void append_uint64()
+static void append_uint64(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -224,7 +224,7 @@ static void append_uint64()
     cfl_array_destroy(arr);
 }
 
-static void append_double()
+static void append_double(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -238,7 +238,7 @@ static void append_double()
     cfl_array_destroy(arr);
 }
 
-static void append_null()
+static void append_null(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -252,7 +252,7 @@ static void append_null()
     cfl_array_destroy(arr);
 }
 
-static void append_array()
+static void append_array(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -273,7 +273,7 @@ static void append_array()
     cfl_array_destroy(arr);
 }
 
-static void append_new_array()
+static void append_new_array(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -296,7 +296,7 @@ static void append_new_array()
     cfl_array_destroy(arr);
 }
 
-static void append_kvlist()
+static void append_kvlist(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -317,7 +317,7 @@ static void append_kvlist()
     cfl_array_destroy(arr);
 }
 
-static void remove_by_index()
+static void remove_by_index(void)
 {
     int ret;
     struct cfl_array *arr;
@@ -338,7 +338,7 @@ static void remove_by_index()
     cfl_array_destroy(arr);
 }
 
-static void remove_by_reference()
+static void remove_by_reference(void)
 {
     int ret;
     struct cfl_array *arr;

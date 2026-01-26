@@ -336,7 +336,7 @@ static void test_ctx_destroy(struct test_ctx *ctx)
     flb_free(ctx);
 }
 
-void flb_test_http()
+void flb_test_http(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -552,19 +552,19 @@ void flb_test_http_json_charset_header(char *response_code)
     test_ctx_destroy(ctx);
 }
 
-void flb_test_http_successful_response_code_200()
+void flb_test_http_successful_response_code_200(void)
 {
     flb_test_http_successful_response_code("200");
     flb_test_http_json_charset_header("200");
 }
 
-void flb_test_http_successful_response_code_204()
+void flb_test_http_successful_response_code_204(void)
 {
     flb_test_http_successful_response_code("204");
     flb_test_http_json_charset_header("204");
 }
 
-void flb_test_http_failure_400_bad_json() {
+void flb_test_http_failure_400_bad_json(void) {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
     struct flb_http_client *c;
@@ -629,7 +629,7 @@ void flb_test_http_failure_400_bad_json() {
     test_ctx_destroy(ctx);
 }
 
-void flb_test_http_failure_400_bad_disk_write()
+void flb_test_http_failure_400_bad_disk_write(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -786,17 +786,17 @@ void test_http_tag_key(char *input)
     test_ctx_destroy(ctx);
 }
 
-void flb_test_http_tag_key_with_map_input()
+void flb_test_http_tag_key_with_map_input(void)
 {
     test_http_tag_key("{\"tag\":\"new_tag\",\"test\":\"msg\"}");
 }
 
-void flb_test_http_tag_key_with_array_input()
+void flb_test_http_tag_key_with_array_input(void)
 {
     test_http_tag_key("[{\"tag\":\"new_tag\",\"test\":\"msg\"}]");
 }
 
-void flb_test_http_oauth2_requires_token()
+void flb_test_http_oauth2_requires_token(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -866,7 +866,7 @@ void flb_test_http_oauth2_requires_token()
     jwks_mock_server_stop(&jwks);
 }
 
-void flb_test_http_oauth2_accepts_valid_token()
+void flb_test_http_oauth2_accepts_valid_token(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;

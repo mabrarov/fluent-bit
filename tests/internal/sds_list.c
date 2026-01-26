@@ -6,7 +6,7 @@
 
 #include "flb_tests_internal.h"
 
-static void test_sds_list_create_destroy()
+static void test_sds_list_create_destroy(void)
 {
     struct flb_sds_list *list = NULL;
     int ret = 0;
@@ -24,7 +24,7 @@ static void test_sds_list_create_destroy()
     }
 }
 
-static void test_sds_list_add()
+static void test_sds_list_add(void)
 {
     struct flb_sds_list *list = NULL;
     int ret = 0;
@@ -49,7 +49,7 @@ static void test_sds_list_add()
     }
 }
 
-static void test_sds_list_array()
+static void test_sds_list_array(void)
 {
     struct flb_sds_list *list = NULL;
     char *c_array[] = {
@@ -110,7 +110,7 @@ static void test_sds_list_array()
     }
 }
 
-static void test_sds_list_size()
+static void test_sds_list_size(void)
 {
     struct flb_sds_list *list = NULL;
     char *c_array[] = {
@@ -147,7 +147,7 @@ static void test_sds_list_size()
     }
 }
 
-static void test_sds_list_del_last_entry()
+static void test_sds_list_del_last_entry(void)
 {
     struct flb_sds_list *list = NULL;
     char *c_array[] = {

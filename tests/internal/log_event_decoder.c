@@ -46,7 +46,7 @@ static int pack_event_time(msgpack_packer *pck, struct flb_time *tm)
     return 0;
 }
 
-void create_destroy()
+void create_destroy(void)
 {
     struct flb_log_event_decoder *dec = NULL;
     char buf[256] = {0};
@@ -60,7 +60,7 @@ void create_destroy()
     flb_log_event_decoder_destroy(dec);
 }
 
-void init_destroy()
+void init_destroy(void)
 {
     struct flb_log_event_decoder dec;
     char buf[256] = {0};
@@ -76,7 +76,7 @@ void init_destroy()
     flb_log_event_decoder_destroy(&dec);
 }
 
-void decode_timestamp()
+void decode_timestamp(void)
 {
     struct flb_time tm;
     msgpack_sbuffer sbuf;
@@ -130,7 +130,7 @@ void decode_timestamp()
     msgpack_sbuffer_destroy(&sbuf);
 }
 
-void decode_object()
+void decode_object(void)
 {
     struct flb_log_event_decoder dec;
     struct flb_log_event event;
@@ -202,7 +202,7 @@ void decode_object()
     msgpack_sbuffer_destroy(&sbuf);
 }
 
-void decoder_next()
+void decoder_next(void)
 {
     struct flb_log_event_decoder dec;
     struct flb_log_event event;
@@ -294,7 +294,7 @@ static void pack_group_marker(msgpack_packer *pck, int32_t marker_type)
     msgpack_pack_str_body(pck, "test", 4);
 }
 
-void decoder_skip_groups()
+void decoder_skip_groups(void)
 {
     struct flb_log_event_decoder dec;
     struct flb_log_event event;
@@ -458,7 +458,7 @@ void decoder_skip_groups()
     msgpack_sbuffer_destroy(&sbuf);
 }
 
-void decoder_skip_groups_corrupted()
+void decoder_skip_groups_corrupted(void)
 {
     struct flb_log_event_decoder dec;
     struct flb_log_event event;
@@ -706,7 +706,7 @@ void decoder_skip_groups_corrupted()
     msgpack_sbuffer_destroy(&sbuf);
 }
 
-void decoder_read_groups()
+void decoder_read_groups(void)
 {
     struct flb_log_event_decoder dec;
     struct flb_log_event event;
@@ -802,7 +802,7 @@ void decoder_read_groups()
     msgpack_sbuffer_destroy(&sbuf);
 }
 
-void decoder_read_groups_corrupted()
+void decoder_read_groups_corrupted(void)
 {
     struct flb_log_event_decoder dec;
     struct flb_log_event event;
@@ -1020,7 +1020,7 @@ void decoder_read_groups_corrupted()
     msgpack_sbuffer_destroy(&sbuf);
 }
 
-void decoder_corrupted_group_timestamps()
+void decoder_corrupted_group_timestamps(void)
 {
     struct flb_log_event_decoder dec;
     struct flb_log_event event;
@@ -1157,7 +1157,7 @@ void decoder_corrupted_group_timestamps()
     msgpack_sbuffer_destroy(&sbuf);
 }
 
-void decoder_invalid_marker_preserves_group_state()
+void decoder_invalid_marker_preserves_group_state(void)
 {
     struct flb_log_event_decoder dec;
     struct flb_log_event event;
@@ -1244,7 +1244,7 @@ void decoder_invalid_marker_preserves_group_state()
     msgpack_sbuffer_destroy(&sbuf);
 }
 
-void decoder_group_end_start_sequence()
+void decoder_group_end_start_sequence(void)
 {
     struct flb_log_event_decoder dec;
     struct flb_log_event event;

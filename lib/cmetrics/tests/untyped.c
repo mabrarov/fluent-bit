@@ -58,7 +58,7 @@ static struct cmt *generate_encoder_test_data()
     return cmt;
 }
 
-void test_prometheus()
+void test_prometheus(void)
 {
     struct cmt *cmt = NULL;
     cfl_sds_t   prom = NULL;
@@ -76,7 +76,7 @@ void test_prometheus()
     cmt_destroy(cmt);
 }
 
-void test_text()
+void test_text(void)
 {
     struct cmt *cmt = NULL;
     cfl_sds_t   text = NULL;
@@ -95,7 +95,7 @@ void test_text()
     cmt_destroy(cmt);
 }
 
-void test_influx()
+void test_influx(void)
 {
     struct cmt *cmt = NULL;
     cfl_sds_t   text = NULL;

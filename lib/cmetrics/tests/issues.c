@@ -49,7 +49,7 @@ static struct cmt *generate_encoder_test_data()
 }
 
 
-void test_issue_54()
+void test_issue_54(void)
 {
     const char  expected_text[] = "1970-01-01T00:00:00.000000000Z kubernetes_load{tag1=\"tag1\",tag2=\"tag2\"} = 10\n" \
                                   "1970-01-01T00:00:00.000000000Z kubernetes_cpu{tag1=\"tag1\",tag2=\"tag2\"} = 10\n";
@@ -94,7 +94,7 @@ void test_issue_54()
 #ifdef CMT_HAVE_PROMETHEUS_TEXT_DECODER
 
 /* issue: https://github.com/fluent/fluent-bit/issues/10761 */
-void test_prometheus_metric_no_subsystem()
+void test_prometheus_metric_no_subsystem(void)
 {
     const char text[] =
         "# HELP up A simple example metric no subsystem\n"

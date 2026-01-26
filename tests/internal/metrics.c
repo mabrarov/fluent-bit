@@ -7,7 +7,7 @@
 
 #include "flb_tests_internal.h"
 
-static void test_create_usage()
+static void test_create_usage(void)
 {
     int ret;
     int id_1;

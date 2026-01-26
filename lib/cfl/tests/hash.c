@@ -21,7 +21,7 @@
 
 #include "cfl_tests_internal.h"
 
-static void checks()
+static void checks(void)
 {
     int len;
     uint64_t cfl_hash;

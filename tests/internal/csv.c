@@ -144,7 +144,7 @@ static char **split_rows_step(int step)
     return result;
 }
 
-static void test_basic()
+static void test_basic(void)
 {
     int step;
     for (step = 1; step <= sizeof(data); step++) {
@@ -152,7 +152,7 @@ static void test_basic()
     }
 }
 
-static void test_split_lines()
+static void test_split_lines(void)
 {
     int step;
     for (step = 1; step <= sizeof(data); step++) {

@@ -109,7 +109,7 @@ static void filter_test_destroy(struct filter_test *ctx)
     flb_free(ctx);
 }
 
-void flb_test_str_to_int()
+void flb_test_str_to_int(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -147,7 +147,7 @@ void flb_test_str_to_int()
     filter_test_destroy(ctx);
 }
 
-void flb_test_str_to_hex()
+void flb_test_str_to_hex(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -185,7 +185,7 @@ void flb_test_str_to_hex()
     filter_test_destroy(ctx);
 }
 
-void flb_test_str_to_float()
+void flb_test_str_to_float(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -223,7 +223,7 @@ void flb_test_str_to_float()
     filter_test_destroy(ctx);
 }
 
-void flb_test_int_to_str()
+void flb_test_int_to_str(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -261,7 +261,7 @@ void flb_test_int_to_str()
     filter_test_destroy(ctx);
 }
 
-void flb_test_int_to_float()
+void flb_test_int_to_float(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -299,7 +299,7 @@ void flb_test_int_to_float()
     filter_test_destroy(ctx);
 }
 
-void flb_test_str_to_int_and_int_to_str()
+void flb_test_str_to_int_and_int_to_str(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -338,7 +338,7 @@ void flb_test_str_to_int_and_int_to_str()
     filter_test_destroy(ctx);
 }
 
-void flb_test_nest_key()
+void flb_test_nest_key(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;

@@ -9,7 +9,7 @@
  * the memory representation against the byte order detected by
  * cmake.
  */
-static void flb_test_endianness_detection()
+static void flb_test_endianness_detection(void)
 {
     volatile uint64_t  source_value;
     volatile uint8_t  *test_value;

@@ -128,7 +128,7 @@ static void verify_decoded_values(struct flb_log_event *event, const struct even
 }
 
 /* Test encoding and decoding of bind events */
-void test_bind_event_encoding() {
+void test_bind_event_encoding(void) {
     struct test_context *ctx = init_test_context();
     TEST_CHECK(ctx != NULL);
 

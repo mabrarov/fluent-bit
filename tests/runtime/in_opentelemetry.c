@@ -290,7 +290,7 @@ static int cb_check_log_group_metadata(void *chunk, size_t size, void *data)
     return 0;
 }
 
-static void flb_test_log_group_metadata()
+static void flb_test_log_group_metadata(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -381,7 +381,7 @@ static int cb_check_log_group_body(void *chunk, size_t size, void *data)
     return 0;
 }
 
-static void flb_test_log_group_body()
+static void flb_test_log_group_body(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -559,11 +559,11 @@ static void flb_test_logs_body_impl(const char *logs_body_key, char* want_log)
     test_ctx_destroy(ctx);
 }
 
-static void flb_test_log_body() {
+static void flb_test_log_body(void) {
     flb_test_logs_body_impl(NULL, "{\"log\":\"{\\\"message\\\":\\\"test\\\"}\"}");
 }
 
-static void flb_test_log_body_key() {
+static void flb_test_log_body_key(void) {
     flb_test_logs_body_impl("body", "{\"body\":\"{\\\"message\\\":\\\"test\\\"}\"}");
 }
 
@@ -640,12 +640,12 @@ void flb_test_successful_response_code(char *response_code)
     test_ctx_destroy(ctx);
 }
 
-void flb_test_successful_response_code_200()
+void flb_test_successful_response_code_200(void)
 {
     flb_test_successful_response_code("200");
 }
 
-void flb_test_successful_response_code_204()
+void flb_test_successful_response_code_204(void)
 {
     flb_test_successful_response_code("204");
 }
@@ -659,7 +659,7 @@ static int cb_check_tag_from_uri_false(void *record, size_t size, void *data)
     return 0;
 }
 
-void flb_test_tag_from_uri_false()
+void flb_test_tag_from_uri_false(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;

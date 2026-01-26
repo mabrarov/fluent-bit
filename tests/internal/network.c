@@ -149,12 +149,12 @@ static void test_client_server(int is_ipv6)
     }
 }
 
-void test_ipv4_client_server()
+void test_ipv4_client_server(void)
 {
     test_client_server(FLB_FALSE);
 }
 
-void test_ipv6_client_server()
+void test_ipv6_client_server(void)
 {
     test_client_server(FLB_TRUE);
 }

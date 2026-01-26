@@ -76,7 +76,7 @@ static int ht_add(struct flb_hash_table *ht, char *key, char *val)
   return id;
 }
 
-void test_create_zero()
+void test_create_zero(void)
 {
     struct flb_hash_table *ht;
 
@@ -85,7 +85,7 @@ void test_create_zero()
 }
 
 /* bug 355 */
-void test_single()
+void test_single(void)
 {
     int ret;
     const char *out_buf;
@@ -107,7 +107,7 @@ void test_single()
     flb_hash_table_destroy(ht);
 }
 
-void test_small_table()
+void test_small_table(void)
 {
     int i;
     struct map *m;
@@ -124,7 +124,7 @@ void test_small_table()
     flb_hash_table_destroy(ht);
 }
 
-void test_medium_table()
+void test_medium_table(void)
 {
     int i;
     struct map *m;
@@ -141,7 +141,7 @@ void test_medium_table()
     flb_hash_table_destroy(ht);
 }
 
-void test_chaining()
+void test_chaining(void)
 {
     int i;
     int inserts = 0;
@@ -179,7 +179,7 @@ void test_chaining()
     flb_hash_table_destroy(ht);
 }
 
-void test_delete_all()
+void test_delete_all(void)
 {
     int i;
     int ret;
@@ -219,7 +219,7 @@ void test_delete_all()
     fprintf(stderr, "[hash table] total=%i not_found=%i\n", total, not_found);
 }
 
-void test_random_eviction()
+void test_random_eviction(void)
 {
     int ret;
     const char *out_buf;
@@ -244,7 +244,7 @@ void test_random_eviction()
     flb_hash_table_destroy(ht);
 }
 
-void test_less_used_eviction()
+void test_less_used_eviction(void)
 {
     int ret;
     const char *out_buf;
@@ -284,7 +284,7 @@ void test_less_used_eviction()
     flb_hash_table_destroy(ht);
 }
 
-void test_older_eviction()
+void test_older_eviction(void)
 {
     int ret;
     const char *out_buf;
@@ -324,7 +324,7 @@ void test_older_eviction()
     flb_hash_table_destroy(ht);
 }
 
-void test_pointer()
+void test_pointer(void)
 {
     int ret;
     const char *out_buf;
@@ -357,7 +357,7 @@ void test_pointer()
     flb_hash_table_destroy(ht);
 }
 
-void test_hash_exists()
+void test_hash_exists(void)
 {
     int i;
     int id;
@@ -400,7 +400,7 @@ void test_hash_exists()
 }
 
 /* Ensure long keys hashed case-insensitively do not leak memory */
-void test_case_insensitive_long_key()
+void test_case_insensitive_long_key(void)
 {
     int i;
     int ret;
@@ -425,7 +425,7 @@ void test_case_insensitive_long_key()
     flb_hash_table_destroy(ht);
 }
 
-void test_case_insensitive_short_key()
+void test_case_insensitive_short_key(void)
 {
     int ret;
     char key[32];
@@ -446,7 +446,7 @@ void test_case_insensitive_short_key()
 
 
 /* Deleting a short key should not remove a longer key with the same prefix */
-void test_delete_shared_prefix()
+void test_delete_shared_prefix(void)
 {
     int ret;
     const char *out;

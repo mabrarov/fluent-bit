@@ -61,7 +61,7 @@ static void cb_check_send_raw(void *ctx, int ffd,
 }
 
 // Test "Splunk_Send_Raw" property.
-void flb_test_send_raw()
+void flb_test_send_raw(void)
 {
     int ret;
     int size = sizeof(JSON_BASIC) - 1;
@@ -102,7 +102,7 @@ void flb_test_send_raw()
     flb_destroy(ctx);
 }
 
-void flb_test_basic()
+void flb_test_basic(void)
 {
     int ret;
     int size = sizeof(JSON_BASIC) - 1;

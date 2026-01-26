@@ -62,7 +62,7 @@ static void cb_kv(const char *name, const char *value,
     l->index++;
 }
 
-static void test_basic()
+static void test_basic(void)
 {
     struct flb_regex *regex = NULL;
     struct flb_regex_search result;
@@ -105,7 +105,7 @@ static void test_basic()
 }
 
 /* test uri to check if misunderstanding "/pattern/option" */
-static void test_uri()
+static void test_uri(void)
 {
     struct flb_regex *regex = NULL;
     struct flb_regex_search result;
@@ -148,7 +148,7 @@ static void test_uri()
 }
 
 /* test "/pattern/i"  */
-static void test_option_ignore_case()
+static void test_option_ignore_case(void)
 {
     struct flb_regex *regex = NULL;
     struct flb_regex_search result;
@@ -191,7 +191,7 @@ static void test_option_ignore_case()
 }
 
 /* test "/pattern/m" */
-static void test_option_multiline()
+static void test_option_multiline(void)
 {
     struct flb_regex *regex = NULL;
     struct flb_regex_search result;
@@ -234,7 +234,7 @@ static void test_option_multiline()
 }
 
 /* test "/pattern/x" */
-static void test_option_extend()
+static void test_option_extend(void)
 {
     struct flb_regex *regex = NULL;
     struct flb_regex_search result;
@@ -277,7 +277,7 @@ static void test_option_extend()
 }
 
 /* test "/pattern/ix" */
-static void test_option_i_x()
+static void test_option_i_x(void)
 {
     struct flb_regex *regex = NULL;
     struct flb_regex_search result;

@@ -124,7 +124,7 @@ int flb_parser_regex_do(struct flb_parser *parser,
                         struct flb_time *out_time);
 
 /* Parse timezone string and get the offset */
-void test_parser_tzone_offset()
+void test_parser_tzone_offset(void)
 {
     int i;
     int len;
@@ -167,7 +167,7 @@ static void load_regex_parsers(struct flb_config *config)
     TEST_CHECK(ret == 0);
 }
 
-void test_parser_time_lookup()
+void test_parser_time_lookup(void)
 {
     int i;
     int j;
@@ -246,7 +246,7 @@ void test_parser_time_lookup()
 }
 
 /* Do time lookup using the JSON parser backend*/
-void test_json_parser_time_lookup()
+void test_json_parser_time_lookup(void)
 {
     int i;
     int j;
@@ -331,7 +331,7 @@ void test_json_parser_time_lookup()
 }
 
 /* Do time lookup using the Regex parser backend*/
-void test_regex_parser_time_lookup()
+void test_regex_parser_time_lookup(void)
 {
     int i;
     int j;
@@ -488,7 +488,7 @@ static int a_mysql_unquote_test(struct flb_parser *p, char *source, char *expect
 }
 
 
-void test_mysql_unquoted()
+void test_mysql_unquoted(void)
 {
     struct flb_parser *p;
     struct flb_config *config;

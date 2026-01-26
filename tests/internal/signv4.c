@@ -545,7 +545,7 @@ static struct mk_list *aws_tests_create(struct flb_config *config)
     return list;
 }
 
-static void aws_test_suite()
+static void aws_test_suite(void)
 {
     int ret;
     time_t t;
@@ -641,7 +641,7 @@ static void check_normalize(char *s, size_t len, char *out)
     flb_sds_destroy(o);
 }
 
-void normalize()
+void normalize(void)
 {
     /* get-relative */
     check_normalize("/example/..", 11, "/");
