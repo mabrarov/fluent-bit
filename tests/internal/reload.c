@@ -23,7 +23,7 @@
 #define FLB_YAML_MISSING_INCLUDE FLB_TESTS_DATA_PATH "/data/reload/yaml/missing_include.yaml"
 #define FLB_CLASSIC              FLB_TESTS_DATA_PATH "/data/reload/fluent-bit.conf"
 
-void test_reconstruct_cf()
+void test_reconstruct_cf(void)
 {
     struct flb_cf *cf;
     struct flb_cf_section *s_tmp;
@@ -109,7 +109,7 @@ void test_reconstruct_cf()
 }
 
 /* data/reload/fluent-bit.conf */
-void test_reload()
+void test_reload(void)
 {
     struct flb_cf *cf = NULL;
     struct flb_cf *cf_opts;
@@ -178,7 +178,7 @@ void test_reload()
 }
 
 /* data/reload/yaml/processor.yaml */
-void test_reload_yaml()
+void test_reload_yaml(void)
 {
     struct flb_cf *cf = NULL;
     struct flb_cf *cf_opts;
@@ -249,7 +249,7 @@ void test_reload_yaml()
 }
 
 /* data/reload/yaml/missing_include.yaml */
-void test_reload_yaml_missing_include()
+void test_reload_yaml_missing_include(void)
 {
     struct flb_cf *cf = NULL;
     struct flb_cf *cf_opts;
@@ -304,7 +304,7 @@ void test_reload_yaml_missing_include()
 
 /* Test hot reload watchdog timeout functionality */
 #ifndef FLB_SYSTEM_WINDOWS
-void test_reload_watchdog_timeout()
+void test_reload_watchdog_timeout(void)
 {
     struct flb_cf *cf = NULL;
     struct flb_cf *cf_opts;
@@ -439,7 +439,7 @@ void test_reload_watchdog_timeout()
     }
 }
 #else
-void test_reload_watchdog_timeout()
+void test_reload_watchdog_timeout(void)
 {
     TEST_MSG("skipped on Windows");
 }

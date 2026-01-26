@@ -10,7 +10,7 @@
 
 #include "flb_tests_internal.h"
 
-static void test_storage_inherit_enabled()
+static void test_storage_inherit_enabled(void)
 {
     struct flb_config *config;
     struct flb_input_instance *in;
@@ -54,7 +54,7 @@ static void test_storage_inherit_enabled()
     flb_config_exit(config);
 }
 
-static void test_storage_inherit_disabled()
+static void test_storage_inherit_disabled(void)
 {
     struct flb_config *config;
     struct flb_input_instance *in;
@@ -98,7 +98,7 @@ static void test_storage_inherit_disabled()
     flb_config_exit(config);
 }
 
-static void test_storage_explicit_override()
+static void test_storage_explicit_override(void)
 {
     struct flb_config *config;
     struct flb_input_instance *in;
@@ -149,7 +149,7 @@ static void test_storage_explicit_override()
     flb_config_exit(config);
 }
 
-static void test_storage_inherit_invalid_type()
+static void test_storage_inherit_invalid_type(void)
 {
     struct flb_config *config;
     struct flb_input_instance *in;

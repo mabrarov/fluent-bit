@@ -25,7 +25,7 @@ static const struct check wildcard_checks[] = {
     {"test"           , 0, "test"       , FLB_TRUE}
 };
 
-void test_router_wildcard()
+void test_router_wildcard(void)
 {
     size_t i;
     int ret;
@@ -95,7 +95,7 @@ static const struct check route_checks[] = {
     {truncated,   2,                   "abc",       FLB_FALSE}
 };
 
-void test_router_edge_cases()
+void test_router_edge_cases(void)
 {
     size_t i;
     int ret;

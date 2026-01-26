@@ -140,7 +140,7 @@ static void perf_write_realloc_hint(int realloc_hint, int up_down_mod)
     free(in_data);
 }
 
-static void test_perf_write_realloc_32()
+static void test_perf_write_realloc_32(void)
 {
     int realloc_hint = 32 * 1024;
     int up_down_mod = 0;
@@ -148,7 +148,7 @@ static void test_perf_write_realloc_32()
     perf_write_realloc_hint(realloc_hint, up_down_mod);
 }
 
-static void test_perf_write_realloc_128()
+static void test_perf_write_realloc_128(void)
 {
     int realloc_hint = 128 * 1024;
     int up_down_mod = 0;
@@ -156,7 +156,7 @@ static void test_perf_write_realloc_128()
     perf_write_realloc_hint(realloc_hint, up_down_mod);
 }
 
-static void test_perf_write_realloc_512()
+static void test_perf_write_realloc_512(void)
 {
     int realloc_hint = 512 * 1024;
     int up_down_mod = 0;
@@ -164,7 +164,7 @@ static void test_perf_write_realloc_512()
     perf_write_realloc_hint(realloc_hint, up_down_mod);
 }
 
-static void test_write_up_down_500()
+static void test_write_up_down_500(void)
 {
     int realloc_hint = 512 * 1024;
     int up_down_mod = 500;
@@ -172,7 +172,7 @@ static void test_write_up_down_500()
     perf_write_realloc_hint(realloc_hint, up_down_mod);
 }
 
-static void test_write_up_down_1000()
+static void test_write_up_down_1000(void)
 {
     int realloc_hint = 512 * 1024;
     int up_down_mod = 1000;
@@ -180,7 +180,7 @@ static void test_write_up_down_1000()
     perf_write_realloc_hint(realloc_hint, up_down_mod);
 }
 
-static void test_write_up_down_10000()
+static void test_write_up_down_10000(void)
 {
     int realloc_hint = 512 * 1024;
     int up_down_mod = 10000;

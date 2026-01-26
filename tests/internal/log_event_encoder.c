@@ -283,7 +283,7 @@ static int compare_msgpack_format_fluentbit_v1(void *msgpack_data, size_t msgpac
 }
 
 
-static void create_destroy()
+static void create_destroy(void)
 {
     struct flb_log_event_encoder *encoder = NULL;
     int index;
@@ -304,7 +304,7 @@ static void create_destroy()
     }
 }
 
-static void create_unsupported_format()
+static void create_unsupported_format(void)
 {
     struct flb_log_event_encoder *encoder = NULL;
     int index;
@@ -323,7 +323,7 @@ static void create_unsupported_format()
     }
 }
 
-static void init_destroy()
+static void init_destroy(void)
 {
     struct flb_log_event_encoder encoder;
     int index;
@@ -345,7 +345,7 @@ static void init_destroy()
     }
 }
 
-static void init_unsupported_format()
+static void init_unsupported_format(void)
 {
     struct flb_log_event_encoder encoder;
     int index;
@@ -364,7 +364,7 @@ static void init_unsupported_format()
     }
 }
 
-static void basic_format_fluent_bit_v2()
+static void basic_format_fluent_bit_v2(void)
 {
     struct flb_log_event_encoder encoder;
     int ret;
@@ -428,7 +428,7 @@ static void basic_format_fluent_bit_v2()
     flb_log_event_encoder_destroy(&encoder);
 }
 
-static void basic_format_fluent_bit_v1()
+static void basic_format_fluent_bit_v1(void)
 {
     struct flb_log_event_encoder encoder;
     int ret;
@@ -492,7 +492,7 @@ static void basic_format_fluent_bit_v1()
     flb_log_event_encoder_destroy(&encoder);
 }
 
-static void basic_metadata_format_fluent_bit_v2()
+static void basic_metadata_format_fluent_bit_v2(void)
 {
     struct flb_log_event_encoder encoder;
     int ret;
@@ -577,7 +577,7 @@ static void basic_metadata_format_fluent_bit_v2()
     flb_log_event_encoder_destroy(&encoder);
 }
 
-static void emit_raw_record()
+static void emit_raw_record(void)
 {
     struct flb_log_event_encoder encoder;
     int ret;
@@ -651,7 +651,7 @@ static void emit_raw_record()
 }
 
 /* Validate that an empty map can be used as a metadata value */
-static void metadata_with_empty_map()
+static void metadata_with_empty_map(void)
 {
     struct flb_log_event_encoder encoder;
     msgpack_unpacked             result;
@@ -758,7 +758,7 @@ static void metadata_with_empty_map()
  * value and then it checks the raw data to ensure that regardless
  * of the host byte order the value is encoded in network order.
  */
-static void timestamp_encoding()
+static void timestamp_encoding(void)
 {
     uint8_t                     *encoder_buffer;
     struct flb_time              timestamp;

@@ -32,7 +32,7 @@
 #define D_SEC 1647061992.123;
 const char eventtime[8] = {0x62, 0x2c, 0x2b, 0xe8, 0x07, 0x54, 0xd4, 0xc0 };
 
-void test_to_nanosec()
+void test_to_nanosec(void)
 {
     uint64_t expect = 123000000456;
     uint64_t ret;
@@ -48,7 +48,7 @@ void test_to_nanosec()
 }
 
 /* https://github.com/fluent/fluent-bit/issues/5215 */
-void test_append_to_mpack_v1() {
+void test_append_to_mpack_v1(void) {
     mpack_writer_t writer;
     char *data;
     size_t size;
@@ -96,7 +96,7 @@ void test_append_to_mpack_v1() {
     flb_free(data);
 }
 
-void test_msgpack_to_time_int()
+void test_msgpack_to_time_int(void)
 {
     struct flb_time tm;
     int64_t expect = SEC_32BIT;
@@ -131,7 +131,7 @@ void test_msgpack_to_time_int()
     msgpack_unpacked_destroy(&result);
 }
 
-void test_msgpack_to_time_double()
+void test_msgpack_to_time_double(void)
 {
     struct flb_time tm;
     double d_time = D_SEC;
@@ -170,7 +170,7 @@ void test_msgpack_to_time_double()
     msgpack_unpacked_destroy(&result);
 }
 
-void test_msgpack_to_time_eventtime()
+void test_msgpack_to_time_eventtime(void)
 {
     struct flb_time tm;
     int64_t expect_sec = SEC_32BIT;
@@ -213,7 +213,7 @@ void test_msgpack_to_time_eventtime()
     msgpack_unpacked_destroy(&result);
 }
 
-void test_eventtime_boundaries()
+void test_eventtime_boundaries(void)
 {
     struct flb_time tm;
     msgpack_packer mp_pck;
@@ -267,7 +267,7 @@ void test_eventtime_boundaries()
     msgpack_sbuffer_destroy(&mp_sbuf);
 }
 
-void test_from_uint64_post_2038()
+void test_from_uint64_post_2038(void)
 {
     struct flb_time tm;
     int ret;
@@ -278,7 +278,7 @@ void test_from_uint64_post_2038()
     TEST_CHECK(tm.tm.tv_nsec == 808241446);
 }
 
-void test_msgpack_to_time_invalid()
+void test_msgpack_to_time_invalid(void)
 {
     struct flb_time tm;
     char ext_data[8] = {0x00, 0x11, 0x22, 0xaa, 0xbb, 0xcc, 0xdd, 0xee};
@@ -345,7 +345,7 @@ void test_msgpack_to_time_invalid()
     msgpack_unpacked_destroy(&result);
 }
 
-void test_append_to_msgpack_eventtime()
+void test_append_to_msgpack_eventtime(void)
 {
     struct flb_time tm;
     int ret;
@@ -389,7 +389,7 @@ void test_append_to_msgpack_eventtime()
     msgpack_unpacked_destroy(&result);
 }
 
-void test_windows_zone_to_iana()
+void test_windows_zone_to_iana(void)
 {
     const char *iana;
 
@@ -429,7 +429,7 @@ void test_windows_zone_to_iana()
     }
 }
 
-void test_iana_zone_to_windows()
+void test_iana_zone_to_windows(void)
 {
     const char *windows;
 
@@ -459,7 +459,7 @@ void test_iana_zone_to_windows()
     }
 }
 
-void test_windows_zone_to_utc_offset()
+void test_windows_zone_to_utc_offset(void)
 {
     int ret;
     long offset;
@@ -495,7 +495,7 @@ void test_windows_zone_to_utc_offset()
     }
 }
 
-void test_iana_zone_to_utc_offset()
+void test_iana_zone_to_utc_offset(void)
 {
     int ret;
     long offset;

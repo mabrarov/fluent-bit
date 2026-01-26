@@ -12,7 +12,7 @@
 #define M_PI 3.14159265358979323846
 #endif
 
-void test_ripser_betti_circle()
+void test_ripser_betti_circle(void)
 {
 #define SIZE_N 16 /* Number of points sampled on the circle */
 

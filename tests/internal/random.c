@@ -4,7 +4,7 @@
 
 #include "flb_tests_internal.h"
 
-void test_random_bytes()
+void test_random_bytes(void)
 {
     int ret;
     unsigned char buf1[64] = {0};

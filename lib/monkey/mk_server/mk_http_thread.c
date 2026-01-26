@@ -69,7 +69,7 @@ static inline struct mk_http_libco_params *thread_get_libco_params()
     return libco_params;
 }
 
-static void mk_http_thread_initialize_tls_once()
+static void mk_http_thread_initialize_tls_once(void)
 {
     MK_TLS_INIT(mk_http_thread_libco_params);
     MK_TLS_INIT(mk_thread);
@@ -81,7 +81,7 @@ void mk_http_thread_initialize_tls()
                  mk_http_thread_initialize_tls_once);
 }
 
-static inline void thread_cb_init_vars()
+static inline void thread_cb_init_vars(void)
 {
     struct mk_http_libco_params *libco_params;
     struct mk_vhost_handler     *handler;

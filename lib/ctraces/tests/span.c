@@ -26,7 +26,7 @@
 
 #include "ctr_tests.h"
 
-void test_span()
+void test_span(void)
 {
     int ret;
     struct ctrace *ctx;

@@ -76,7 +76,7 @@ void wait_with_timeout(uint32_t timeout_ms, char **out_result)
 }
 
 
-void flb_test_filter_parser_extract_fields()
+void flb_test_filter_parser_extract_fields(void)
 {
     int ret;
     int bytes;
@@ -163,7 +163,7 @@ void flb_test_filter_parser_extract_fields()
     flb_destroy(ctx);
 }
 
-void flb_test_filter_parser_record_accessor()
+void flb_test_filter_parser_record_accessor(void)
 {
     int ret;
     int bytes;
@@ -250,7 +250,7 @@ void flb_test_filter_parser_record_accessor()
     flb_destroy(ctx);
 }
 
-void flb_test_filter_parser_reserve_data_off()
+void flb_test_filter_parser_reserve_data_off(void)
 {
     int ret;
     int bytes;
@@ -327,7 +327,7 @@ void flb_test_filter_parser_reserve_data_off()
     flb_destroy(ctx);
 }
 
-void flb_test_filter_parser_handle_time_key()
+void flb_test_filter_parser_handle_time_key(void)
 {
     int ret;
     int bytes;
@@ -409,7 +409,7 @@ void flb_test_filter_parser_handle_time_key()
     flb_destroy(ctx);
 }
 
-void flb_test_filter_parser_handle_time_key_with_fractional_timestamp()
+void flb_test_filter_parser_handle_time_key_with_fractional_timestamp(void)
 {
     int ret;
     int bytes;
@@ -487,7 +487,7 @@ void flb_test_filter_parser_handle_time_key_with_fractional_timestamp()
     flb_destroy(ctx);
 }
 
-void flb_test_filter_parser_handle_time_key_with_time_zone()
+void flb_test_filter_parser_handle_time_key_with_time_zone(void)
 {
     int ret;
     int bytes;
@@ -713,7 +713,7 @@ void test_parser_timestamp_timezone(char *tz,
     tzset();
 }
 
-void flb_test_filter_parser_use_system_timezone()
+void flb_test_filter_parser_use_system_timezone(void)
 {
     int i;
     struct test_case {
@@ -743,7 +743,7 @@ void flb_test_filter_parser_use_system_timezone()
     }
 }
 
-void flb_test_filter_parser_use_system_timezone_zone_in_timestamp()
+void flb_test_filter_parser_use_system_timezone_zone_in_timestamp(void)
 {
     test_parser_timestamp_timezone("EST5EDT", /* char *tz */
                                    "%Y-%m-%d %H:%M:%S%z", /* char *time_fmt */ 
@@ -752,7 +752,7 @@ void flb_test_filter_parser_use_system_timezone_zone_in_timestamp()
                                    FLB_TRUE); /* int use_system_timezone */
 }
 
-void flb_test_filter_parser_ignore_malformed_time()
+void flb_test_filter_parser_ignore_malformed_time(void)
 {
     int ret;
     int bytes;
@@ -831,7 +831,7 @@ void flb_test_filter_parser_ignore_malformed_time()
     flb_destroy(ctx);
 }
 
-void flb_test_filter_parser_preserve_original_field()
+void flb_test_filter_parser_preserve_original_field(void)
 {
     int ret;
     int bytes;
@@ -916,7 +916,7 @@ void flb_test_filter_parser_preserve_original_field()
 }
 
 // https://github.com/fluent/fluent-bit/issues/2250
-void flb_test_filter_parser_first_matched_when_mutilple_parser()
+void flb_test_filter_parser_first_matched_when_mutilple_parser(void)
 {
     int ret;
     int bytes;
@@ -1003,7 +1003,7 @@ void flb_test_filter_parser_first_matched_when_mutilple_parser()
 
 // https://github.com/fluent/fluent-bit/issues/1486
 // https://github.com/fluent/fluent-bit/issues/2939
-void flb_test_filter_parser_skip_empty_values_false()
+void flb_test_filter_parser_skip_empty_values_false(void)
 {
     int ret;
     int bytes;
@@ -1209,7 +1209,7 @@ static void test_ctx_destroy(struct test_ctx *ctx)
 }
 
 /* Test case 1: Reserve_Data=Off, Preserve_Key=Off */
-void flb_test_filter_parser_reserve_off_preserve_off()
+void flb_test_filter_parser_reserve_off_preserve_off(void)
 {
     char *output = NULL;
     struct test_ctx *ctx;
@@ -1254,7 +1254,7 @@ void flb_test_filter_parser_reserve_off_preserve_off()
 }
 
 /* Test case 2: Reserve_Data=Off, Preserve_Key=On */
-void flb_test_filter_parser_reserve_off_preserve_on()
+void flb_test_filter_parser_reserve_off_preserve_on(void)
 {
     char *output = NULL;
     struct test_ctx *ctx;
@@ -1299,7 +1299,7 @@ void flb_test_filter_parser_reserve_off_preserve_on()
 }
 
 /* Test case 3: Reserve_Data=On, Preserve_Key=Off */
-void flb_test_filter_parser_reserve_on_preserve_off()
+void flb_test_filter_parser_reserve_on_preserve_off(void)
 {
     char *output = NULL;
     struct test_ctx *ctx;
@@ -1344,7 +1344,7 @@ void flb_test_filter_parser_reserve_on_preserve_off()
 }
 
 /* Test case 4: Reserve_Data=On, Preserve_Key=On */
-void flb_test_filter_parser_reserve_on_preserve_on()
+void flb_test_filter_parser_reserve_on_preserve_on(void)
 {
     char *output = NULL;
     struct test_ctx *ctx;

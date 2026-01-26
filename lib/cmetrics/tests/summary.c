@@ -36,7 +36,7 @@ static void prometheus_encode_test(struct cmt *cmt)
     cmt_test_encode_all(cmt);
 }
 
-void test_set_defaults()
+void test_set_defaults(void)
 {
     double sum;
     uint64_t count;
@@ -95,7 +95,7 @@ void test_set_defaults()
 }
 
 /* ref: https://github.com/fluent/fluent-bit/issues/5894 */
-void fluentbit_bug_5894()
+void fluentbit_bug_5894(void)
 {
     double sum;
     uint64_t count;

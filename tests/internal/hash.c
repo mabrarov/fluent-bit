@@ -51,7 +51,7 @@ static void hexlify(uint8_t *hash, char *out)
     }
 }
 
-static void test_digest_abcdef()
+static void test_digest_abcdef(void)
 {
     struct  flb_hash digest;
     char    dhex[128];
@@ -68,7 +68,7 @@ static void test_digest_abcdef()
     TEST_CHECK(memcmp(dhex, SHA512_ABCDEF, 128) == 0);
 }
 
-static void test_digest_offbyone()
+static void test_digest_offbyone(void)
 {
     struct flb_hash digest;
     uint8_t buf[64];
@@ -88,7 +88,7 @@ static void test_digest_offbyone()
 
 }
 
-static void test_digest_standard()
+static void test_digest_standard(void)
 {
     char              hex_digest[128];
     int               ref_digest_type;
@@ -125,7 +125,7 @@ static void test_digest_standard()
     flb_hash_cleanup(&digest);
 }
 
-static void test_digest_simple_batch()
+static void test_digest_simple_batch(void)
 {
     char            hex_digest[128];
     int             ref_digest_type;

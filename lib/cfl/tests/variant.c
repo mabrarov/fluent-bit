@@ -66,7 +66,7 @@ static int compare(FILE *fp, char *expect, int ignore_len)
     return 0;
 }
 
-static void test_variant_print_bool()
+static void test_variant_print_bool(void)
 {
     int ret;
     int i;
@@ -108,7 +108,7 @@ static void test_variant_print_bool()
     }
 }
 
-static void test_variant_print_null()
+static void test_variant_print_null(void)
 {
     int ret;
     char expects[] = "null";
@@ -145,7 +145,7 @@ static void test_variant_print_null()
     fclose(fp);
 }
 
-static void test_variant_print_int64()
+static void test_variant_print_int64(void)
 {
     int ret;
     int i;
@@ -184,7 +184,7 @@ static void test_variant_print_int64()
     }
 }
 
-static void test_variant_print_uint64()
+static void test_variant_print_uint64(void)
 {
     int ret;
     int i;
@@ -223,7 +223,7 @@ static void test_variant_print_uint64()
     }
 }
 
-static void test_variant_print_array()
+static void test_variant_print_array(void)
 {
     int ret;
     int i;
@@ -281,7 +281,7 @@ static void test_variant_print_array()
     fclose(fp);
 }
 
-static void test_variant_print_kvlist()
+static void test_variant_print_kvlist(void)
 {
     int ret;
     int i;
@@ -345,7 +345,7 @@ static void test_variant_print_kvlist()
     fclose(fp);
 }
 
-static void test_variant_print_double()
+static void test_variant_print_double(void)
 {
     int ret;
     int i;
@@ -384,7 +384,7 @@ static void test_variant_print_double()
     }
 }
 
-static void test_variant_print_nonfinite_double()
+static void test_variant_print_nonfinite_double(void)
 {
     int ret;
     int i;
@@ -426,7 +426,7 @@ static void test_variant_print_nonfinite_double()
     }
 }
 
-static void test_variant_print_string()
+static void test_variant_print_string(void)
 {
     int ret;
     int i;
@@ -471,7 +471,7 @@ struct str_and_len {
     size_t str_size;
 };
 
-static void test_variant_print_string_s()
+static void test_variant_print_string_s(void)
 {
     int ret;
     int i;
@@ -515,7 +515,7 @@ static void test_variant_print_string_s()
     }
 }
 
-static void test_variant_print_sized_string_without_nul()
+static void test_variant_print_sized_string_without_nul(void)
 {
     int ret;
     char input[] = {'a', 'b', 'c', 'd'};
@@ -546,7 +546,7 @@ static void test_variant_print_sized_string_without_nul()
     fclose(fp);
 }
 
-static void test_variant_print_escaped_string()
+static void test_variant_print_escaped_string(void)
 {
     int ret;
     char input[] = "line\n\"quoted\"\\";
@@ -577,7 +577,7 @@ static void test_variant_print_escaped_string()
     fclose(fp);
 }
 
-static void test_variant_print_bytes()
+static void test_variant_print_bytes(void)
 {
     int ret;
     char input[] = {0x1f, 0xaa, 0x0a, 0xff};
@@ -614,7 +614,7 @@ static void test_variant_print_bytes()
     fclose(fp);
 }
 
-static void test_variant_print_referenced_bytes()
+static void test_variant_print_referenced_bytes(void)
 {
     int ret;
     char input[] = {0x1f, 0xaa, 0x0a, 0xff};
@@ -645,7 +645,7 @@ static void test_variant_print_referenced_bytes()
     fclose(fp);
 }
 
-static void test_variant_invalid_inputs()
+static void test_variant_invalid_inputs(void)
 {
     struct cfl_variant *val;
     int ret;
@@ -667,7 +667,7 @@ static void test_variant_invalid_inputs()
 }
 
 
-static void test_variant_print_reference()
+static void test_variant_print_reference(void)
 {
     int ret;
     int *input = (int*)0x12345678;
@@ -704,7 +704,7 @@ static void test_variant_print_reference()
     fclose(fp);
 }
 
-static void test_variant_print_unknown()
+static void test_variant_print_unknown(void)
 {
     int ret;
     char expect[] = "Unknown";

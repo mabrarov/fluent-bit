@@ -114,7 +114,7 @@ static int create_test_log_chunk(const char *level,
 }
 
 /* Test conditional routing configuration parsing */
-void test_conditional_routing_config_parse()
+void test_conditional_routing_config_parse(void)
 {
     struct cfl_list routes;
     struct cfl_variant *inputs;
@@ -187,7 +187,7 @@ void test_conditional_routing_config_parse()
 }
 
 /* Test condition evaluation for individual records */
-void test_conditional_routing_condition_eval()
+void test_conditional_routing_condition_eval(void)
 {
     struct flb_route route;
     struct flb_route_condition *condition;
@@ -264,7 +264,7 @@ void test_conditional_routing_condition_eval()
 }
 
 /* Test per-record routing functionality */
-void test_conditional_routing_per_record()
+void test_conditional_routing_per_record(void)
 {
     struct flb_config config;
     struct flb_input_instance input;
@@ -321,7 +321,7 @@ void test_conditional_routing_per_record()
 }
 
 /* Test default route handling */
-void test_conditional_routing_default_route()
+void test_conditional_routing_default_route(void)
 {
     struct flb_config config;
     struct flb_input_instance input;
@@ -380,7 +380,7 @@ void test_conditional_routing_default_route()
 }
 
 /* Test route mask functionality */
-void test_conditional_routing_route_mask()
+void test_conditional_routing_route_mask(void)
 {
     struct flb_config config;
     struct flb_input_instance input;
@@ -439,7 +439,7 @@ void test_conditional_routing_route_mask()
 }
 
 /* Test no duplicate routing */
-void test_conditional_routing_no_duplicates()
+void test_conditional_routing_no_duplicates(void)
 {
     struct flb_config config;
     struct flb_input_instance input;

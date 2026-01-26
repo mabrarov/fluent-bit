@@ -362,14 +362,14 @@ void do_test_records_wait_time(char *system, int wait_time, void (*records_cb)(s
     flb_destroy(ctx);
 }
 
-void flb_test_in_disk_flush()
+void flb_test_in_disk_flush(void)
 {
     do_test("disk",
             "interval_sec", "0",
             "interval_nsec", "500000000",
             NULL);
 }
-void flb_test_in_proc_flush()
+void flb_test_in_proc_flush(void)
 {
     do_test("proc",
             "interval_sec", "0",
@@ -380,7 +380,7 @@ void flb_test_in_proc_flush()
             "fd", "on",
             NULL);
 }
-void flb_test_in_head_flush()
+void flb_test_in_head_flush(void)
 {
     do_test("head",
             "interval_sec", "0",
@@ -388,11 +388,11 @@ void flb_test_in_head_flush()
             "File", "/dev/urandom",
             NULL);
 }
-void flb_test_in_cpu_flush()
+void flb_test_in_cpu_flush(void)
 {
     do_test("cpu", NULL);
 }
-void flb_test_in_random_flush()
+void flb_test_in_random_flush(void)
 {
     do_test("random", NULL);
 }
@@ -574,7 +574,7 @@ void flb_test_dummy_records_message_flush_on_startup(struct callback_records *re
     TEST_CHECK(records->num_records >= 2);
 }
 
-void flb_test_in_dummy_flush()
+void flb_test_in_dummy_flush(void)
 {
     do_test("dummy", NULL);
     do_test_records("dummy", flb_test_dummy_records_message_default, NULL);
@@ -622,12 +622,12 @@ void flb_test_in_dummy_flush()
                     NULL);
 }
 
-void flb_test_in_dummy_thread_flush()
+void flb_test_in_dummy_thread_flush(void)
 {
     do_test("dummy_thread", NULL);
 }
 
-void flb_test_in_mem_flush()
+void flb_test_in_mem_flush(void)
 {
     do_test("mem", NULL);
 }

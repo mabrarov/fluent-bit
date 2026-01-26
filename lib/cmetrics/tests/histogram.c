@@ -155,7 +155,7 @@ void test_histogram_non_finite_bucket_labels()
 }
 
 
-void test_histogram()
+void test_histogram(void)
 {
     uint64_t ts;
     struct cmt *cmt;
@@ -203,7 +203,7 @@ void test_histogram()
     cmt_destroy(cmt);
 }
 
-void test_set_defaults()
+void test_set_defaults(void)
 {
     uint64_t ts;
     struct cmt *cmt;

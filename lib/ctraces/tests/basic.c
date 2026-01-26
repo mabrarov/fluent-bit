@@ -22,7 +22,7 @@
 
 #define OPTS_TRACE_ID  "4582829a12781087"
 
-void test_basic()
+void test_basic(void)
 {
     struct ctrace *ctx;
 
@@ -34,7 +34,7 @@ void test_basic()
     ctr_destroy(ctx);
 }
 
-void test_options()
+void test_options(void)
 {
     struct ctrace *ctx;
     struct ctrace_opts opts;

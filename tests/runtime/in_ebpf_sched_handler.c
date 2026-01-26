@@ -116,7 +116,7 @@ static void verify_decoded_values(struct flb_log_event *event,
     }
 }
 
-void test_sched_event_encoding()
+void test_sched_event_encoding(void)
 {
     struct test_context *ctx;
     struct flb_log_event log_event;

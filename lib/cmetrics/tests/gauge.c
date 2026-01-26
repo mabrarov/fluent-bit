@@ -23,7 +23,7 @@
 
 #include "cmt_tests.h"
 
-void test_gauge()
+void test_gauge(void)
 {
     int ret;
     double val;
@@ -78,7 +78,7 @@ void test_gauge()
     cmt_destroy(cmt);
 }
 
-void test_labels()
+void test_labels(void)
 {
     int ret;
     double val;

@@ -11,7 +11,7 @@
 
 #include "flb_tests_internal.h"
 
-void test_api()
+void test_api(void)
 {
 	struct flb_cf *cf;
 	struct flb_cf_section *s_tmp;

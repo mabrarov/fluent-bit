@@ -27,7 +27,7 @@
 #define MAX_RECORD_SIZE 1024000
 
 /* Test: Initialize and destroy aggregation buffer */
-void test_aws_aggregation_init_destroy()
+void test_aws_aggregation_init_destroy(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -47,7 +47,7 @@ void test_aws_aggregation_init_destroy()
 }
 
 /* Test: Add single record to buffer */
-void test_aws_aggregation_add_single()
+void test_aws_aggregation_add_single(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -69,7 +69,7 @@ void test_aws_aggregation_add_single()
 }
 
 /* Test: Add multiple records to buffer */
-void test_aws_aggregation_add_multiple()
+void test_aws_aggregation_add_multiple(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -107,7 +107,7 @@ void test_aws_aggregation_add_multiple()
 }
 
 /* Test: Buffer full detection */
-void test_aws_aggregation_buffer_full()
+void test_aws_aggregation_buffer_full(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -130,7 +130,7 @@ void test_aws_aggregation_buffer_full()
 }
 
 /* Test: Buffer full with multiple adds */
-void test_aws_aggregation_buffer_full_multiple()
+void test_aws_aggregation_buffer_full_multiple(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -163,7 +163,7 @@ void test_aws_aggregation_buffer_full_multiple()
 }
 
 /* Test: Finalize with both modes (with and without newline) */
-void test_aws_aggregation_finalize()
+void test_aws_aggregation_finalize(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -200,7 +200,7 @@ void test_aws_aggregation_finalize()
 }
 
 /* Test: Finalize empty buffer */
-void test_aws_aggregation_finalize_empty()
+void test_aws_aggregation_finalize_empty(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -217,7 +217,7 @@ void test_aws_aggregation_finalize_empty()
 }
 
 /* Test: Reset and reuse buffer (complete cycle) */
-void test_aws_aggregation_reset_reuse()
+void test_aws_aggregation_reset_reuse(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -254,7 +254,7 @@ void test_aws_aggregation_reset_reuse()
 }
 
 /* Test: Large aggregation (many small records) */
-void test_aws_aggregation_large()
+void test_aws_aggregation_large(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -278,7 +278,7 @@ void test_aws_aggregation_large()
 }
 
 /* Test: NULL parameter handling */
-void test_aws_aggregation_null_params()
+void test_aws_aggregation_null_params(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -322,7 +322,7 @@ void test_aws_aggregation_null_params()
 }
 
 /* Test: Exact boundary conditions */
-void test_aws_aggregation_boundary()
+void test_aws_aggregation_boundary(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -353,7 +353,7 @@ void test_aws_aggregation_boundary()
 }
 
 /* Test: Finalize with newline at boundary */
-void test_aws_aggregation_finalize_boundary()
+void test_aws_aggregation_finalize_boundary(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -379,7 +379,7 @@ void test_aws_aggregation_finalize_boundary()
 }
 
 /* Test: Multiple reset cycles */
-void test_aws_aggregation_multiple_resets()
+void test_aws_aggregation_multiple_resets(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -404,7 +404,7 @@ void test_aws_aggregation_multiple_resets()
 }
 
 /* Test: Very small buffer size */
-void test_aws_aggregation_tiny_buffer()
+void test_aws_aggregation_tiny_buffer(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -435,7 +435,7 @@ void test_aws_aggregation_tiny_buffer()
 }
 
 /* Test: Sequential finalize without reset */
-void test_aws_aggregation_double_finalize()
+void test_aws_aggregation_double_finalize(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -463,7 +463,7 @@ void test_aws_aggregation_double_finalize()
 }
 
 /* Test: Add after finalize without reset */
-void test_aws_aggregation_add_after_finalize()
+void test_aws_aggregation_add_after_finalize(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;
@@ -493,7 +493,7 @@ void test_aws_aggregation_add_after_finalize()
 }
 
 /* Test: Alternating add and finalize patterns */
-void test_aws_aggregation_alternating_pattern()
+void test_aws_aggregation_alternating_pattern(void)
 {
     struct flb_aws_agg_buffer buf;
     int ret;

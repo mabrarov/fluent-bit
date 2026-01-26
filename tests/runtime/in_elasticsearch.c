@@ -214,7 +214,7 @@ static void test_ctx_destroy(struct test_ctx *ctx)
     flb_free(ctx);
 }
 
-void flb_test_in_elasticsearch_version()
+void flb_test_in_elasticsearch_version(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -282,7 +282,7 @@ void flb_test_in_elasticsearch_version()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_in_elasticsearch_version_configured()
+void flb_test_in_elasticsearch_version_configured(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -445,12 +445,12 @@ void flb_test_in_elasticsearch(char *write_op, int port, char *tag)
     test_ctx_destroy(ctx);
 }
 
-void flb_test_in_elasticsearch_index_op()
+void flb_test_in_elasticsearch_index_op(void)
 {
     flb_test_in_elasticsearch("index", 9203, NULL);
 }
 
-void flb_test_in_elasticsearch_create_op()
+void flb_test_in_elasticsearch_create_op(void)
 {
     flb_test_in_elasticsearch("create", 9204, NULL);
 }
@@ -540,22 +540,22 @@ void flb_test_in_elasticsearch_invalid(char *write_op, int status, char *expecte
     test_ctx_destroy(ctx);
 }
 
-void flb_test_in_elasticsearch_update_op()
+void flb_test_in_elasticsearch_update_op(void)
 {
     flb_test_in_elasticsearch_invalid("update", 403, "update", 9205);
 }
 
-void flb_test_in_elasticsearch_delete_op()
+void flb_test_in_elasticsearch_delete_op(void)
 {
     flb_test_in_elasticsearch_invalid("delete", 404, "delete", 9206);
 }
 
-void flb_test_in_elasticsearch_nonexistent_op()
+void flb_test_in_elasticsearch_nonexistent_op(void)
 {
     flb_test_in_elasticsearch_invalid("nonexistent", 400, "unknown", 9207);
 }
 
-void flb_test_in_elasticsearch_multi_ops()
+void flb_test_in_elasticsearch_multi_ops(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -638,7 +638,7 @@ void flb_test_in_elasticsearch_multi_ops()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_in_elasticsearch_multi_ops_gzip()
+void flb_test_in_elasticsearch_multi_ops_gzip(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -731,7 +731,7 @@ void flb_test_in_elasticsearch_multi_ops_gzip()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_in_elasticsearch_node_info()
+void flb_test_in_elasticsearch_node_info(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -799,7 +799,7 @@ void flb_test_in_elasticsearch_node_info()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_in_elasticsearch_tag_key()
+void flb_test_in_elasticsearch_tag_key(void)
 {
     struct flb_lib_out_cb cb_data;
     struct test_ctx *ctx;
@@ -877,7 +877,7 @@ void flb_test_in_elasticsearch_tag_key()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_in_elasticsearch_index_op_with_plugin_tag()
+void flb_test_in_elasticsearch_index_op_with_plugin_tag(void)
 {
     flb_test_in_elasticsearch("index", 9210, "es.index");
 }

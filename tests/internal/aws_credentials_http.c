@@ -177,7 +177,7 @@ struct flb_aws_client_generator *generator_in_test()
 }
 
 /* http and ecs providers */
-static void test_http_provider()
+static void test_http_provider(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -240,7 +240,7 @@ static void test_http_provider()
     flb_config_exit(config);
 }
 
-static void test_http_provider_error_case()
+static void test_http_provider_error_case(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -285,7 +285,7 @@ static void test_http_provider_error_case()
     flb_config_exit(config);
 }
 
-static void test_http_provider_malformed_response()
+static void test_http_provider_malformed_response(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -368,7 +368,7 @@ void cleanup_test(struct flb_aws_provider *provider, struct flb_config *config) 
     }
 }
 
-static void test_http_provider_ecs_case()
+static void test_http_provider_ecs_case(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -440,7 +440,7 @@ static void test_http_provider_ecs_case()
     cleanup_test(provider, config);
 }
 
-static void test_http_provider_eks_with_token()
+static void test_http_provider_eks_with_token(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -514,7 +514,7 @@ static void test_http_provider_eks_with_token()
     cleanup_test(provider, config);
 }
 
-static void test_http_provider_eks_with_token_file()
+static void test_http_provider_eks_with_token_file(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -590,7 +590,7 @@ static void test_http_provider_eks_with_token_file()
 }
 
 
-static void test_http_provider_https_endpoint()
+static void test_http_provider_https_endpoint(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -664,7 +664,7 @@ static void test_http_provider_https_endpoint()
     cleanup_test(provider, config);
 }
 
-static void test_http_provider_server_failure()
+static void test_http_provider_server_failure(void)
 {
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -709,7 +709,7 @@ static void test_http_provider_server_failure()
     cleanup_test(provider, config);
 }
 
-static void test_http_validator_invalid_host()
+static void test_http_validator_invalid_host(void)
 {
     struct flb_aws_provider *provider;
     struct flb_config *config;
@@ -731,7 +731,7 @@ static void test_http_validator_invalid_host()
     flb_free(config);
 }
 
-static void test_http_validator_invalid_port()
+static void test_http_validator_invalid_port(void)
 {
     struct flb_aws_provider *provider;
     struct flb_config *config;

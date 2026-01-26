@@ -97,7 +97,7 @@ struct flb_dns_lookup_context {
  * dns context with relevant info populated inside the thread.
  */
 
-static void flb_net_dns_ctx_init_private()
+static void flb_net_dns_ctx_init_private(void)
 {
     FLB_TLS_INIT(flb_net_dns_ctx);
 }

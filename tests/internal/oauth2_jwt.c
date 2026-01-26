@@ -15,7 +15,7 @@ static const char *BAD_BASE64 = "eyJhbGciOiJSUzI1NiIsImtpZCI6InRlc3Qta2V5In0#.ey
 static const char *MISSING_KID = "eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE3MTAwMDAwMDAsImlzcyI6Imlzc3VlciIsImF1ZCI6ImF1ZGllbmNlIiwiYXpwIjoiY2xpZW50LTEifQ.c2ln";
 static const char *BAD_ALG = "eyJhbGciOiJIUzI1NiIsImtpZCI6InRlc3Qta2V5In0.eyJleHAiOjE3MTAwMDAwMDAsImlzcyI6Imlzc3VlciIsImF1ZCI6ImF1ZGllbmNlIiwiYXpwIjoiY2xpZW50LTEifQ.c2ln";
 
-static void test_valid_jwt_parses()
+static void test_valid_jwt_parses(void)
 {
     int ret;
     struct flb_oauth2_jwt jwt;
@@ -34,7 +34,7 @@ static void test_valid_jwt_parses()
     flb_oauth2_jwt_destroy(&jwt);
 }
 
-static void test_invalid_segments()
+static void test_invalid_segments(void)
 {
     int ret;
     struct flb_oauth2_jwt jwt;
@@ -43,7 +43,7 @@ static void test_invalid_segments()
     TEST_CHECK(ret == FLB_OAUTH2_JWT_ERR_SEGMENT_COUNT);
 }
 
-static void test_client_id_falls_back_to_appid()
+static void test_client_id_falls_back_to_appid(void)
 {
     int ret;
     struct flb_oauth2_jwt jwt;
@@ -57,7 +57,7 @@ static void test_client_id_falls_back_to_appid()
     flb_oauth2_jwt_destroy(&jwt);
 }
 
-static void test_client_id_claim_overrides_appid()
+static void test_client_id_claim_overrides_appid(void)
 {
     int ret;
     struct flb_oauth2_jwt jwt;
@@ -72,7 +72,7 @@ static void test_client_id_claim_overrides_appid()
     flb_oauth2_jwt_destroy(&jwt);
 }
 
-static void test_azp_overrides_appid()
+static void test_azp_overrides_appid(void)
 {
     int ret;
     struct flb_oauth2_jwt jwt;
@@ -86,7 +86,7 @@ static void test_azp_overrides_appid()
     flb_oauth2_jwt_destroy(&jwt);
 }
 
-static void test_bad_base64()
+static void test_bad_base64(void)
 {
     int ret;
     struct flb_oauth2_jwt jwt;
@@ -95,7 +95,7 @@ static void test_bad_base64()
     TEST_CHECK(ret == FLB_OAUTH2_JWT_ERR_BASE64_HEADER);
 }
 
-static void test_missing_kid()
+static void test_missing_kid(void)
 {
     int ret;
     struct flb_oauth2_jwt jwt;
@@ -104,7 +104,7 @@ static void test_missing_kid()
     TEST_CHECK(ret == FLB_OAUTH2_JWT_ERR_MISSING_KID);
 }
 
-static void test_bad_alg()
+static void test_bad_alg(void)
 {
     int ret;
     struct flb_oauth2_jwt jwt;
@@ -113,7 +113,7 @@ static void test_bad_alg()
     TEST_CHECK(ret == FLB_OAUTH2_JWT_ERR_ALG_UNSUPPORTED);
 }
 
-static void test_static_key_validation()
+static void test_static_key_validation(void)
 {
     int ret;
     struct flb_oauth2_jwt jwt;
