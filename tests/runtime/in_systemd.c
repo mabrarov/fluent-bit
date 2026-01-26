@@ -58,7 +58,7 @@ static void cb_check_cfl_variant_properties(void *ctx, int ffd,
     flb_sds_destroy(output);
 }
 
-void flb_test_duplicated_keys()
+void flb_test_duplicated_keys(void)
 {
     int ret;
     int in_ffd;

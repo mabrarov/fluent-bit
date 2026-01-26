@@ -1141,7 +1141,7 @@ void flb_test_empty_array(void)
     flb_sds_destroy(outbuf);
 }
 
-void flb_test_invalid_metatable()
+void flb_test_invalid_metatable(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -1215,7 +1215,7 @@ void flb_test_invalid_metatable()
     flb_destroy(ctx);
 }
 
-void flb_test_metadata_single_record()
+void flb_test_metadata_single_record(void)
 {
     int ret;
     int num;

@@ -55,7 +55,7 @@ uint64_t hist_count = 10;
 /* histogram _sum value */
 double hist_sum = 45.9;
 
-void test_cat()
+void test_cat(void)
 {
     int i;
     int ret;
@@ -235,7 +235,7 @@ void test_cat()
 }
 
 
-void test_duplicate_metrics()
+void test_duplicate_metrics(void)
 {
     int i;
     int ret;
@@ -392,7 +392,7 @@ void test_duplicate_metrics()
 
 }
 
-void test_histogram_empty_concatenation()
+void test_histogram_empty_concatenation(void)
 {
     int ret;
     struct cmt *cmt1;
@@ -429,7 +429,7 @@ void test_histogram_empty_concatenation()
     cmt_destroy(cmt2);
 }
 
-void test_histogram_mismatched_buckets()
+void test_histogram_mismatched_buckets(void)
 {
     int ret;
     int i;
@@ -494,7 +494,7 @@ void test_histogram_mismatched_buckets()
     cmt_destroy(cmt2);
 }
 
-void test_histogram_empty_to_populated()
+void test_histogram_empty_to_populated(void)
 {
     int ret;
     int i;
@@ -553,7 +553,7 @@ void test_histogram_empty_to_populated()
     cmt_destroy(cmt2);
 }
 
-void test_histogram_populated_to_empty()
+void test_histogram_populated_to_empty(void)
 {
     int ret;
     int i;

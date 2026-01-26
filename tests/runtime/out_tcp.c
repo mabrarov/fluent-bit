@@ -278,7 +278,7 @@ static void test_ctx_destroy(struct test_ctx *ctx)
     flb_free(ctx);
 }
 
-void flb_test_tcp_with_tls()
+void flb_test_tcp_with_tls(void)
 {
     struct flb_net_setup   downstream_net_setup;
     struct flb_connection *client_connection;
@@ -383,7 +383,7 @@ void flb_test_tcp_with_tls()
     flb_free(ctx);
 }
 
-void flb_test_format_msgpack()
+void flb_test_format_msgpack(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -436,7 +436,7 @@ void flb_test_format_msgpack()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_json()
+void flb_test_format_json(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -493,7 +493,7 @@ void flb_test_format_json()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_json_stream()
+void flb_test_format_json_stream(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -550,7 +550,7 @@ void flb_test_format_json_stream()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_format_json_lines()
+void flb_test_format_json_lines(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -607,7 +607,7 @@ void flb_test_format_json_lines()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_set_json_date_key()
+void flb_test_set_json_date_key(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -661,7 +661,7 @@ void flb_test_set_json_date_key()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_disable_json_date_key()
+void flb_test_disable_json_date_key(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -715,7 +715,7 @@ void flb_test_disable_json_date_key()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_json_date_format_epoch()
+void flb_test_json_date_format_epoch(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -769,7 +769,7 @@ void flb_test_json_date_format_epoch()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_json_date_format_iso8601()
+void flb_test_json_date_format_iso8601(void)
 {
     struct test_ctx *ctx;
     int ret;
@@ -823,7 +823,7 @@ void flb_test_json_date_format_iso8601()
     test_ctx_destroy(ctx);
 }
 
-void flb_test_json_date_format_java_sql_timestamp()
+void flb_test_json_date_format_java_sql_timestamp(void)
 {
     struct test_ctx *ctx;
     int ret;

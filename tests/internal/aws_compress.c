@@ -53,7 +53,7 @@ static int flb_snappy_uncompress_wrapper(void *in_data, size_t in_len,
 }
 
 /** ------ Test Cases ------ **/
-void test_compression_gzip()
+void test_compression_gzip(void)
 {
     struct flb_aws_test_case cases[] =
     {
@@ -69,7 +69,7 @@ void test_compression_gzip()
     flb_aws_compress_test_cases(cases);
 }
 
-void test_compression_zstd()
+void test_compression_zstd(void)
 {
     struct flb_aws_test_case cases[] =
     {
@@ -85,7 +85,7 @@ void test_compression_zstd()
     flb_aws_compress_test_cases(cases);
 }
 
-void test_compression_snappy()
+void test_compression_snappy(void)
 {
     struct flb_aws_test_case cases[] =
     {
@@ -101,11 +101,11 @@ void test_compression_snappy()
     flb_aws_compress_test_cases(cases);
 }
 
-void test_compression_snappy_return_value_normalization()
+void test_compression_snappy_return_value_normalization(void)
 {
     /* This test verifies that the snappy wrapper correctly normalizes return values
      * to conform to the AWS compression interface contract: -1 on error, 0 on success.
-     * 
+     *
      * The test uses the actual flb_aws_compression_compress function which internally
      * uses the wrapper. We verify that successful compression returns exactly 0,
      * demonstrating that the wrapper properly normalizes the return value.
@@ -115,17 +115,17 @@ void test_compression_snappy_return_value_normalization()
     size_t out_len = 0;
     int compression_type;
     char test_data[] = "test data for compression";
-    
+
     compression_type = flb_aws_compression_get_type("snappy");
     TEST_CHECK(compression_type != -1);
-    
+
     /* Test successful compression - should return exactly 0 (not any other value) */
-    ret = flb_aws_compression_compress(compression_type, test_data, 
+    ret = flb_aws_compression_compress(compression_type, test_data,
                                       strlen(test_data), &out_data, &out_len);
     TEST_CHECK(ret == 0);
     TEST_MSG("Expected return value 0 on success, got: %d", ret);
     TEST_MSG("This verifies the wrapper returns 0 (not passthrough of underlying function)");
-    
+
     if (ret == 0 && out_data != NULL) {
         TEST_CHECK(out_len > 0);
         TEST_MSG("Compressed data length: %zu", out_len);
@@ -133,7 +133,7 @@ void test_compression_snappy_return_value_normalization()
     }
 }
 
-void test_b64_truncated_gzip()
+void test_b64_truncated_gzip(void)
 {
 struct flb_aws_test_case cases[] =
     {
@@ -150,7 +150,7 @@ struct flb_aws_test_case cases[] =
         41);
 }
 
-void test_b64_truncated_zstd()
+void test_b64_truncated_zstd(void)
 {
 struct flb_aws_test_case cases[] =
     {
@@ -166,7 +166,7 @@ struct flb_aws_test_case cases[] =
     flb_aws_compress_truncate_b64_test_cases__zstd_decode(cases,41);
 }
 
-void test_b64_truncated_snappy()
+void test_b64_truncated_snappy(void)
 {
 struct flb_aws_test_case cases[] =
     {
@@ -182,7 +182,7 @@ struct flb_aws_test_case cases[] =
     flb_aws_compress_truncate_b64_test_cases__snappy_decode(cases, 60);
 }
 
-void test_b64_truncated_gzip_truncation()
+void test_b64_truncated_gzip_truncation(void)
 {
 struct flb_aws_test_case cases[] =
     {
@@ -227,7 +227,7 @@ struct flb_aws_test_case cases[] =
         381);
 }
 
-void test_b64_truncated_gzip_truncation_buffer_too_small()
+void test_b64_truncated_gzip_truncation_buffer_too_small(void)
 {
 struct flb_aws_test_case cases[] =
     {
@@ -255,7 +255,7 @@ struct flb_aws_test_case cases[] =
         14);
 }
 
-void test_b64_truncated_gzip_truncation_edge()
+void test_b64_truncated_gzip_truncation_edge(void)
 {
 struct flb_aws_test_case cases[] =
     {
@@ -278,7 +278,7 @@ struct flb_aws_test_case cases[] =
         51);
 }
 
-void test_b64_truncated_gzip_truncation_multi_rounds()
+void test_b64_truncated_gzip_truncation_multi_rounds(void)
 {
 struct flb_aws_test_case cases[] =
     {
@@ -312,7 +312,7 @@ struct flb_aws_test_case cases[] =
         300);
 }
 
-void test_b64_truncated_gzip_boundary()
+void test_b64_truncated_gzip_boundary(void)
 {
     /* Test the boundary condition where compressed output exactly matches max_out_len.
      * This test verifies the fix for the off-by-one error where records at the exact

@@ -245,7 +245,7 @@ static int test_normal(char *payload, struct str_list *expected, int use_metrics
     return 0;
 }
 
-void flb_test_statsd_count()
+void flb_test_statsd_count(void)
 {
     char *expected_strs[] = {"\"bucket\":\"gorets\"", "\"type\":\"counter\"", "\"value\":1"};
     struct str_list expected = {
@@ -264,7 +264,7 @@ void flb_test_statsd_count()
 
 }
 
-void flb_test_statsd_sample()
+void flb_test_statsd_sample(void)
 {
     char *expected_strs[] = {"\"bucket\":\"gorets\"", "\"type\":\"counter\"",
                              "\"value\":1", "\"sample_rate\":0.1"};
@@ -283,7 +283,7 @@ void flb_test_statsd_sample()
     }
 }
 
-void flb_test_statsd_gauge()
+void flb_test_statsd_gauge(void)
 {
     char *expected_strs[] = {"\"type\":\"gauge\"","\"bucket\":\"gaugor\"",
                              "\"value\":333"};
@@ -302,7 +302,7 @@ void flb_test_statsd_gauge()
     }
 }
 
-void flb_test_statsd_set()
+void flb_test_statsd_set(void)
 {
     char *expected_strs[] = {"\"bucket\":\"uniques\"", "\"type\":\"set\"",
                              "\"value\":\"765\""};
@@ -322,7 +322,7 @@ void flb_test_statsd_set()
 }
 
 #ifdef FLB_HAVE_METRICS
-void flb_test_statsd_metrics_gauge()
+void flb_test_statsd_metrics_gauge(void)
 {
     char *expected_strs[] = {"\"name\":\"gorets\"", "\"desc\":\"-\"", "\"type\":1"};
     struct str_list expected = {
@@ -341,7 +341,7 @@ void flb_test_statsd_metrics_gauge()
 
 }
 
-void flb_test_statsd_metrics_counter()
+void flb_test_statsd_metrics_counter(void)
 {
     char *expected_strs[] = {"\"name\":\"gorets\"", "\"desc\":\"-\"", "\"type\":0"};
     struct str_list expected = {
@@ -360,7 +360,7 @@ void flb_test_statsd_metrics_counter()
 
 }
 
-void flb_test_statsd_metrics_untyped()
+void flb_test_statsd_metrics_untyped(void)
 {
     char *expected_strs[] = {"\"name\":\"gorets\"", "\"desc\":\"-\"", "\"type\":4"};
     struct str_list expected = {

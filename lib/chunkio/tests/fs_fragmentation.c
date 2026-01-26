@@ -203,12 +203,12 @@ static void test_core(int trim_chunk_files)
     }
 }
 
-static void test_no_trim()
+static void test_no_trim(void)
 {
     test_core(CIO_FALSE);
 }
 
-static void test_trim()
+static void test_trim(void)
 {
     test_core(CIO_TRUE);
 }

@@ -874,7 +874,7 @@ static struct cfl_variant *create_mixed_instance_route_inputs()
 
     return cfl_variant_create_from_array(inputs);
 }
-void test_router_config_parse_basic()
+void test_router_config_parse_basic(void)
 {
     struct cfl_list routes;
     struct cfl_variant *inputs;
@@ -943,7 +943,7 @@ void test_router_config_parse_basic()
     cfl_variant_destroy(inputs);
 }
 
-void test_router_config_duplicate_route()
+void test_router_config_duplicate_route(void)
 {
     struct cfl_list routes;
     struct cfl_variant *inputs;
@@ -973,7 +973,7 @@ void test_router_config_duplicate_route()
     cfl_variant_destroy(inputs);
 }
 
-void test_router_config_parse_file_basic()
+void test_router_config_parse_file_basic(void)
 {
     struct cfl_list routes;
     struct flb_cf *cf;
@@ -1041,7 +1041,7 @@ void test_router_config_parse_file_basic()
     flb_cf_destroy(cf);
 }
 
-void test_router_config_parse_file_multi_signal()
+void test_router_config_parse_file_multi_signal(void)
 {
     struct cfl_list routes;
     struct flb_cf *cf;
@@ -1105,7 +1105,7 @@ void test_router_config_parse_file_multi_signal()
     flb_cf_destroy(cf);
 }
 
-void test_router_config_parse_file_metrics()
+void test_router_config_parse_file_metrics(void)
 {
     struct cfl_list routes;
     struct flb_cf *cf;
@@ -1145,7 +1145,7 @@ void test_router_config_parse_file_metrics()
     flb_cf_destroy(cf);
 }
 
-void test_router_config_parse_file_contexts()
+void test_router_config_parse_file_contexts(void)
 {
     struct cfl_list routes;
     struct flb_cf *cf;
@@ -1249,7 +1249,7 @@ static void setup_test_instances(struct flb_config *config,
     mk_list_add(&output->_head, &config->outputs);
 }
 
-void test_router_apply_config_success()
+void test_router_apply_config_success(void)
 {
     struct flb_config config;
     struct flb_input_instance input;
@@ -1300,7 +1300,7 @@ void test_router_apply_config_success()
     flb_sds_destroy(route_output.name);
 }
 
-void test_router_apply_config_missing_output()
+void test_router_apply_config_missing_output(void)
 {
     struct flb_config config;
     struct flb_input_instance input;
@@ -1349,7 +1349,7 @@ void test_router_apply_config_missing_output()
     flb_sds_destroy(route_output.name);
 }
 
-void test_router_apply_config_rejects_incompatible_output_signal()
+void test_router_apply_config_rejects_incompatible_output_signal(void)
 {
     struct flb_config config;
     struct flb_input_instance input;
@@ -1396,7 +1396,7 @@ void test_router_apply_config_rejects_incompatible_output_signal()
     flb_sds_destroy(route_output.name);
 }
 
-void test_router_apply_config_uses_input_alias()
+void test_router_apply_config_uses_input_alias(void)
 {
     struct flb_config config;
     struct flb_input_instance input_one;
@@ -1539,7 +1539,7 @@ void test_router_apply_config_uses_input_alias()
     flb_sds_destroy(route_output_two.name);
 }
 
-void test_router_apply_config_distinct_instances_without_alias()
+void test_router_apply_config_distinct_instances_without_alias(void)
 {
     struct flb_config config;
     struct flb_input_instance input_one;
@@ -1681,7 +1681,7 @@ void test_router_apply_config_distinct_instances_without_alias()
     flb_sds_destroy(route_output_two.name);
 }
 
-void test_router_apply_config_routes_bind_to_exact_section_without_alias()
+void test_router_apply_config_routes_bind_to_exact_section_without_alias(void)
 {
     struct flb_config config;
     struct flb_input_instance input_one;
@@ -1828,7 +1828,7 @@ cleanup:
     flb_sds_destroy(output_two.alias);
 }
 
-void test_router_route_default_precedence()
+void test_router_route_default_precedence(void)
 {
     struct cfl_list routes;
     struct flb_cf *cf;
@@ -1876,7 +1876,7 @@ void test_router_route_default_precedence()
     flb_cf_destroy(cf);
 }
 
-static void test_router_condition_eval_logs_metadata_context()
+static void test_router_condition_eval_logs_metadata_context(void)
 {
     struct flb_route route;
     struct flb_route_condition *condition;
@@ -1959,7 +1959,7 @@ static void test_router_condition_eval_logs_metadata_context()
     free_route_condition(condition);
 }
 
-static void test_router_condition_eval_logs_group_context()
+static void test_router_condition_eval_logs_group_context(void)
 {
     struct flb_route route;
     struct flb_route_condition *condition;
@@ -2115,7 +2115,7 @@ static void test_router_condition_eval_logs_group_context()
     free_route_condition(condition);
 }
 
-static void test_router_condition_eval_logs_otel_contexts()
+static void test_router_condition_eval_logs_otel_contexts(void)
 {
     struct flb_route route;
     struct flb_route_condition *condition;
@@ -2360,7 +2360,7 @@ static void test_router_condition_eval_logs_otel_contexts()
     flb_router_chunk_context_destroy(&context);
 }
 
-static void test_router_condition_eval_logs_match()
+static void test_router_condition_eval_logs_match(void)
 {
     struct flb_route route;
     struct flb_route_condition *condition;
@@ -2440,7 +2440,7 @@ static void test_router_condition_eval_logs_match()
     free_route_condition(condition);
 }
 
-static void test_router_condition_eval_logs_in_operator()
+static void test_router_condition_eval_logs_in_operator(void)
 {
     struct flb_route route;
     struct flb_route_condition *condition;
@@ -2545,7 +2545,7 @@ static void test_router_condition_eval_logs_in_operator()
     free_route_condition(condition);
 }
 
-static void test_router_path_should_route_condition()
+static void test_router_path_should_route_condition(void)
 {
     struct flb_router_path path;
     struct flb_route route;

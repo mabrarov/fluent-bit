@@ -45,7 +45,7 @@ static int compare(FILE *fp, char *expect)
     return strncmp(expect, &buf[0], len);
 }
 
-static void test_basics()
+static void test_basics(void)
 {
     int ret;
     struct cfl_object *object;
@@ -76,7 +76,7 @@ static void test_basics()
     cfl_object_destroy(object);
 }
 
-static void test_replace_and_print()
+static void test_replace_and_print(void)
 {
     int ret;
     FILE *fp;
@@ -114,7 +114,7 @@ static void test_replace_and_print()
     cfl_object_destroy(object);
 }
 
-static void test_reuse_owned_kvlist()
+static void test_reuse_owned_kvlist(void)
 {
     int ret;
     FILE *fp;
@@ -151,7 +151,7 @@ static void test_reuse_owned_kvlist()
     cfl_object_destroy(object);
 }
 
-static void test_reuse_owned_array()
+static void test_reuse_owned_array(void)
 {
     int ret;
     FILE *fp;
@@ -188,7 +188,7 @@ static void test_reuse_owned_array()
     cfl_object_destroy(object);
 }
 
-static void test_reject_nested_kvlist_reuse()
+static void test_reject_nested_kvlist_reuse(void)
 {
     int ret;
     FILE *fp;
@@ -227,7 +227,7 @@ static void test_reject_nested_kvlist_reuse()
     cfl_object_destroy(object);
 }
 
-static void test_reject_nested_array_reuse()
+static void test_reject_nested_array_reuse(void)
 {
     int ret;
     FILE *fp;
@@ -266,7 +266,7 @@ static void test_reject_nested_array_reuse()
     cfl_object_destroy(object);
 }
 
-static void test_reject_nested_variant_reuse()
+static void test_reject_nested_variant_reuse(void)
 {
     int ret;
     FILE *fp;
@@ -305,7 +305,7 @@ static void test_reject_nested_variant_reuse()
     cfl_object_destroy(object);
 }
 
-static void test_reject_shared_kvlist_between_objects()
+static void test_reject_shared_kvlist_between_objects(void)
 {
     int ret;
     struct cfl_object *object_a;

@@ -75,7 +75,7 @@ static inline int process_pack(char *pack, size_t size)
 }
 
 /* Append a single key-value pair into msgpack map */
-void test_append_basic()
+void test_append_basic(void)
 {
     int ret;
     size_t len;

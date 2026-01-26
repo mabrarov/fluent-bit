@@ -89,7 +89,7 @@ void cleanup_test() {
  *  refresh():
  *  -> 2 requests are made to access credentials
  */
-static void test_ec2_provider_v2()
+static void test_ec2_provider_v2(void)
 {
     setup_test(FLB_AWS_CLIENT_MOCK(
         /* First call to get_credentials() */
@@ -198,7 +198,7 @@ static void test_ec2_provider_v2()
  *  refresh():
  *  -> 2 requests are made to access credentials
  */
-static void test_ec2_provider_v1()
+static void test_ec2_provider_v1(void)
 {
     setup_test(FLB_AWS_CLIENT_MOCK(
         /* First call to get_credentials() */
@@ -307,7 +307,7 @@ static void test_ec2_provider_v1()
  *  refresh():
  *  -> 2 requests are made to access credentials
  */
-static void test_ec2_provider_v1_v2_timeout()
+static void test_ec2_provider_v1_v2_timeout(void)
 {
     setup_test(FLB_AWS_CLIENT_MOCK(
         /* First call to get_credentials() */
@@ -451,7 +451,7 @@ static void test_ec2_provider_v1_v2_timeout()
  *  -> 2 requests made to obtain IMDSv2 token (Success)
  *  -> 2 requests made to access credentials (Success)
  */
-static void test_ec2_provider_version_detection_error()
+static void test_ec2_provider_version_detection_error(void)
 {
     setup_test(FLB_AWS_CLIENT_MOCK(
         /* First call to get_credentials(): Version detection failure */
@@ -566,7 +566,7 @@ static void test_ec2_provider_version_detection_error()
  *  -> 1 request made to obtain IMDSv2 token (Success)
  *  -> 2 requests are made to access credentials
  */
-static void test_ec2_provider_acquire_token_error()
+static void test_ec2_provider_acquire_token_error(void)
 {
     setup_test(FLB_AWS_CLIENT_MOCK(
 
@@ -829,7 +829,7 @@ static void test_ec2_provider_acquire_token_error()
  *  -> 1 request is made to access instance name
  *  -> 1 request is made to access credentials (success)
  */
-static void test_ec2_provider_metadata_request_error()
+static void test_ec2_provider_metadata_request_error(void)
 {
     setup_test(FLB_AWS_CLIENT_MOCK(
         /* First call to get_credentials() */
@@ -980,7 +980,7 @@ static void test_ec2_provider_metadata_request_error()
  *  -> upstream port equal to IMDS port (80)
  *  First call to flb_aws_imds_destroy (success)
  */
-static void test_ec2_imds_create_and_destroy()
+static void test_ec2_imds_create_and_destroy(void)
 {
     /* Full test setup not needed */
     /* Initialize test environment */

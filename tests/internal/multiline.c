@@ -476,7 +476,7 @@ static int flush_callback(struct flb_ml_parser *parser,
     return 0;
 }
 
-static void test_parser_docker()
+static void test_parser_docker(void)
 {
     int i;
     int len;
@@ -531,7 +531,7 @@ static void test_parser_docker()
     flb_config_exit(config);
 }
 
-static void test_parser_cri()
+static void test_parser_cri(void)
 {
     int i;
     int len;
@@ -585,7 +585,7 @@ static void test_parser_cri()
     flb_config_exit(config);
 }
 
-static void test_container_mix()
+static void test_container_mix(void)
 {
     int i;
     int len;
@@ -639,7 +639,7 @@ static void test_container_mix()
     flb_config_exit(config);
 }
 
-static void test_parser_docker_cri_chain()
+static void test_parser_docker_cri_chain(void)
 {
     int i;
     int len;
@@ -701,7 +701,7 @@ static void test_parser_docker_cri_chain()
     flb_config_exit(config);
 }
 
-static void test_parser_java()
+static void test_parser_java(void)
 {
     int i;
     int len;
@@ -792,7 +792,7 @@ static void test_parser_java()
     flb_config_exit(config);
 }
 
-static void test_parser_python()
+static void test_parser_python(void)
 {
     int i;
     int len;
@@ -851,7 +851,7 @@ static void test_parser_python()
     flb_config_exit(config);
 }
 
-static void test_parser_ruby()
+static void test_parser_ruby(void)
 {
     int i;
     int len;
@@ -910,7 +910,7 @@ static void test_parser_ruby()
     flb_config_exit(config);
 }
 
-static void test_issue_4949()
+static void test_issue_4949(void)
 {
     int i;
     int len;
@@ -977,7 +977,7 @@ static void test_issue_4949()
     flb_config_exit(config);
 }
 
-static void test_parser_elastic()
+static void test_parser_elastic(void)
 {
     int i;
     int len;
@@ -1090,7 +1090,7 @@ static void test_parser_elastic()
     flb_config_exit(config);
 }
 
-static void test_endswith()
+static void test_endswith(void)
 {
     int i;
     int len;
@@ -1153,7 +1153,7 @@ static void test_endswith()
     flb_config_exit(config);
 }
 
-static void test_parser_go()
+static void test_parser_go(void)
 {
     int i;
     int len;
@@ -1309,7 +1309,7 @@ static void run_test(struct flb_config *config, char *test_name,
     flb_ml_destroy(ml);
 }
 
-void test_issue_3817_1()
+void test_issue_3817_1(void)
 {
     int ret;
     int in_len  = sizeof(issue_3817_1_input) / sizeof(struct record_check);
@@ -1377,7 +1377,7 @@ void test_issue_3817_1()
     flb_config_exit(config);
 }
 
-static void test_issue_4034()
+static void test_issue_4034(void)
 {
     int i;
     int len;
@@ -1469,7 +1469,7 @@ static void test_issue_4034()
     flb_config_exit(config);
 }
 
-static void test_issue_5504()
+static void test_issue_5504(void)
 {
     uint64_t last_flush;
     struct flb_config *config;
@@ -1558,7 +1558,7 @@ static void test_issue_5504()
 #endif
 }
 
-static void test_buffer_limit_truncation()
+static void test_buffer_limit_truncation(void)
 {
     int ret;
     uint64_t stream_id;
@@ -1631,7 +1631,7 @@ static void test_buffer_limit_truncation()
     flb_config_exit(config);
 }
 
-static void test_buffer_limit_disabled()
+static void test_buffer_limit_disabled(void)
 {
     struct flb_config *config;
     struct flb_ml *ml;
@@ -1654,7 +1654,7 @@ static void test_buffer_limit_disabled()
     flb_config_exit(config);
 }
 
-static void test_known_bug_multi_group_flush_only_first_group()
+static void test_known_bug_multi_group_flush_only_first_group(void)
 {
     /*
      * TODO: re-enable this proof test once the multiline engine flushes every
@@ -1663,7 +1663,7 @@ static void test_known_bug_multi_group_flush_only_first_group()
     TEST_MSG("skipped: known bug proof disabled until multiline multi-group flush is fixed");
 }
 
-static void test_known_bug_truncation_drops_overflow_line()
+static void test_known_bug_truncation_drops_overflow_line(void)
 {
     /*
      * TODO: re-enable this proof test once truncated multiline input is
@@ -1673,24 +1673,24 @@ static void test_known_bug_truncation_drops_overflow_line()
 }
 
 #ifndef FLB_SYSTEM_WINDOWS
-static void test_known_bug_empty_context_flush_crashes()
+static void test_known_bug_empty_context_flush_crashes(void)
 {
     /* TODO: re-enable once empty multiline contexts flush safely. */
     TEST_MSG("skipped: known bug proof disabled until empty-context flush is fixed");
 }
 
-static void test_known_bug_empty_context_append_crashes()
+static void test_known_bug_empty_context_append_crashes(void)
 {
     /* TODO: re-enable once empty multiline contexts reject append safely. */
     TEST_MSG("skipped: known bug proof disabled until empty-context append is fixed");
 }
 #else
-static void test_known_bug_empty_context_flush_crashes()
+static void test_known_bug_empty_context_flush_crashes(void)
 {
     TEST_MSG("skipped on Windows");
 }
 
-static void test_known_bug_empty_context_append_crashes()
+static void test_known_bug_empty_context_append_crashes(void)
 {
     TEST_MSG("skipped on Windows");
 }
@@ -1877,7 +1877,7 @@ static int append_log_with_metadata(struct flb_ml *ml, uint64_t stream_id,
  * Before fix: Continuation lines would have only {"log": "..."} (missing metadata)
  * After fix: All lines should have {"stream": "...", "log": "...", "file": "..."}
  */
-static void test_issue_10576()
+static void test_issue_10576(void)
 {
     int ret;
     int i;
@@ -1992,7 +1992,7 @@ static void test_issue_10576()
  * - Record 0 (truncated): stream=stdout, file=/var/log/app1.log
  * - Record 1 (new start): stream=stderr, file=/var/log/app2.log
  */
-static void test_issue_truncation_10576()
+static void test_issue_truncation_10576(void)
 {
     int ret;
     uint64_t stream_id;

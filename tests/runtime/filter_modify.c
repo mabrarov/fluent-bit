@@ -90,7 +90,7 @@ static void filter_test_destroy(struct filter_test *ctx)
 }
 
 /* Operation: SET / append new record */
-static void flb_test_op_set_append()
+static void flb_test_op_set_append(void)
 {
     int len;
     int ret;
@@ -129,7 +129,7 @@ static void flb_test_op_set_append()
 }
 
 /* Operation: SET / replace value of existing key */
-static void flb_test_op_set_replace()
+static void flb_test_op_set_replace(void)
 {
     int len;
     int ret;
@@ -168,7 +168,7 @@ static void flb_test_op_set_replace()
 }
 
 /* Operation: REMOVE */
-static void flb_test_op_remove()
+static void flb_test_op_remove(void)
 {
     int len;
     int ret;
@@ -207,7 +207,7 @@ static void flb_test_op_remove()
 }
 
 /* Operation: REMOVE_WILDCARD */
-static void flb_test_op_remove_wildcard()
+static void flb_test_op_remove_wildcard(void)
 {
     int len;
     int ret;
@@ -246,7 +246,7 @@ static void flb_test_op_remove_wildcard()
 }
 
 /* Operation: REMOVE_REGEX */
-static void flb_test_op_remove_regex()
+static void flb_test_op_remove_regex(void)
 {
     int len;
     int ret;
@@ -288,7 +288,7 @@ static void flb_test_op_remove_regex()
  * Operation: RENAME / Try to rename Key where 'renamed' key already
  * exists: do nothing.
  */
-static void flb_test_op_rename_exists()
+static void flb_test_op_rename_exists(void)
 {
     int len;
     int ret;
@@ -327,7 +327,7 @@ static void flb_test_op_rename_exists()
 }
 
 /* Operation: RENAME / Rename when key DON'T exists */
-static void flb_test_op_rename_no_exists()
+static void flb_test_op_rename_no_exists(void)
 {
     int len;
     int ret;
@@ -368,7 +368,7 @@ static void flb_test_op_rename_no_exists()
  * Operation: HARD_RENAME / Try to rename Key where 'renamed' key already
  * exists: do nothing.
  */
-static void flb_test_op_hard_rename_exists()
+static void flb_test_op_hard_rename_exists(void)
 {
     int len;
     int ret;
@@ -407,7 +407,7 @@ static void flb_test_op_hard_rename_exists()
 }
 
 /* Operation: HARD_RENAME / Rename when key DON'T exists */
-static void flb_test_op_hard_rename_no_exists()
+static void flb_test_op_hard_rename_no_exists(void)
 {
     int len;
     int ret;
@@ -446,7 +446,7 @@ static void flb_test_op_hard_rename_no_exists()
 }
 
 /* Operation: COPY / Target key already exists, do nothing */
-static void flb_test_op_copy_exists()
+static void flb_test_op_copy_exists(void)
 {
     int len;
     int ret;
@@ -485,7 +485,7 @@ static void flb_test_op_copy_exists()
 }
 
 /* Operation: COPY / Target key no exists, make a copy */
-static void flb_test_op_copy_no_exists()
+static void flb_test_op_copy_no_exists(void)
 {
     int len;
     int ret;
@@ -524,7 +524,7 @@ static void flb_test_op_copy_no_exists()
 }
 
 /* Operation: HARD_COPY / if target key exists, replace value */
-static void flb_test_op_hard_copy_exists()
+static void flb_test_op_hard_copy_exists(void)
 {
     int len;
     int ret;
@@ -563,7 +563,7 @@ static void flb_test_op_hard_copy_exists()
 }
 
 /* Operation: HARD_COPY / if key don't exists make a copy */
-static void flb_test_op_hard_copy_no_exists()
+static void flb_test_op_hard_copy_no_exists(void)
 {
     int len;
     int ret;
@@ -603,7 +603,7 @@ static void flb_test_op_hard_copy_no_exists()
 
 
 /* Condition: KEY_EXISTS / If key exists, make a copy */
-static void flb_test_cond_key_exists()
+static void flb_test_cond_key_exists(void)
 {
     int len;
     int ret;
@@ -643,7 +643,7 @@ static void flb_test_cond_key_exists()
 }
 
 /* Condition: KEY_EXISTS / If nested key exists, make a copy */
-static void flb_test_cond_key_exists_nest()
+static void flb_test_cond_key_exists_nest(void)
 {
     int len;
     int ret;
@@ -683,7 +683,7 @@ static void flb_test_cond_key_exists_nest()
 }
 
 /* Condition: KEY_DOES_NOT_EXISTS / If key does not exists, add a dummy key */
-static void flb_test_cond_key_does_not_exist()
+static void flb_test_cond_key_does_not_exist(void)
 {
     int len;
     int ret;
@@ -723,7 +723,7 @@ static void flb_test_cond_key_does_not_exist()
 }
 
 /* Condition: KEY_DOES_NOT_EXISTS / If key does not exists, add a dummy key */
-static void flb_test_cond_key_does_not_exist_nest()
+static void flb_test_cond_key_does_not_exist_nest(void)
 {
     int len;
     int ret;
@@ -763,7 +763,7 @@ static void flb_test_cond_key_does_not_exist_nest()
 }
 
 /* Condition: A_KEY_MATCHES / If key matches, add a dummy key */
-static void flb_test_cond_a_key_matches()
+static void flb_test_cond_a_key_matches(void)
 {
     int len;
     int ret;
@@ -803,7 +803,7 @@ static void flb_test_cond_a_key_matches()
 }
 
 /* Condition: NO_KEY_MATCHES / If no key matches, add a dummy key */
-static void flb_test_cond_no_key_matches()
+static void flb_test_cond_no_key_matches(void)
 {
     int len;
     int ret;
@@ -843,7 +843,7 @@ static void flb_test_cond_no_key_matches()
 }
 
 /* Condition: KEY_VALUE_EQUALS / If key value matches, add a dummy key */
-static void flb_test_cond_key_value_equals()
+static void flb_test_cond_key_value_equals(void)
 {
     int len;
     int ret;
@@ -883,7 +883,7 @@ static void flb_test_cond_key_value_equals()
 }
 
 /* Condition: KEY_VALUE_EQUALS / If key value matches, add a dummy key */
-static void flb_test_cond_key_value_equals_nest()
+static void flb_test_cond_key_value_equals_nest(void)
 {
     int len;
     int ret;
@@ -923,7 +923,7 @@ static void flb_test_cond_key_value_equals_nest()
 }
 
 /* Condition: KEY_VALUE_DOES_NOT_EQUAL / If key value mismatch, add a key */
-static void flb_test_cond_key_value_does_not_equal()
+static void flb_test_cond_key_value_does_not_equal(void)
 {
     int len;
     int ret;
@@ -963,7 +963,7 @@ static void flb_test_cond_key_value_does_not_equal()
 }
 
 /* Condition: KEY_VALUE_DOES_NOT_EQUAL / If key value mismatch, add a key */
-static void flb_test_cond_key_value_does_not_equal_nest()
+static void flb_test_cond_key_value_does_not_equal_nest(void)
 {
     int len;
     int ret;
@@ -1003,7 +1003,7 @@ static void flb_test_cond_key_value_does_not_equal_nest()
 }
 
 /* Condition: KEY_VALUE_MATCHES / If key match, add a key */
-static void flb_test_cond_key_value_matches()
+static void flb_test_cond_key_value_matches(void)
 {
     int len;
     int ret;
@@ -1043,7 +1043,7 @@ static void flb_test_cond_key_value_matches()
 }
 
 /* Condition: KEY_VALUE_MATCHES / If key match, add a key */
-static void flb_test_cond_key_value_matches_nest()
+static void flb_test_cond_key_value_matches_nest(void)
 {
     int len;
     int ret;
@@ -1083,7 +1083,7 @@ static void flb_test_cond_key_value_matches_nest()
 }
 
 /* Condition: KEY_VALUE_DOES_NOT_MATCH / If key mismatch, add a key */
-static void flb_test_cond_key_value_does_not_match()
+static void flb_test_cond_key_value_does_not_match(void)
 {
     int len;
     int ret;
@@ -1123,7 +1123,7 @@ static void flb_test_cond_key_value_does_not_match()
 }
 
 /* Condition: KEY_VALUE_DOES_NOT_MATCH / If key mismatch, add a key */
-static void flb_test_cond_key_value_does_not_match_nest()
+static void flb_test_cond_key_value_does_not_match_nest(void)
 {
     int len;
     int ret;
@@ -1163,7 +1163,7 @@ static void flb_test_cond_key_value_does_not_match_nest()
 }
 
 /* Condition: MATCHING_KEYS_HAVE_MATCHING_VALUES / If key match, add a key */
-static void flb_test_cond_matching_keys_have_matching_values()
+static void flb_test_cond_matching_keys_have_matching_values(void)
 {
     int len;
     int ret;
@@ -1205,7 +1205,7 @@ static void flb_test_cond_matching_keys_have_matching_values()
 }
 
 /* Condition: MATCHING_KEYS_DOES_NOT_HAVE_MATCHING_VALUES */
-static void flb_test_cond_matching_keys_do_not_have_matching_values()
+static void flb_test_cond_matching_keys_do_not_have_matching_values(void)
 {
     int len;
     int ret;
@@ -1247,7 +1247,7 @@ static void flb_test_cond_matching_keys_do_not_have_matching_values()
 }
 
 /* Test all operations */
-static void flb_test_cond_chain()
+static void flb_test_cond_chain(void)
 {
     int len;
     int ret;
@@ -1346,7 +1346,7 @@ static int callback_count(void* data, size_t size, void* cb_data)
 
 
 // to check issue https://github.com/fluent/fluent-bit/issues/1077
-static void flb_test_not_drop_multi_event()
+static void flb_test_not_drop_multi_event(void)
 {
     int count = 0;
     int expected = 3;
@@ -1407,7 +1407,7 @@ static void flb_test_not_drop_multi_event()
 }
 
 /* to check issue https://github.com/fluent/fluent-bit/issues/4319 */
-static void flb_test_issue_4319()
+static void flb_test_issue_4319(void)
 {
     char *p;
     int len;
@@ -1458,7 +1458,7 @@ static void flb_test_issue_4319()
  * to check issue https://github.com/fluent/fluent-bit/issues/4319
    Key_value_does_not_match case
 */
-static void flb_test_issue_4319_2()
+static void flb_test_issue_4319_2(void)
 {
     char *p;
     int len;
@@ -1505,7 +1505,7 @@ static void flb_test_issue_4319_2()
 }
 
 /* https://github.com/fluent/fluent-bit/issues/1225 */
-static void flb_test_issue_1225()
+static void flb_test_issue_1225(void)
 {
     int len;
     int ret;
@@ -1549,7 +1549,7 @@ static void flb_test_issue_1225()
 /*
  * to check issue https://github.com/fluent/fluent-bit/issues/7075
 */
-static void flb_test_issue_7075()
+static void flb_test_issue_7075(void)
 {
     char *p;
     int len;
@@ -1594,7 +1594,7 @@ static void flb_test_issue_7075()
     filter_test_destroy(ctx);
 }
 
-static void flb_test_issue_7368()
+static void flb_test_issue_7368(void)
 {
     int ret;
     struct flb_lib_out_cb cb_data;

@@ -30,7 +30,7 @@
 
 #include "flb_tests_internal.h"
 
-void decoder_groups_cobj()
+void decoder_groups_cobj(void)
 {
     struct flb_log_event_encoder *builder = NULL;
     struct flb_log_event_encoder *chunk_encoder = NULL;

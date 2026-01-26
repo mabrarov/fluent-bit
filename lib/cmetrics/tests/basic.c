@@ -73,7 +73,7 @@ static struct cmt *sample_data()
     return cmt;
 }
 
-void test_basic()
+void test_basic(void)
 {
     int ret;
     int error;

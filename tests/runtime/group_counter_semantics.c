@@ -628,7 +628,7 @@ static void run_group_count_test(flb_ctx_t *ctx)
     flb_stop(ctx);
 }
 
-static void flb_test_forward_group_size_default()
+static void flb_test_forward_group_size_default(void)
 {
     int out_ffd;
     int in_ffd;
@@ -699,7 +699,7 @@ static void flb_test_forward_group_size_opt_out_metadata()
     flb_destroy(ctx);
 }
 
-static void flb_test_forward_group_size_retain_metadata()
+static void flb_test_forward_group_size_retain_metadata(void)
 {
     int out_ffd;
     int in_ffd;
@@ -735,7 +735,7 @@ static void flb_test_forward_group_size_retain_metadata()
     flb_destroy(ctx);
 }
 
-static void flb_test_forward_group_size_retain_metadata_upstream_node()
+static void flb_test_forward_group_size_retain_metadata_upstream_node(void)
 {
     int ret;
     int out_ffd;
@@ -771,7 +771,7 @@ static void flb_test_forward_group_size_retain_metadata_upstream_node()
     flb_destroy(ctx);
 }
 
-static void flb_test_loki_group_values_count()
+static void flb_test_loki_group_values_count(void)
 {
     int out_ffd;
     int in_ffd;
@@ -802,7 +802,7 @@ static void flb_test_loki_group_values_count()
     flb_destroy(ctx);
 }
 
-static void flb_test_stackdriver_group_entries_count()
+static void flb_test_stackdriver_group_entries_count(void)
 {
     int out_ffd;
     int in_ffd;
@@ -837,7 +837,7 @@ static void flb_test_stackdriver_group_entries_count()
     flb_destroy(ctx);
 }
 
-static void flb_test_forward_output_processor_mixed_payload_smoke()
+static void flb_test_forward_output_processor_mixed_payload_smoke(void)
 {
     int ret;
     int out_ffd;

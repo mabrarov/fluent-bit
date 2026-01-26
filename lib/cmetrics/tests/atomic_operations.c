@@ -62,7 +62,7 @@ void *worker_thread_add_through_compare_exchange(void *ptr)
 
 #if defined (_WIN32) || defined (_WIN64)
 
-void test_atomic_operations()
+void test_atomic_operations(void)
 {
     HANDLE threads[THREAD_COUNT];
     DWORD  thread_ids[THREAD_COUNT];
@@ -90,7 +90,7 @@ void test_atomic_operations()
 
 #else
 
-void test_atomic_operations()
+void test_atomic_operations(void)
 {
     pthread_t threads[THREAD_COUNT];
     int       thread_index;

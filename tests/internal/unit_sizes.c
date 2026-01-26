@@ -7,7 +7,7 @@
 
 #define to_bytes flb_utils_size_to_bytes
 
-void test_unit_sizes()
+void test_unit_sizes(void)
 {
     int64_t KB = 1000;
     int64_t MB = 1000 * KB;

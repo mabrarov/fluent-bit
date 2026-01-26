@@ -76,7 +76,7 @@ int test_ctx_destroy(struct test_ctx* ctx)
     return 0;
 }
 
-void test_http_buffer_increase()
+void test_http_buffer_increase(void)
 {
     int ret;
     size_t s;
@@ -138,7 +138,7 @@ void test_http_buffer_increase()
     test_ctx_destroy(ctx);
 }
 
-void test_http_add_get_header()
+void test_http_add_get_header(void)
 {
     struct test_ctx *ctx;
     struct flb_http_client *c;
@@ -197,7 +197,7 @@ void test_http_add_get_header()
     test_ctx_destroy(ctx);
 }
 
-void test_http_set_keepalive()
+void test_http_set_keepalive(void)
 {
     struct test_ctx *ctx;
     struct flb_http_client *c;
@@ -240,7 +240,7 @@ void test_http_set_keepalive()
     test_ctx_destroy(ctx);
 }
 
-void test_http_strip_port_from_host()
+void test_http_strip_port_from_host(void)
 {
     struct test_ctx *ctx;
     struct flb_http_client *c;
@@ -299,7 +299,7 @@ void test_http_strip_port_from_host()
     test_ctx_destroy(ctx);
 }
 
-void test_http_encoding_gzip()
+void test_http_encoding_gzip(void)
 {
     struct test_ctx *ctx;
     struct flb_http_client *c;
@@ -354,7 +354,7 @@ void test_http_encoding_gzip()
     test_ctx_destroy(ctx);
 }
 
-void test_http_add_basic_auth_header()
+void test_http_add_basic_auth_header(void)
 {
     struct test_ctx *ctx;
     struct flb_http_client *c;
@@ -410,7 +410,7 @@ void test_http_add_basic_auth_header()
     test_ctx_destroy(ctx);
 }
 
-void test_http_add_proxy_auth_header()
+void test_http_add_proxy_auth_header(void)
 {
     struct test_ctx *ctx;
     struct flb_http_client *c;
@@ -544,33 +544,33 @@ static void test_tls_host_header_format(const char *host, int port, const char *
     test_ctx_destroy(ctx);
 }
 
-void test_http_ipv6_host_header()
+void test_http_ipv6_host_header(void)
 {
     test_host_header_format("::1", 8080, "[::1]:8080");
 }
 
-void test_http_ipv6_bracketed_host_header()
+void test_http_ipv6_bracketed_host_header(void)
 {
     test_host_header_format("[::1]", 8080, "[::1]:8080");
 }
 
-void test_http_ipv4_host_header()
+void test_http_ipv4_host_header(void)
 {
     test_host_header_format("192.168.1.1", 8080, "192.168.1.1:8080");
 }
 
-void test_http_domain_host_header()
+void test_http_domain_host_header(void)
 {
     test_host_header_format("example.com", 8080, "example.com:8080");
 }
 
-void test_https_default_port_host_header()
+void test_https_default_port_host_header(void)
 {
     test_tls_host_header_format("example.com", 443, "example.com");
 }
 
 /* Test various IPv6 address formats */
-void test_ipv6_formats_host_header()
+void test_ipv6_formats_host_header(void)
 {
     size_t index;
     struct {
@@ -591,49 +591,49 @@ void test_ipv6_formats_host_header()
     }
 }
 
-void test_http_port_80_host_header()
+void test_http_port_80_host_header(void)
 {
     test_host_header_format("example.com", 80, "example.com:80");
 }
 
-void test_port_443_without_tls_host_header()
+void test_port_443_without_tls_host_header(void)
 {
     test_host_header_format("example.com", 443, "example.com:443");
 }
 
-void test_ipv6_zone_id_host_header()
+void test_ipv6_zone_id_host_header(void)
 {
     test_host_header_format("fe80::1%eth0", 8080, "[fe80::1]:8080");
 }
 
-void test_https_non_standard_port_host_header()
+void test_https_non_standard_port_host_header(void)
 {
     test_tls_host_header_format("example.com", 8443, "example.com:8443");
 }
 
-void test_ipv6_bracketed_zone_id_host_header()
+void test_ipv6_bracketed_zone_id_host_header(void)
 {
     /* Already bracketed input - zone ID detection only works on unbracketed addresses,
      * so this passes through as-is. In practice, bracketed input shouldn't have zone IDs. */
     test_host_header_format("[fe80::1%eth0]", 8080, "[fe80::1%eth0]:8080");
 }
 
-void test_https_ipv6_default_port_host_header()
+void test_https_ipv6_default_port_host_header(void)
 {
     test_tls_host_header_format("::1", 443, "[::1]");
 }
 
-void test_https_ipv6_non_standard_port_host_header()
+void test_https_ipv6_non_standard_port_host_header(void)
 {
     test_tls_host_header_format("::1", 8443, "[::1]:8443");
 }
 
-void test_https_ipv6_zone_id_default_port_host_header()
+void test_https_ipv6_zone_id_default_port_host_header(void)
 {
     test_tls_host_header_format("fe80::1%eth0", 443, "[fe80::1]");
 }
 
-void test_https_ipv6_zone_id_non_standard_port_host_header()
+void test_https_ipv6_zone_id_non_standard_port_host_header(void)
 {
     test_tls_host_header_format("fe80::1%eth0", 8443, "[fe80::1]:8443");
 }
@@ -649,7 +649,7 @@ static void append_response_fragment(struct flb_http_client *c,
     c->resp.data[c->resp.data_len] = '\0';
 }
 
-void test_http_response_header_lookup()
+void test_http_response_header_lookup(void)
 {
     int ret;
     flb_sds_t value;
@@ -688,7 +688,7 @@ void test_http_response_header_lookup()
     test_ctx_destroy(ctx);
 }
 
-void test_http_response_chunked_trailers()
+void test_http_response_chunked_trailers(void)
 {
     int ret;
     flb_sds_t value;
@@ -752,7 +752,7 @@ void test_http_response_chunked_trailers()
     test_ctx_destroy(ctx);
 }
 
-void test_http_response_chunked_incremental()
+void test_http_response_chunked_incremental(void)
 {
     int ret;
     flb_sds_t value;
@@ -806,7 +806,7 @@ void test_http_response_chunked_incremental()
     test_ctx_destroy(ctx);
 }
 
-void test_http_response_chunked_invalid_trailer()
+void test_http_response_chunked_invalid_trailer(void)
 {
     int ret;
     struct test_ctx *ctx;
@@ -842,7 +842,7 @@ void test_http_response_chunked_invalid_trailer()
     test_ctx_destroy(ctx);
 }
 
-void test_http_response_chunked_empty_terminal_split()
+void test_http_response_chunked_empty_terminal_split(void)
 {
     int ret;
     struct test_ctx *ctx;
@@ -881,7 +881,7 @@ void test_http_response_chunked_empty_terminal_split()
     test_ctx_destroy(ctx);
 }
 
-void test_http_response_chunked_uppercase_hex_whitespace()
+void test_http_response_chunked_uppercase_hex_whitespace(void)
 {
     int ret;
     struct test_ctx *ctx;
@@ -917,7 +917,7 @@ void test_http_response_chunked_uppercase_hex_whitespace()
     test_ctx_destroy(ctx);
 }
 
-void test_http_response_chunked_multi_stage_trailers()
+void test_http_response_chunked_multi_stage_trailers(void)
 {
     int ret;
     flb_sds_t value;
@@ -974,7 +974,7 @@ void test_http_response_chunked_multi_stage_trailers()
     test_ctx_destroy(ctx);
 }
 
-void test_http_response_chunked_partial_trailer_preserves_chunk_available()
+void test_http_response_chunked_partial_trailer_preserves_chunk_available(void)
 {
     int ret;
     struct test_ctx *ctx;
@@ -1011,7 +1011,7 @@ void test_http_response_chunked_partial_trailer_preserves_chunk_available()
     test_ctx_destroy(ctx);
 }
 
-void test_http_response_chunked_invalid_size_suffix()
+void test_http_response_chunked_invalid_size_suffix(void)
 {
     int ret;
     struct test_ctx *ctx;
@@ -1045,7 +1045,7 @@ void test_http_response_chunked_invalid_size_suffix()
     test_ctx_destroy(ctx);
 }
 
-void test_http_response_chunked_oversized_length()
+void test_http_response_chunked_oversized_length(void)
 {
     int ret;
     struct test_ctx *ctx;
@@ -1077,7 +1077,7 @@ void test_http_response_chunked_oversized_length()
     test_ctx_destroy(ctx);
 }
 
-void test_http_timeout_setters_preserve_upstream_io_timeout()
+void test_http_timeout_setters_preserve_upstream_io_timeout(void)
 {
     struct test_ctx *ctx;
     struct flb_http_client *c;

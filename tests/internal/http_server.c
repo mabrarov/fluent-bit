@@ -106,7 +106,7 @@ static void test_http_server_network_cleanup(void)
 #endif
 }
 
-void test_http_server_options_defaults()
+void test_http_server_options_defaults(void)
 {
     struct flb_http_server_options options;
     struct flb_http_server_config config;
@@ -128,7 +128,7 @@ void test_http_server_options_defaults()
     TEST_CHECK(flb_http_server_property_is_allowed("idle_timeout") == FLB_FALSE);
 }
 
-void test_http_server_options_multi_worker_magic()
+void test_http_server_options_multi_worker_magic(void)
 {
     struct flb_config *config;
     struct flb_net_setup net_setup;
@@ -171,7 +171,7 @@ void test_http_server_options_multi_worker_magic()
     flb_config_exit(config);
 }
 
-void test_http_server_managed_worker_contract()
+void test_http_server_managed_worker_contract(void)
 {
     struct flb_config *config;
     struct flb_net_setup net_setup;
@@ -225,7 +225,7 @@ void test_http_server_managed_worker_contract()
     flb_config_exit(config);
 }
 
-void test_http_server_idle_timeout_applies_to_networking_setup()
+void test_http_server_idle_timeout_applies_to_networking_setup(void)
 {
     struct flb_config *config;
     struct flb_net_setup net_setup;
@@ -264,7 +264,7 @@ void test_http_server_idle_timeout_applies_to_networking_setup()
     flb_config_exit(config);
 }
 
-void test_http_server_explicit_network_timeout_is_preserved()
+void test_http_server_explicit_network_timeout_is_preserved(void)
 {
     struct flb_config *config;
     struct flb_net_setup net_setup;
@@ -305,7 +305,7 @@ void test_http_server_explicit_network_timeout_is_preserved()
     flb_config_exit(config);
 }
 
-void test_http_server_multi_worker_disabled_idle_timeout_is_preserved()
+void test_http_server_multi_worker_disabled_idle_timeout_is_preserved(void)
 {
     struct flb_config *config;
     struct flb_net_setup net_setup;
@@ -376,7 +376,7 @@ void test_http_server_multi_worker_disabled_idle_timeout_is_preserved()
     test_http_server_network_cleanup();
 }
 
-void test_http_server_session_destroy_with_closed_connection()
+void test_http_server_session_destroy_with_closed_connection(void)
 {
     struct flb_connection connection;
     struct flb_http_server_session *session;
@@ -399,7 +399,7 @@ void test_http_server_session_destroy_with_closed_connection()
     TEST_CHECK(connection.event.data == NULL);
 }
 
-void test_http_server_session_destroy_clears_drop_pending()
+void test_http_server_session_destroy_clears_drop_pending(void)
 {
     struct flb_connection connection;
     struct flb_http_server_session *session;

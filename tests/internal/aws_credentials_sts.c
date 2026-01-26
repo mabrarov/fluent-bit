@@ -442,7 +442,7 @@ static void unsetenv_eks()
     }
 }
 
-static void test_flb_sts_session_name()
+static void test_flb_sts_session_name(void)
 {
     char *session_name = flb_sts_session_name();
 
@@ -451,7 +451,7 @@ static void test_flb_sts_session_name()
     flb_free(session_name);
 }
 
-static void test_sts_uri()
+static void test_sts_uri(void)
 {
     flb_sds_t uri;
 
@@ -463,7 +463,7 @@ static void test_sts_uri()
     flb_sds_destroy(uri);
 }
 
-static void test_process_sts_response()
+static void test_process_sts_response(void)
 {
     struct flb_aws_credentials *creds;
     struct flb_config *config;
@@ -493,7 +493,7 @@ static void test_process_sts_response()
     flb_config_exit(config);
 }
 
-static void test_eks_provider() {
+static void test_eks_provider(void) {
     struct flb_config *config;
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -572,7 +572,7 @@ static void test_eks_provider() {
     flb_config_exit(config);
 }
 
-static void test_eks_provider_random_session_name() {
+static void test_eks_provider_random_session_name(void) {
     struct flb_config *config;
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -648,7 +648,7 @@ static void test_eks_provider_random_session_name() {
 }
 
 /* unexpected output test- see description for STS_RESPONSE_MALFORMED */
-static void test_eks_provider_unexpected_api_response() {
+static void test_eks_provider_unexpected_api_response(void) {
     struct flb_config *config;
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -704,7 +704,7 @@ static void test_eks_provider_unexpected_api_response() {
     flb_config_exit(config);
 }
 
-static void test_eks_provider_api_error() {
+static void test_eks_provider_api_error(void) {
     struct flb_config *config;
     struct flb_aws_provider *provider;
     struct flb_aws_credentials *creds;
@@ -760,7 +760,7 @@ static void test_eks_provider_api_error() {
     flb_config_exit(config);
 }
 
-static void test_sts_provider() {
+static void test_sts_provider(void) {
     struct flb_config *config;
     struct flb_aws_provider *provider;
     struct flb_aws_provider *base_provider;
@@ -855,7 +855,7 @@ static void test_sts_provider() {
     flb_config_exit(config);
 }
 
-static void test_sts_provider_api_error() {
+static void test_sts_provider_api_error(void) {
     struct flb_config *config;
     struct flb_aws_provider *provider;
     struct flb_aws_provider *base_provider;
@@ -934,7 +934,7 @@ static void test_sts_provider_api_error() {
 }
 
 /* unexpected output test- see description for STS_RESPONSE_MALFORMED */
-static void test_sts_provider_unexpected_api_response() {
+static void test_sts_provider_unexpected_api_response(void) {
     struct flb_config *config;
     struct flb_aws_provider *provider;
     struct flb_aws_provider *base_provider;

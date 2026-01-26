@@ -50,7 +50,7 @@ struct flb_loki_remove_mpa_entry {
 };
 FLB_TLS_DEFINE(struct flb_loki_remove_mpa_entry, thread_local_remove_mpa);
 
-void initialize_thread_local_storage()
+void initialize_thread_local_storage(void)
 {
     FLB_TLS_INIT(thread_local_tenant_id);
     FLB_TLS_INIT(thread_local_remove_mpa);

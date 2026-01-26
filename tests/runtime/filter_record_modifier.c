@@ -135,7 +135,7 @@ static void filter_test_destroy(struct filter_test *ctx)
     flb_free(ctx);
 }
 
-static void flb_records()
+static void flb_records(void)
 {
     int len;
     int ret;
@@ -185,7 +185,7 @@ static void flb_records()
     filter_test_destroy(ctx);
 }
 
-static void flb_allowlist_keys()
+static void flb_allowlist_keys(void)
 {
     int len;
     int ret;
@@ -236,7 +236,7 @@ static void flb_allowlist_keys()
     filter_test_destroy(ctx);
 }
 
-static void flb_whitelist_keys()
+static void flb_whitelist_keys(void)
 {
     int len;
     int ret;
@@ -287,7 +287,7 @@ static void flb_whitelist_keys()
     filter_test_destroy(ctx);
 }
 
-static void flb_remove_keys()
+static void flb_remove_keys(void)
 {
     int len;
     int ret;
@@ -339,7 +339,7 @@ static void flb_remove_keys()
     filter_test_destroy(ctx);
 }
 
-static void flb_multiple()
+static void flb_multiple(void)
 {
     int len;
     int ret;
@@ -392,7 +392,7 @@ static void flb_multiple()
 
 
 /* https://github.com/fluent/fluent-bit/issues/3968 */
-void flb_test_json_long()
+void flb_test_json_long(void)
 {
     int ret;
     int size = sizeof(JSON_LONG) - 1;
@@ -432,7 +432,7 @@ void flb_test_json_long()
     flb_destroy(ctx);
 }
 
-void flb_exclusive_setting()
+void flb_exclusive_setting(void)
 {
     int ret;
     flb_ctx_t *ctx;
@@ -543,7 +543,7 @@ static int cb_check_uuid(void *record, size_t size, void *data)
     return 0;
 }
 
-static void flb_uuid_key()
+static void flb_uuid_key(void)
 {
     int len;
     int ret;

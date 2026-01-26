@@ -1,7 +1,7 @@
 #include <fluent-bit.h>
 #include "flb_tests_runtime.h"
 
-void flb_test_downstream_accept_timeout()
+void flb_test_downstream_accept_timeout(void)
 {
     struct flb_net_setup net_setup;
     struct mk_event_loop *evl;

@@ -84,7 +84,7 @@ void do_destroy(flb_ctx_t *ctx) {
     flb_destroy(ctx);
 }
 
-void flb_test_ipm_regular() {
+void flb_test_ipm_regular(void) {
     flb_ctx_t *ctx = flb_create();
     do_create(ctx,
             "podman_metrics",
@@ -100,7 +100,7 @@ void flb_test_ipm_regular() {
     do_destroy(ctx);
 }
 
-void flb_test_ipm_reversed() {
+void flb_test_ipm_reversed(void) {
     flb_ctx_t *ctx = flb_create();
     do_create(ctx,
             "podman_metrics",
@@ -116,7 +116,7 @@ void flb_test_ipm_reversed() {
     do_destroy(ctx);
 }
 
-void flb_test_ipm_garbage_config() {
+void flb_test_ipm_garbage_config(void) {
     flb_ctx_t *ctx = flb_create();
     do_create(ctx,
             "podman_metrics",
@@ -129,7 +129,7 @@ void flb_test_ipm_garbage_config() {
     do_destroy(ctx);
 }
 
-void flb_test_ipm_no_config() {
+void flb_test_ipm_no_config(void) {
     flb_ctx_t *ctx = flb_create();
     do_create(ctx,
             "podman_metrics",
@@ -142,7 +142,7 @@ void flb_test_ipm_no_config() {
     do_destroy(ctx);
 }
 
-void flb_test_ipm_no_sysfs() {
+void flb_test_ipm_no_sysfs(void) {
     flb_ctx_t *ctx = flb_create();
     do_create(ctx,
             "podman_metrics",
@@ -158,7 +158,7 @@ void flb_test_ipm_no_sysfs() {
     do_destroy(ctx);
 }
 
-void flb_test_ipm_no_proc() {
+void flb_test_ipm_no_proc(void) {
     flb_ctx_t *ctx = flb_create();
     do_create(ctx,
             "podman_metrics",
@@ -174,7 +174,7 @@ void flb_test_ipm_no_proc() {
     do_destroy(ctx);
 }
 
-void flb_test_ipm_garbage() {
+void flb_test_ipm_garbage(void) {
     flb_ctx_t *ctx = flb_create();
     do_create(ctx,
             "podman_metrics",
@@ -190,7 +190,7 @@ void flb_test_ipm_garbage() {
     do_destroy(ctx);
 }
 
-void flb_test_ipm_cgroupv2() {
+void flb_test_ipm_cgroupv2(void) {
     flb_ctx_t *ctx = flb_create();
     do_create(ctx,
             "podman_metrics",

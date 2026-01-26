@@ -96,7 +96,7 @@ static int engine_has_fluentbit_logs_input(struct flb_config *config)
     return FLB_FALSE;
 }
 
-static void flb_engine_evl_init_private()
+static void flb_engine_evl_init_private(void)
 {
     FLB_TLS_INIT(flb_engine_evl);
 }

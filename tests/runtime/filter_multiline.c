@@ -200,7 +200,7 @@ static void filter_test_destroy(struct filter_test *ctx)
     flb_free(ctx);
 }
 
-static void flb_test_multiline_buffered_two_output_record()
+static void flb_test_multiline_buffered_two_output_record(void)
 {
     int len;
     int ret;
@@ -270,7 +270,7 @@ static void flb_test_multiline_buffered_two_output_record()
     filter_test_destroy(ctx);
 }
 
-static void flb_test_multiline_buffered_one_output_record()
+static void flb_test_multiline_buffered_one_output_record(void)
 {
     int len;
     int ret;
@@ -342,7 +342,7 @@ static void flb_test_multiline_buffered_one_output_record()
     filter_test_destroy(ctx);
 }
 
-static void flb_test_multiline_unbuffered()
+static void flb_test_multiline_unbuffered(void)
 {
     int len;
     int ret;
@@ -415,7 +415,7 @@ static void flb_test_multiline_unbuffered()
     filter_test_destroy(ctx);
 }
 
-static void flb_test_multiline_partial_message_concat()
+static void flb_test_multiline_partial_message_concat(void)
 {
     int len;
     int ret;
@@ -467,7 +467,7 @@ static void flb_test_multiline_partial_message_concat()
     filter_test_destroy(ctx);
 }
 
-static void flb_test_multiline_partial_message_concat_two_ids()
+static void flb_test_multiline_partial_message_concat_two_ids(void)
 {
     int len;
     int ret;
@@ -532,7 +532,7 @@ static void flb_test_multiline_partial_message_concat_two_ids()
  * create 2 in_lib instances and pass multiline
  * https://github.com/fluent/fluent-bit/issues/5524
 */
-static void flb_test_ml_buffered_two_streams()
+static void flb_test_ml_buffered_two_streams(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -624,7 +624,7 @@ static void flb_test_ml_buffered_two_streams()
     filter_test_destroy(ctx);
 }
 
-static void flb_test_ml_buffered_16_streams()
+static void flb_test_ml_buffered_16_streams(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;
@@ -711,7 +711,7 @@ static void flb_test_ml_buffered_16_streams()
 }
 
 /* This test will test the pausing of in_emitter */
-static void flb_test_ml_buffered_16_streams_pausing()
+static void flb_test_ml_buffered_16_streams_pausing(void)
 {
     struct flb_lib_out_cb cb_data;
     struct filter_test *ctx;

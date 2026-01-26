@@ -7,7 +7,7 @@
 #include "data/td/json_td.h"
 
 
-void flb_test_raw_format()
+void flb_test_raw_format(void)
 {
     int ret;
     flb_ctx_t *ctx;

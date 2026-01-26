@@ -49,7 +49,7 @@ static void mock_server_cb(mk_request_t *request, void *data)
 }
 
 /* Test function */
-void test_calyptia_register_retry()
+void test_calyptia_register_retry(void)
 {
     flb_ctx_t *ctx;
     int ret;
@@ -133,7 +133,7 @@ void test_calyptia_register_retry()
     mk_destroy(mock_ctx);
 }
 
-static void test_calyptia_register_retry_empty_token()
+static void test_calyptia_register_retry_empty_token(void)
 {
     flb_ctx_t *ctx;
     int ret;
@@ -220,7 +220,7 @@ static void test_calyptia_register_retry_empty_token()
     mk_destroy(mock_ctx);
 }
 
-static void test_calyptia_register_retry_empty_token_retry_true()
+static void test_calyptia_register_retry_empty_token_retry_true(void)
 {
     flb_ctx_t *ctx;
     int ret;

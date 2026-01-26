@@ -429,7 +429,7 @@ static int write_legacy_chunk_metadata(struct cio_chunk *chunk,
     return ret;
 }
 
-static void test_chunk_metadata_direct_routes()
+static void test_chunk_metadata_direct_routes(void)
 {
     struct cio_options opts;
     struct cio_ctx *ctx;
@@ -589,7 +589,7 @@ static void test_chunk_metadata_direct_routes()
     flb_free(stream_path);
 }
 
-static void test_chunk_restore_alias_plugin_match_multiple()
+static void test_chunk_restore_alias_plugin_match_multiple(void)
 {
     struct cio_options opts;
     struct cio_ctx *ctx;
@@ -759,7 +759,7 @@ cleanup:
     flb_free(stream_path);
 }
 
-static void test_chunk_restore_alias_plugin_null_matches_all()
+static void test_chunk_restore_alias_plugin_null_matches_all(void)
 {
     struct cio_options opts;
     struct cio_ctx *ctx;
@@ -929,7 +929,7 @@ cleanup:
     flb_free(stream_path);
 }
 
-static void test_chunk_map_grouped_logs_total_records()
+static void test_chunk_map_grouped_logs_total_records(void)
 {
     struct cio_options opts;
     struct cio_ctx *ctx;

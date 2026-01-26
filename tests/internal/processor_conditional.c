@@ -304,7 +304,7 @@ static struct flb_processor_unit *create_processor_unit(struct flb_config *confi
     return pu;
 }
 
-void test_basic_condition()
+void test_basic_condition(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -399,7 +399,7 @@ cleanup:
     }
 }
 
-void test_condition_operator_validation()
+void test_condition_operator_validation(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -485,7 +485,7 @@ cleanup:
     }
 }
 
-void test_empty_rules()
+void test_empty_rules(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -544,7 +544,7 @@ cleanup:
     }
 }
 
-void test_multiple_rules()
+void test_multiple_rules(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -658,7 +658,7 @@ cleanup:
     }
 }
 
-void test_context_metadata()
+void test_context_metadata(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -727,7 +727,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_all_comparison_operators()
+void test_all_comparison_operators(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -901,7 +901,7 @@ cleanup:
     }
 }
 
-void test_gte_lte_operators() 
+void test_gte_lte_operators(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -989,7 +989,7 @@ cleanup:
     }
 }
 
-void test_not_regex_operator()
+void test_not_regex_operator(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1054,7 +1054,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_not_in_operator()
+void test_not_in_operator(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1119,7 +1119,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_dollar_prefixed_fields()
+void test_dollar_prefixed_fields(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1184,7 +1184,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_deeply_nested_field_access()
+void test_deeply_nested_field_access(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1250,7 +1250,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_overwrite_existing_condition()
+void test_overwrite_existing_condition(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1389,7 +1389,7 @@ cleanup:
     }
 }
 
-void test_invalid_rule_missing_field()
+void test_invalid_rule_missing_field(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1445,7 +1445,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_invalid_rule_missing_operator()
+void test_invalid_rule_missing_operator(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1509,7 +1509,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_invalid_rule_missing_value()
+void test_invalid_rule_missing_value(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1574,7 +1574,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_invalid_condition_structure()
+void test_invalid_condition_structure(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1643,7 +1643,7 @@ cleanup:
     }
 }
 
-void test_invalid_rules_array()
+void test_invalid_rules_array(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1691,7 +1691,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, NULL);
 }
 
-void test_array_value_for_numeric_operator()
+void test_array_value_for_numeric_operator(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1745,7 +1745,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_string_value_for_in_operator()
+void test_string_value_for_in_operator(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1825,7 +1825,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_invalid_regex_pattern()
+void test_invalid_regex_pattern(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;
@@ -1879,7 +1879,7 @@ cleanup:
     cleanup_test_resources(config, pu, condition, rule);
 }
 
-void test_complex_nested_condition()
+void test_complex_nested_condition(void)
 {
     struct flb_config *config = NULL;
     struct flb_processor_unit *pu = NULL;

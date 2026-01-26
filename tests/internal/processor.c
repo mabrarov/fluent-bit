@@ -196,7 +196,7 @@ static int get_counter_value_5_or_zero(struct cmt_counter *counter,
     return ret;
 }
 
-static void processor()
+static void processor(void)
 {
     int ret;
     struct flb_processor *proc;
@@ -258,7 +258,7 @@ static void processor()
     flb_sds_destroy(hostname_prop_key);
 }
 
-static void processor_grouped_filter_counters()
+static void processor_grouped_filter_counters(void)
 {
     int ret;
     int vret;
@@ -369,7 +369,7 @@ static void processor_grouped_filter_counters()
     flb_sds_destroy(regex_prop_key);
 }
 
-static void processor_private_inputs_use_main_loop()
+static void processor_private_inputs_use_main_loop(void)
 {
     int ret;
     struct flb_config *config;
@@ -440,7 +440,7 @@ static void processor_private_inputs_use_main_loop()
 #endif
 }
 
-static void processor_metrics_counters()
+static void processor_metrics_counters(void)
 {
     int ret;
     int vret;
