@@ -56,7 +56,7 @@ endif()
 
 # Update CFLAGS
 if (MSVC)
-  # Use static C runtime
+  # Use static C/C++ runtime
   if (NOT (CMAKE_VERSION VERSION_LESS "3.15"))
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
   endif()
@@ -72,6 +72,9 @@ if (MSVC)
   set(flag_var)
   set(upper_config_type)
   set(config_type)
+
+  # Make compiler aware of source code using UTF-8 encoding
+  add_compile_options(/utf-8)
 
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
   add_definitions(-D_CRT_NONSTDC_NO_WARNINGS)
