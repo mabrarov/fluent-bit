@@ -436,7 +436,7 @@ endif()
 if(FLB_HAVE_LIBYAML)
 set(FLB_DEPS
   ${FLB_DEPS}
-  yaml
+  YAML::LibYAML
   )
 endif()
 
