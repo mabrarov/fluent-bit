@@ -491,6 +491,7 @@ void flb_config_exit(struct flb_config *config)
     struct mk_list *head;
     struct flb_cf *cf;
 
+    flb_ml_exit(config);
     if (config->log) {
         flb_log_destroy(config->log, config);
     }
