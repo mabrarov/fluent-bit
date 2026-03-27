@@ -1102,12 +1102,10 @@ static int flb_main_run(int argc, char **argv)
     /* Create Fluent Bit context */
     ctx = flb_create();
     if (!ctx) {
-        flb_cf_destroy(cf_opts);
 #ifdef FLB_HAVE_CHUNK_TRACE
-        if (trace_output) {
-            flb_free(trace_output);
-        }
+        flb_free(trace_output);
 #endif
+        flb_cf_destroy(cf_opts);
         exit(EXIT_FAILURE);
     }
     config = ctx->config;
@@ -1150,6 +1148,11 @@ static int flb_main_run(int argc, char **argv)
         case 'e':
             ret = flb_plugin_load_router(optarg, config);
             if (ret == -1) {
+                flb_destroy(ctx);
+#ifdef FLB_HAVE_CHUNK_TRACE
+                flb_free(trace_output);
+#endif
+                flb_cf_destroy(cf_opts);
                 exit(EXIT_FAILURE);
             }
             /* Store the relative file path for external plugin */
@@ -1198,8 +1201,11 @@ static int flb_main_run(int argc, char **argv)
         case 'R':
             ret = flb_parser_conf_file_stat(optarg, config);
             if (ret == -1) {
-                flb_cf_destroy(cf_opts);
                 flb_destroy(ctx);
+#ifdef FLB_HAVE_CHUNK_TRACE
+                flb_free(trace_output);
+#endif
+                flb_cf_destroy(cf_opts);
                 exit(EXIT_FAILURE);
             }
             flb_cf_section_property_add(cf_opts, service->properties, FLB_CONF_STR_PARSERS_FILE, 0, optarg, 0);
@@ -1255,6 +1261,11 @@ static int flb_main_run(int argc, char **argv)
         case 'J':
             if (last_plugin == -1) {
                 json = flb_help_build_json_schema(config);
+                flb_destroy(ctx);
+#ifdef FLB_HAVE_CHUNK_TRACE
+                flb_free(trace_output);
+#endif
+                flb_cf_destroy(cf_opts);
                 if (!json) {
                     exit(EXIT_FAILURE);
                 }
@@ -1281,6 +1292,11 @@ static int flb_main_run(int argc, char **argv)
 #endif
         case 'V':
             flb_version();
+            flb_destroy(ctx);
+#ifdef FLB_HAVE_CHUNK_TRACE
+            flb_free(trace_output);
+#endif
+            flb_cf_destroy(cf_opts);
             exit(EXIT_SUCCESS);
         case 'v':
             config->verbose++;
@@ -1353,6 +1369,10 @@ static int flb_main_run(int argc, char **argv)
     if (config->workdir) {
         ret = chdir(config->workdir);
         if (ret == -1) {
+            flb_destroy(ctx);
+#ifdef FLB_HAVE_CHUNK_TRACE
+            flb_free(trace_output);
+#endif
             flb_cf_destroy(cf_opts);
             flb_errno();
             return -1;
@@ -1371,6 +1391,10 @@ static int flb_main_run(int argc, char **argv)
 
     if (flb_reload_reconstruct_cf(cf_opts, cf) != 0) {
         flb_free(cfg_file);
+        flb_destroy(ctx);
+#ifdef FLB_HAVE_CHUNK_TRACE
+        flb_free(trace_output);
+#endif
         flb_cf_destroy(cf_opts);
         fprintf(stderr, "reconstruct format context is failed\n");
         exit(EXIT_FAILURE);
@@ -1430,6 +1454,10 @@ static int flb_main_run(int argc, char **argv)
                 "windows.maxstdio is invalid. From 512 to 2048 is vaild but got %d\n",
                 config->win_maxstdio);
         flb_free(cfg_file);
+        flb_destroy(ctx);
+#ifdef FLB_HAVE_CHUNK_TRACE
+        flb_free(trace_output);
+#endif
         flb_cf_destroy(cf_opts);
         exit(EXIT_FAILURE);
     }
@@ -1441,9 +1469,11 @@ static int flb_main_run(int argc, char **argv)
 
         /* At this point config test is done, so clean up after ourselves */
         flb_init_env();
-        flb_cf_destroy(cf_opts);
         flb_destroy(ctx);
-
+#ifdef FLB_HAVE_CHUNK_TRACE
+        flb_free(trace_output);
+#endif
+        flb_cf_destroy(cf_opts);
         if (ret != 0) {
             exit(EXIT_FAILURE);
         }
@@ -1454,8 +1484,11 @@ static int flb_main_run(int argc, char **argv)
     /* start Fluent Bit library */
     ret = flb_start(ctx);
     if (ret != 0) {
-        flb_cf_destroy(cf_opts);
         flb_destroy(ctx);
+#ifdef FLB_HAVE_CHUNK_TRACE
+        flb_free(trace_output);
+#endif
+        flb_cf_destroy(cf_opts);
         return ret;
     }
 
