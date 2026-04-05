@@ -21,6 +21,7 @@
 #define FLB_OUT_ES_H
 
 #include <monkey/mk_core/mk_list.h>
+#include <fluent-bit/flb_sds.h>
 
 #include "es_type.h"
 
@@ -103,8 +104,8 @@ struct flb_elasticsearch_config {
     int current_time_index;
 
     /* prefix */
-    struct flb_es_sds_t logstash_prefix;
-    struct flb_es_sds_t logstash_prefix_separator;
+    flb_sds_t logstash_prefix;
+    flb_sds_t logstash_prefix_separator;
 
     /* prefix key */
     struct flb_es_sds_t logstash_prefix_key;

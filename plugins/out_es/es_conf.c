@@ -344,9 +344,8 @@ static int config_set_node_properties(struct flb_upstream_node *node,
     ec->logstash_format = base->logstash_format;
     ec->generate_id = base->generate_id;
     ec->current_time_index = base->current_time_index;
-    flb_es_sds_set_sds(&ec->logstash_prefix, base->logstash_prefix.value);
-    flb_es_sds_set_sds(&ec->logstash_prefix_separator,
-                       base->logstash_prefix_separator.value);
+    ec->logstash_prefix = base->logstash_prefix;
+    ec->logstash_prefix_separator = base->logstash_prefix_separator;
     flb_es_sds_set_sds(&ec->logstash_prefix_key,
                        base->logstash_prefix_key.value);
     flb_es_sds_set_sds(&ec->logstash_dateformat,
@@ -452,13 +451,13 @@ static int config_set_node_properties(struct flb_upstream_node *node,
         return -1;
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_LOGSTASH_PREFIX, node);
-    if (tmp && flb_es_sds_copy_str(&ec->logstash_prefix, tmp)) {
-        return -1;
+    if (tmp) {
+        ec->logstash_prefix = (flb_sds_t)tmp;
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_LOGSTASH_PREFIX_SEPARATOR,
                                          node);
-    if (tmp && flb_es_sds_copy_str(&ec->logstash_prefix_separator, tmp)) {
-        return -1;
+    if (tmp) {
+        ec->logstash_prefix_separator = (flb_sds_t)tmp;
     }
     tmp = flb_upstream_node_get_property(FLB_ES_CONFIG_PROPERTY_LOGSTASH_DATEFORMAT,
                                          node);
@@ -615,8 +614,6 @@ static void elasticsearch_config_destroy(struct flb_elasticsearch_config *ec)
     flb_es_sds_destroy(&ec->time_key);
     flb_es_sds_destroy(&ec->logstash_dateformat);
     flb_es_sds_destroy(&ec->logstash_prefix_key);
-    flb_es_sds_destroy(&ec->logstash_prefix_separator);
-    flb_es_sds_destroy(&ec->logstash_prefix);
 
 #ifdef FLB_HAVE_AWS
     flb_es_aws_provider_destroy(&ec->base_aws_provider);

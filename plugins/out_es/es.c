@@ -254,7 +254,7 @@ static int compose_index_header(struct flb_elasticsearch_config *ec,
     if (es_index_custom_len > 0) {
         p = logstash_index + es_index_custom_len;
     } else {
-        p = logstash_index + flb_sds_len(ec->logstash_prefix.value);
+        p = logstash_index + flb_sds_len(ec->logstash_prefix);
     }
     len = p - logstash_index;
     ret = snprintf(p, logstash_index_size - len, "%s",
@@ -352,7 +352,7 @@ static int elasticsearch_format(struct flb_config *config,
 
     /* Copy logstash prefix if logstash format is enabled */
     if (ec->logstash_format == FLB_TRUE) {
-        strncpy(logstash_index, ec->logstash_prefix.value, sizeof(logstash_index));
+        strncpy(logstash_index, ec->logstash_prefix, sizeof(logstash_index));
         logstash_index[sizeof(logstash_index) - 1] = '\0';
     }
 
@@ -464,7 +464,7 @@ static int elasticsearch_format(struct flb_config *config,
         if (ec->logstash_format == FLB_TRUE) {
             ret = compose_index_header(ec, es_index_custom_len,
                                        &logstash_index[0], sizeof(logstash_index),
-                                       ec->logstash_prefix_separator.value, &tm);
+                                       ec->logstash_prefix_separator, &tm);
             if (ret < 0) {
                 /* retry with default separator */
                 compose_index_header(ec, es_index_custom_len,
@@ -1251,8 +1251,7 @@ static struct flb_config_map config_map[] = {
     {
      FLB_CONFIG_MAP_STR, FLB_ES_CONFIG_PROPERTY_LOGSTASH_PREFIX, FLB_ES_DEFAULT_PREFIX,
      0, FLB_TRUE,
-     offsetof(struct flb_elasticsearch_config, logstash_prefix) +
-         offsetof(struct flb_es_sds_t, value),
+     offsetof(struct flb_elasticsearch_config, logstash_prefix),
      "When Logstash_Format is enabled, the Index name is composed using a prefix "
      "and the date, e.g: If Logstash_Prefix is equals to 'mydata' your index will "
      "become 'mydata-YYYY.MM.DD'. The last string appended belongs to the date "
@@ -1261,8 +1260,7 @@ static struct flb_config_map config_map[] = {
     {
      FLB_CONFIG_MAP_STR, FLB_ES_CONFIG_PROPERTY_LOGSTASH_PREFIX_SEPARATOR, "-",
      0, FLB_TRUE,
-     offsetof(struct flb_elasticsearch_config, logstash_prefix_separator) +
-         offsetof(struct flb_es_sds_t, value),
+     offsetof(struct flb_elasticsearch_config, logstash_prefix_separator),
      "Set a separator between logstash_prefix and date."
     },
     {
